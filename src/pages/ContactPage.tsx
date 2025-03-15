@@ -68,7 +68,10 @@ const ContactPage: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="text-lg font-medium text-gray-900">Phone</h4>
-                    <p className="text-gray-600">+1 234 567 890</p>
+                    <p className="text-gray-600">+91 9390649113</p>
+                    <p className="text-gray-600">+91 9491084558</p>
+                    <p className="text-gray-600">Fax No             :    +91-8818-284322
+                    </p>
                   </div>
                 </motion.div>
                 <motion.div 
@@ -85,7 +88,8 @@ const ContactPage: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="text-lg font-medium text-gray-900">Email</h4>
-                    <p className="text-gray-600">info@svips.edu.in</p>
+                    <p className="text-gray-600"> svipscollege@yahoo.co.in</p>
+                    <p className="text-gray-600">   svipsseminar@gmail.com</p>
                   </div>
                 </motion.div>
                 <motion.div 
@@ -102,7 +106,9 @@ const ContactPage: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="text-lg font-medium text-gray-900">Address</h4>
-                    <p className="text-gray-600">123 Main Street, City, Country</p>
+                    <p className="text-gray-600">Pedatadepalli,
+Tadepalligudem - 534 101.
+West Godavari Dist., Andhra Pradesh.</p>
                   </div>
                 </motion.div>
               </div>

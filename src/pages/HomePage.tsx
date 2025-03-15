@@ -145,8 +145,8 @@ const HomePage: React.FC = () => {
       {/* Hero Section */}
       <Hero 
         title="Shaping Futures Through Quality Education"
-        subtitle="Sri Venkateshwara Institute of Professional Studies - Empowering students with knowledge, skills, and values."
-        image="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+        subtitle="Sri Vasavi Institute of Pharmaceutical Science - Empowering students with knowledge, skills, and values."
+        image="https://www.joonsquare.com/usermanage/image/business/sri-vasavi-institute-of-pharmaceutical-sciences-west-godavari-15455/sri-vasavi-institute-of-pharmaceutical-sciences-west-godavari-sri-vasavi-institute-of-pharmaceutical-sciences-1.jpg"
         primaryButtonText="Explore Courses"
         primaryButtonLink="/courses"
         secondaryButtonText="Get in Touch"
@@ -158,7 +158,7 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading 
             title="About SVIPS"
-            subtitle="Established with a vision to provide quality education and shape the future of students."
+            subtitle="Sri Vasavi Institute of Pharmaceutical Sciences is dedicated to providing quality education, fostering research, and developing skilled professionals in the pharmaceutical field."
           />
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div 
@@ -171,7 +171,7 @@ const HomePage: React.FC = () => {
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-600 rounded-lg opacity-20 animate-pulse-slow"></div>
               <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-600 rounded-lg opacity-20 animate-pulse-slow" style={{ animationDelay: "1s" }}></div>
               <img 
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                src="https://www.joonsquare.com/usermanage/image/business/sri-vasavi-institute-of-pharmaceutical-sciences-west-godavari-15455/sri-vasavi-institute-of-pharmaceutical-sciences-west-godavari-sri-vasavi-institute-of-pharmaceutical-sciences-1.jpg" 
                 alt="SVIPS Campus" 
                 className="rounded-lg shadow-lg w-full h-auto relative z-10"
               />
@@ -183,8 +183,8 @@ const HomePage: React.FC = () => {
               transition={{ duration: 0.7 }}
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision & Mission</h3>
-              <p className="text-gray-600 mb-6">
-                At SVIPS, we are committed to providing a transformative educational experience that prepares students for successful careers and meaningful lives. Our institution stands on the pillars of academic excellence, innovation, and ethical values.
+              <p className="text-gray-600 mb-6">      
+Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-class pharmaceutical education, fostering innovation and research excellence. We are committed to shaping future professionals with a strong foundation in ethics, teamwork, and industry-relevant skills.
               </p>
               <div className="space-y-4">
                 <motion.div 
@@ -201,7 +201,7 @@ const HomePage: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="text-lg font-medium text-gray-900">Quality Education</h4>
-                    <p className="text-gray-600">Providing world-class education with modern facilities and experienced faculty.</p>
+                    <p className="text-gray-600">Provide quality Pharmaceutical Education by collaborating with Research Institutes and Industries.</p>
                   </div>
                 </motion.div>
                 <motion.div 
@@ -218,7 +218,7 @@ const HomePage: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="text-lg font-medium text-gray-900">Student-Centered Approach</h4>
-                    <p className="text-gray-600">Focusing on individual growth and development of each student.</p>
+                    <p className="text-gray-600">Focusing on individual growth and development of each student and Nurture Team spirit, Professional skills and Ethics among the students.</p>
                   </div>
                 </motion.div>
                 <motion.div 
@@ -234,8 +234,8 @@ const HomePage: React.FC = () => {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h4 className="text-lg font-medium text-gray-900">Industry Integration</h4>
-                    <p className="text-gray-600">Bridging the gap between academia and industry through partnerships and internships.</p>
+                    <h4 className="text-lg font-medium text-gray-900">R&D</h4>
+                    <p className="text-gray-600">Establish state-of-the-art R&D facilities and Incubation centers.</p>
                   </div>
                 </motion.div>
               </div>
