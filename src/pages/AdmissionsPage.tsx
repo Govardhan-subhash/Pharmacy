@@ -92,6 +92,51 @@ const AdmissionsPage: React.FC = () => {
               </div>
             </motion.div>
           </div>
+
+          {/* New Sections */}
+          <div className="grid md:grid-cols-2 gap-8 mt-16">
+            {/* Cutoff Rank */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-white p-6 rounded-lg shadow-lg"
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Cutoff Ranks</h3>
+              <p className="text-gray-600 mb-4">View the previous year's cutoff ranks for different courses and categories.</p>
+              <Link 
+                to="/documents/cutoff-ranks.pdf" 
+                className="inline-flex items-center text-blue-600 hover:text-blue-700"
+              >
+                <span>View Cutoff Ranks</span>
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </Link>
+            </motion.div>
+
+            {/* Intake Details */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="bg-white p-6 rounded-lg shadow-lg"
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Intake Details</h3>
+              <p className="text-gray-600 mb-4">Check the seat availability and distribution across various programs.</p>
+              <Link 
+                to="/documents/intake-details.pdf" 
+                className="inline-flex items-center text-blue-600 hover:text-blue-700"
+              >
+                <span>View Intake Details</span>
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </section>
 
