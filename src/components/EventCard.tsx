@@ -10,6 +10,7 @@ interface EventCardProps {
   date: string;
   time: string;
   location: string;
+  learnMoreLink: string; // Add this prop
   delay?: number;
 }
 
@@ -20,6 +21,7 @@ const EventCard: React.FC<EventCardProps> = ({
   date, 
   time, 
   location,
+  learnMoreLink, // Use this prop
   delay = 0 
 }) => {
   return (
@@ -54,7 +56,7 @@ const EventCard: React.FC<EventCardProps> = ({
         <p className="text-gray-600 mb-4 line-clamp-3">
           {description}
         </p>
-        <Link to={`/events/${id}`} className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
+        <Link to={learnMoreLink} className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
           Learn More <ChevronRight className="ml-1 h-4 w-4" />
         </Link>
       </div>

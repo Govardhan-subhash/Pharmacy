@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 import Hero from '../components/Hero';
 import SectionHeading from '../components/SectionHeading';
-import CTASection from '../components/CTASection';
 
 const AdmissionsPage: React.FC = () => {
   return (
@@ -140,15 +139,23 @@ const AdmissionsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <CTASection 
-        title="Ready to Apply?"
-        subtitle="Start your application process today and take the first step towards a successful career."
-        primaryButtonText="Apply Now"
-        primaryButtonLink="/apply"
-        secondaryButtonText="Contact Admissions"
-        secondaryButtonLink="/contact"
-      />
+      {/* Student Admission Section */}
+      <section id="admission-form" className="py-16 md:py-24 bg-gray-100">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading 
+            title="Apply For Admission?"
+            subtitle="Click the button below to start your application process."
+          />
+          <div className="text-center">
+            <Link 
+              to="/apply" 
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+            >
+              Apply Now
+            </Link>
+          </div>
+        </div>
+      </section>
     </PageTransition>
   );
 };

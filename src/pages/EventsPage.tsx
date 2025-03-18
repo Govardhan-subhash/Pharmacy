@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,6 +15,8 @@ import CTASection from '../components/CTASection';
 import { ArrowRight } from 'lucide-react';
 
 const EventsPage: React.FC = () => {
+  const [selectedEvent, setSelectedEvent] = useState<any | null>(null);
+
   // Sample data for events
   const events = [
     {
@@ -23,7 +25,8 @@ const EventsPage: React.FC = () => {
       description: "Join us for a celebration of culture, music, and dance. Participate in various competitions and enjoy performances by talented artists.",
       date: "September 10, 2025",
       time: "10:00 AM - 8:00 PM",
-      location: "Main Auditorium"
+      location: "Main Auditorium",
+      learnMoreLink: "/events/cultural-fest" // Add this property
     },
     {
       id: "sports-day",
@@ -31,7 +34,8 @@ const EventsPage: React.FC = () => {
       description: "Showcase your athletic skills and compete in various sports events. Cheer for your friends and enjoy a day full of excitement.",
       date: "October 5, 2025",
       time: "8:00 AM - 5:00 PM",
-      location: "Sports Ground"
+      location: "Sports Ground",
+      learnMoreLink: "/events/sports-day" // Add this property
     },
     {
       id: "tech-meetup",
@@ -39,9 +43,18 @@ const EventsPage: React.FC = () => {
       description: "Network with tech enthusiasts, attend workshops, and learn about the latest trends in technology.",
       date: "November 15, 2025",
       time: "9:00 AM - 4:00 PM",
-      location: "Conference Hall A"
+      location: "Conference Hall A",
+      learnMoreLink: "/events/tech-meetup" // Add this property
     }
   ];
+
+  const handleLearnMoreClick = (event: any) => {
+    setSelectedEvent(event);
+  };
+
+  const handleClosePopup = () => {
+    setSelectedEvent(null);
+  };
 
   return (
     <PageTransition>
@@ -53,7 +66,7 @@ const EventsPage: React.FC = () => {
         primaryButtonText="Upcoming Events"
         primaryButtonLink="#events"
         secondaryButtonText="Past Events"
-        secondaryButtonLink="#past-events"
+        secondaryButtonLink="/past-events"
       />
 
       {/* Events Section */}
@@ -73,6 +86,7 @@ const EventsPage: React.FC = () => {
                 date={event.date}
                 time={event.time}
                 location={event.location}
+                learnMoreLink={event.learnMoreLink} // Pass this prop
                 delay={index * 0.1}
               />
             ))}
@@ -90,6 +104,30 @@ const EventsPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Popup for Event Details */}
+      {selectedEvent && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg max-w-3xl w-full relative">
+            <button 
+              onClick={handleClosePopup} 
+              className="absolute top-4 right-4 text-gray-600 hover:text-gray-800"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">{selectedEvent.title}</h3>
+            <ul className="list-disc list-inside text-gray-600">
+              <li>Point 1 about the event</li>
+              <li>Point 2 about the event</li>
+              <li>Point 3 about the event</li>
+              <li>Point 4 about the event</li>
+              <li>Point 5 about the event</li>
+            </ul>
+          </div>
+        </div>
+      )}
 
       {/* CTA Section */}
       <CTASection 

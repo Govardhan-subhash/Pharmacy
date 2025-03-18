@@ -12,9 +12,10 @@ import AboutPage from './pages/AboutPage';
 import CoursesPage from './pages/CoursesPage';
 import FacultyPage from './pages/FacultyPage';
 import EventsPage from './pages/EventsPage';
-import CampusLifePage from './pages/CampusLifePage';
 import ContactPage from './pages/ContactPage';
 import AdmissionsPage from './pages/AdmissionsPage';
+import ApplyPage from './pages/ApplyPage';
+import PastEventsPage from './pages/PastEventsPage';
 // import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
@@ -29,9 +30,10 @@ function App() {
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/faculty" element={<FacultyPage />} />
             <Route path="/events" element={<EventsPage />} />
-            <Route path="/campus-life" element={<CampusLifePage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/admissions" element={<AdmissionsPage />} />
+            <Route path="/apply" element={<ApplyPage />} />
+            <Route path="/past-events" element={<PastEventsPage />} />
             {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>
         </AnimatePresence>
