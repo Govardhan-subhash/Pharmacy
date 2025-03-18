@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   BookOpen, 
   Award, 
@@ -8,7 +8,8 @@ import {
   Lightbulb, 
   Heart, 
   Clock, 
-  MapPin 
+  MapPin,
+  X
 } from 'lucide-react';
 
 import PageTransition from '../components/PageTransition';
@@ -16,7 +17,126 @@ import SectionHeading from '../components/SectionHeading';
 import Hero from '../components/Hero';
 import StatsSection from '../components/StatsSection';
 
+interface LeadershipMessage {
+  title: string;
+  name: string;
+  role: string;
+  message: string[];
+  image: string;
+}
+
+interface Department {
+  name: string;
+  hodName: string;
+  description: string;
+  image: string;
+}
+
+const leadershipMessages: LeadershipMessage[] = [
+  {
+    title: "President's Message",
+    name: "Sri Grandhi Satyanarayana",
+    role: "President",
+    message: [
+      "With immense pleasure, I welcome you all to Sri Venkateshwara Institute of Professional Studies (SVIPS).",
+      "Our President has extensive experience in the education field, successfully managing GMR Educational Institutions for over 16 years.",
+      "Under his leadership, SVIPS has grown to become a premier institution for pharmaceutical education.",
+      "We are committed to providing quality education and producing skilled professionals who contribute to the healthcare sector."
+    ],
+    image: "https://www.svips.ac.in/image/president.jpeg"
+  },
+  {
+    title: "Secretary's Message",
+    name: "Sri Ch.V.V Subba Rao",
+    role: "Secretary",
+    message:["Our Secretary & Correspondent, Sri Chalamcharla V.V.Subba Rao is a personality with an enhanced caliber of leadership and assertive skills.", 
+      "These qualities contribute to the elevation of the institution in a big way.", 
+      "He revels in shaping the career of the students with his unparalleled vision and mission.", 
+      "He also has plans to extend his vision and goals across the man-made barriers and wish to earn global reputation."],
+     
+    image: "https://www.svips.ac.in/image/secretary.JPG"
+  },
+  {
+    title: "Principal's Message",
+    name: "Dr. K. Padmalatha",
+    role: "Principal",
+    message: [
+      "As the Principal of SVIPS, I'm proud to lead an institution dedicated to pharmaceutical excellence.",
+      "We provide comprehensive pharmaceutical education with a perfect blend of theory and practical training.",
+      "Our focus is on developing skilled professionals ready to meet industry demands.",
+      "We encourage research, innovation, and continuous learning among our students and faculty."
+    ],
+    image: "https://www.svips.ac.in/image/principal.jpg"
+  }
+];
+
+const departments: Department[] = [
+  {
+    name: "Department of Pharmaceutics",
+    hodName: "Dr. Sarah Johnson",
+    description: "The Department of Pharmaceutics focuses on drug formulation and delivery systems...",
+    image: "https://example.com/pharmaceutics.jpg"
+  },
+  // Add other departments...
+];
+
+const InfoModal: React.FC<{
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  content: React.ReactNode;
+  image?: string;
+}> = ({ isOpen, onClose, title, content, image }) => {
+  if (!isOpen) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ scale: 0.95, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.95, opacity: 0 }}
+        className="bg-white rounded-lg max-w-4xl w-full overflow-hidden max-h-[90vh] overflow-y-auto"
+        onClick={e => e.stopPropagation()}
+      >
+        <div className="relative">
+          {image && (
+            <div className="h-96 overflow-hidden">
+              <img 
+                src={image} 
+                alt={title} 
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors shadow-md"
+          >
+            <X className="h-6 w-6" />
+          </button>
+        </div>
+        <div className="p-8">
+          <h3 className="text-3xl font-bold text-gray-900 mb-6">{title}</h3>
+          <div className="prose max-w-none text-lg">{content}</div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};
+
 const AboutPage: React.FC = () => {
+  const [selectedModal, setSelectedModal] = useState<{
+    title: string;
+    content: React.ReactNode;
+    image?: string;
+  } | null>(null);
+
   const timeline = [
     {
       year: "1998",
@@ -62,6 +182,178 @@ const AboutPage: React.FC = () => {
         secondaryButtonText="Meet Our Team"
         secondaryButtonLink="/faculty"
       />
+
+      {/* Leadership & Governance Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading 
+            title="Leadership & Governance"
+            subtitle="Meet the visionaries leading our institution"
+          />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {/* Quality Policy */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+              onClick={() => setSelectedModal({
+                title: "Quality Policy",
+                content: "Our institution is committed to maintaining high standards...",
+                image: "https://example.com/quality.jpg"
+              })}
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Policy</h3>
+              <p className="text-gray-600 line-clamp-3">Click to view our quality policy and commitment to excellence.</p>
+            </motion.div>
+
+            {/* Leadership Messages */}
+            {leadershipMessages.map((message, index) => (
+              <motion.div
+                key={message.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow overflow-hidden"
+                onClick={() => setSelectedModal({
+                  title: message.title,
+                  content: (
+                    <div className="space-y-6">
+                      <div className="flex items-center">
+                        <img 
+                          src={message.image} 
+                          alt={message.name}
+                          className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg"
+                        />
+                        <div className="ml-6">
+                          <h4 className="text-2xl font-bold text-gray-900">{message.name}</h4>
+                          <p className="text-lg text-gray-600">{message.role}</p>
+                        </div>
+                      </div>
+                      <div className="space-y-4">
+                        {message.message.map((line, i) => (
+                          <div key={i} className="flex items-start">
+                            <span className="inline-block w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            <p className="text-gray-600 text-lg">{line}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ),
+                  image: message.image
+                })}
+              >
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={message.image} 
+                    alt={message.name}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{message.title}</h3>
+                  <p className="text-sm text-gray-600 mb-2">{message.name} - {message.role}</p>
+                  <p className="text-gray-600 line-clamp-3">{message.message[0]}</p>
+                  <button className="mt-4 text-blue-600 font-medium hover:text-blue-700">
+                    Read full message →
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+
+            {/* Governing Body */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+              onClick={() => setSelectedModal({
+                title: "Govering Body",
+                content: "The governing body of our institution comprises...",
+                image: "https://example.com/governing-body.jpg"
+              })}
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Governing Body</h3>
+              <p className="text-gray-600 line-clamp-3">Learn about our governing body and leadership structure.</p>
+            </motion.div>
+
+            {/* Organogram */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+              onClick={() => setSelectedModal({
+                title: "Organogram",
+                content: "View our organizational structure and hierarchy.",
+                image: "https://example.com/organogram.jpg"
+              })}
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Organogram</h3>
+              <p className="text-gray-600 line-clamp-3">View our organizational structure</p>
+            </motion.div>
+
+            {/* Departments */}
+            {departments.map((dept, index) => (
+              <motion.div
+                key={dept.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+                onClick={() => setSelectedModal({
+                  title: dept.name,
+                  content: (
+                    <div>
+                      <p className="font-medium text-gray-900 mb-2">HOD: {dept.hodName}</p>
+                      <p className="text-gray-600">{dept.description}</p>
+                    </div>
+                  ),
+                  image: dept.image
+                })}
+              >
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{dept.name}</h3>
+                <p className="text-gray-600 line-clamp-3">Click to learn more about the department</p>
+              </motion.div>
+            ))}
+
+            {/* Affiliations */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+              onClick={() => setSelectedModal({
+                title: "Affiliations",
+                content: "Our institution is proudly affiliated with...",
+                image: "https://example.com/affiliations.jpg"
+              })}
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Affiliations</h3>
+              <p className="text-gray-600 line-clamp-3">View our institutional affiliations and partnerships</p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selectedModal && (
+          <InfoModal
+            isOpen={!!selectedModal}
+            onClose={() => setSelectedModal(null)}
+            title={selectedModal.title}
+            content={selectedModal.content}
+            image={selectedModal.image}
+          />
+        )}
+      </AnimatePresence>
 
       {/* Mission & Vision Section */}
       <section className="py-16 md:py-24">
