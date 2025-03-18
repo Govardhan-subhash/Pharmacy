@@ -38,6 +38,7 @@ const Header: React.FC = () => {
     { name: 'Placement', path: '/placement' },
     { name: 'Faculty', path: '/faculty' },
     { name: 'Campus Life', path: '/campus-life' },
+    { name: 'Committees', path: '/committee' },
     { name: 'Events', path: '/events' },
     { name: 'Research', path: '/research' },
     { name: 'Admissions', path: '/admissions' },
