@@ -39,8 +39,9 @@ const Header: React.FC = () => {
     { name: 'Faculty', path: '/faculty' },
     { name: 'Campus Life', path: '/campus-life' },
     { name: 'Events', path: '/events' },
-    { name: 'Admissions', path: '/admissions' },
+    { name: 'Admissions & Academics', path: '/admissions' },
     { name: 'Contact', path: '/contact' },
+
   ];
 
   const isActive = (path: string) => {
