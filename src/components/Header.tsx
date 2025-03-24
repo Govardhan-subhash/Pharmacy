@@ -35,11 +35,12 @@ const Header: React.FC = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Courses', path: '/courses' },
+    { name: 'Placement', path: '/placement' },
     { name: 'Faculty', path: '/faculty' },
     { name: 'Campus Life', path: '/campus-life' },
+    { name: 'Committees', path: '/committee' },
     { name: 'Events', path: '/events' },
-    { name: 'Admissions & Academics', path: '/admissions' },
+    { name: 'Admissions', path: '/admissions' },
     { name: 'Contact', path: '/contact' },
 
   ];

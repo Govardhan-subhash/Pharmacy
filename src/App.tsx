@@ -10,13 +10,19 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import CoursesPage from './pages/CoursesPage';
-import FacultyPage from './pages/FacultyPage';
+import FacultyPage from './components/faculty/FacultyPage';
 import EventsPage from './pages/EventsPage';
 import ContactPage from './pages/ContactPage';
 import AdmissionsPage from './pages/AdmissionsPage';
 import ApplyPage from './pages/ApplyPage';
 import PastEventsPage from './pages/PastEventsPage';
 import CampusLifePage from './pages/CampusLifePage';
+import ResearchPage from './pages/Researchpage';
+
+
+
+import CommitteesPage from './components/committee/CommiteePage';
+
 // import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
@@ -33,9 +39,16 @@ function App() {
             <Route path="/events" element={<EventsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/admissions" element={<AdmissionsPage />} />
+            <Route path="/committee" element={<CommitteesPage />} />
             <Route path="/apply" element={<ApplyPage />} />
             <Route path="/past-events" element={<PastEventsPage />} />
-            <Route path="/campus-life" element={<CampusLifePage/>}/>
+            <Route path="/research" element={<ResearchPage />} />
+
+
+            <Route path="/campus-life" element={<CampusLifePage />} />
+           
+            <Route path="/research" element={<ResearchPage />} />
+
             {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>
         </AnimatePresence>

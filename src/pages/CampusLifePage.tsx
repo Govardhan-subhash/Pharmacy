@@ -283,7 +283,7 @@ const CampusLifePage: React.FC = () => {
       />
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      {/* <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading 
             title="Student Testimonials"
@@ -323,7 +323,7 @@ const CampusLifePage: React.FC = () => {
             </Swiper>
           </div>
         </div>
-      </section>
+      </section> */}
 
       
       {/* CTA Section */}
