@@ -160,6 +160,28 @@ const HomePage: React.FC = () => {
             title="About SVIPS"
             subtitle="Sri Vasavi Institute of Pharmaceutical Sciences is dedicated to providing quality education, fostering research, and developing skilled professionals in the pharmaceutical field."
           />
+          <div className="flex flex-wrap justify-center items-center">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvuD7O9_iy4sJmYzRkL8eBW8Z0yavZdJvwmQ&s"
+              alt="SVIPS Campus"
+              className="rounded-lg shadow-lg w-1/12 h-auto relative z-10 m-2"
+            />
+            <img
+              src="https://fabrikbrands.com/wp-content/uploads/Logos-of-Multinational-Companies-11-1200x750.png"
+              alt="SVIPS Campus"
+              className="rounded-lg shadow-lg w-1/12 h-auto relative z-10 m-2"
+            />
+            <img
+              src="https://mbits.ac.in/wp-content/uploads/2023/03/naac.png"
+              alt="SVIPS Campus"
+              className="rounded-lg shadow-lg w-1/12 h-auto relative z-10 m-2"
+            />
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2AMTIWKIzMlQl3Vwm_tR-ynWIRnXsh2KeEg&s"
+              alt="SVIPS Campus"
+              className="rounded-lg shadow-lg w-1/12 h-auto relative z-10 m-2"
+            />
+          </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
@@ -254,7 +276,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
         </div>
       </section>
 
-      {/* Courses Section */}
+      {/* Courses Section
       <section id="courses" className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading 
@@ -288,7 +310,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
             </Link>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Stats Section */}
       <StatsSection />
