@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 // Components
@@ -18,44 +18,40 @@ import ApplyPage from './pages/ApplyPage';
 import PastEventsPage from './pages/PastEventsPage';
 import CampusLifePage from './pages/CampusLifePage';
 import ResearchPage from './pages/Researchpage';
-
-
-
+import PCIPage from './pages/PCIPage';
 import CommitteesPage from './components/committee/CommiteePage';
 
-// import NotFoundPage from './pages/NotFoundPage';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white flex flex-col">
-      <Header />
-      <main className="flex-grow">
-        <AnimatePresence mode="wait">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/courses" element={<CoursesPage />} />
-            <Route path="/faculty" element={<FacultyPage />} />
-            <Route path="/events" element={<EventsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/admissions" element={<AdmissionsPage />} />
-            <Route path="/committee" element={<CommitteesPage />} />
-            <Route path="/apply" element={<ApplyPage />} />
-            <Route path="/past-events" element={<PastEventsPage />} />
-            <Route path="/research" element={<ResearchPage/>} />
-
-
-            <Route path="/campus-life" element={<CampusLifePage />} />
-           
-
-
-            {/* <Route path="*" element={<NotFoundPage />} /> */}
-          </Routes>
-        </AnimatePresence>
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen bg-white flex flex-col">
+        <Header />
+        <main className="flex-grow">
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/courses" element={<CoursesPage />} />
+              <Route path="/faculty" element={<FacultyPage />} />
+              <Route path="/events" element={<EventsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/admissions" element={<AdmissionsPage />} />
+              <Route path="/committee" element={<CommitteesPage />} />
+              <Route path="/apply" element={<ApplyPage />} />
+              <Route path="/past-events" element={<PastEventsPage />} />
+              <Route path="/research" element={<ResearchPage />} />
+              <Route path="/campus-life" element={<CampusLifePage />} />
+              <Route path="/pci" element={<PCIPage />} />
+              {/* Uncomment this if you have a NotFoundPage */}
+      
+            </Routes>
+          </AnimatePresence>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
