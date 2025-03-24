@@ -144,8 +144,8 @@ const HomePage: React.FC = () => {
     <PageTransition>
       {/* Hero Section */}
       <Hero 
-        title="Shaping Futures Through Quality Education"
-        subtitle="Sri Vasavi Institute of Pharmaceutical Science - Empowering students with knowledge, skills, and values."
+        title="Sri Vasavi Institute Of Pharmaceutical Sciences"
+        subtitle="Approved by PCI-New Delhi , Afflicated to Andhra University"
         image="https://www.joonsquare.com/usermanage/image/business/sri-vasavi-institute-of-pharmaceutical-sciences-west-godavari-15455/sri-vasavi-institute-of-pharmaceutical-sciences-west-godavari-sri-vasavi-institute-of-pharmaceutical-sciences-1.jpg"
         primaryButtonText="Explore Courses"
         primaryButtonLink="/courses"
