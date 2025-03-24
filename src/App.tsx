@@ -17,9 +17,12 @@ import AdmissionsPage from './pages/AdmissionsPage';
 import ApplyPage from './pages/ApplyPage';
 import PastEventsPage from './pages/PastEventsPage';
 import CampusLifePage from './pages/CampusLifePage';
-import PlacementPage from './pages/PlacementPage';
 import ResearchPage from './pages/Researchpage';
+
+
+
 import CommitteesPage from './components/committee/CommiteePage';
+
 // import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
@@ -39,9 +42,13 @@ function App() {
             <Route path="/committee" element={<CommitteesPage />} />
             <Route path="/apply" element={<ApplyPage />} />
             <Route path="/past-events" element={<PastEventsPage />} />
+            <Route path="/research" element={<ResearchPage/>} />
+
+
             <Route path="/campus-life" element={<CampusLifePage />} />
-            <Route path="/placement" element={<PlacementPage />} />
-            <Route path="/research" element={<ResearchPage />} />
+           
+
+
             {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>
         </AnimatePresence>
