@@ -42,12 +42,12 @@ function App() {
             <Route path="/committee" element={<CommitteesPage />} />
             <Route path="/apply" element={<ApplyPage />} />
             <Route path="/past-events" element={<PastEventsPage />} />
-            <Route path="/research" element={<ResearchPage />} />
+            <Route path="/research" element={<ResearchPage/>} />
 
 
             <Route path="/campus-life" element={<CampusLifePage />} />
            
-            <Route path="/research" element={<ResearchPage />} />
+
 
             {/* <Route path="*" element={<NotFoundPage />} /> */}
           </Routes>

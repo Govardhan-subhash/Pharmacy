@@ -36,12 +36,15 @@ const Header: React.FC = () => {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Placement', path: '/placement' },
+    {name: 'Research', path: '/research'},
     { name: 'Faculty', path: '/faculty' },
     { name: 'Campus Life', path: '/campus-life' },
     { name: 'Committees', path: '/committee' },
     { name: 'Events', path: '/events' },
-    { name: 'Admissions', path: '/admissions' },
+    { name: 'Admissions & Academics', path: '/admissions' },
     { name: 'Contact', path: '/contact' },
+
+   
 
   ];
 
