@@ -13,19 +13,29 @@ interface CommitteeData {
   }
   
   export const committeeData: CommitteeData = {
-    'anti-ragging': {
-      title: 'Anti-Ragging Committee',
-      description: 'Sri Venkateshwara Institute of Pharmaceutical Sciences has taken various precautions as per AICTE Norms to prevent ragging and ensure 100% no-ragging.',
+    "anti-ragging": {
+      title: "Anti-Ragging Committee",
+      description: "Sri Vasavi Institute of Pharmaceutical Sciences has taken various precautions as per AICTE Norms to prevent ragging and ensure 100% no-ragging.",
       responsibilities: [
-        "Regularly monitor the spots where any instances of ragging is likely to occur",
+        "Regularly monitor the spots where any instances of ragging are likely to occur",
         "Conduct regular inspections to areas where ragging is likely to occur",
-        "If any incidents are observed, promptly access the situation, take necessary action, and inform the council/cell using the provided form",
+        "If any incidents are observed, promptly assess the situation, take necessary action, and inform the council/cell using the provided form",
         "Ensure that anti-ragging instructions are displayed prominently in high-traffic areas"
       ],
       members: [
-        { id: 1, name: "Dr. S. Bhaskara Raju", designation: "Principal", profile: "Chairman" },
-        { id: 2, name: "Dr. VR. Srinivas Garu", designation: "Professor, Department of Pharmaceutical Biotechnology", profile: "Member" },
-        { id: 3, name: "Mr. Shahed Kumar Sungabati", designation: "Assoc. Professor, Department of Pharmacology", profile: "Member Secretary" }
+        { id: 1, name: "Dr. V. Bhaskara Raju", designation: "Principal", profile: "Chairman" },
+        { id: 2, name: "Dr. Y.B. Manju Latha", designation: "Professor, Department of Pharmaceutical Biotechnology", profile: "Member" },
+        { id: 3, name: "Mr. Dhabal Kumar Satapathy", designation: "Assoc. Professor, Department of Pharmacology", profile: "Member Secretary" },
+        { id: 4, name: "Mr. P. Rambabu", designation: "Assoc. Professor, Department of Pharmaceutics", profile: "Member" },
+        { id: 5, name: "Mrs. T. Yamini Kumari", designation: "Assoc. Professor, Department of Pharmaceutical Analysis", profile: "Member" },
+        { id: 6, name: "Mrs. D. Bindu", designation: "Asst. Professor, Department of Pharmaceutical Chemistry", profile: "Member" },
+        { id: 7, name: "Mr. S. Sateesh", designation: "Physical Director", profile: "Member" },
+        { id: 8, name: "Sri K. Ranga Rao", designation: "Dy. Warden, Boys Hostels", profile: "Member" },
+        { id: 9, name: "Smt. M. Bhavani", designation: "Dy. Warden, Girls Hostels", profile: "Member" },
+        { id: 10, name: "Station House Officer", designation: "Rural Police Station, Tadepalligudem", profile: "Member" },
+        { id: 11, name: "Sri Y. Subba Rao", designation: "Reporter, Prajashakthi, TPG", profile: "Member" },
+        { id: 12, name: "Sri P. Maniteja", designation: "(620185901080) 4th year", profile: "Student member" },
+        { id: 13, name: "Sri V. Ashika", designation: "(620185901100) 4th year", profile: "Student member" }
       ]
     },
     'iqac': {
@@ -38,9 +48,16 @@ interface CommitteeData {
         "Documentation of the various programmes/activities leading to quality improvement"
       ],
       members: [
-        { id: 1, name: "Dr. R. K. Sharma", designation: "Principal", profile: "Chairman" },
-        { id: 2, name: "Dr. M. S. Patil", designation: "Professor, Quality Assurance", profile: "Coordinator" },
-        { id: 3, name: "Dr. A. B. Singh", designation: "Professor, Academic Affairs", profile: "Member" }
+        { id: 1, name: "Dr. V. Bhaskara Raju", designation: "Professor & Principal", profile: "Chairman" },
+        { id: 2, name: "Sri. P. Bala Kasaiah", designation: "Treasurer, Vasavi educational society.", profile: "Management Representative" },
+        { id: 3, name: "Dr. Y. Rajendra Prasad", designation: "Principal, University College of Pharmaceutical Sciences, AU", profile: "External member" },
+        { id: 4, name: "Dr. P. Narayana Raju", designation: "Professor", profile: "Member" },
+        { id: 5, name: "Dr. M. Srinivasu", designation: "Associate professor", profile: "Member" },
+        { id: 6, name: "Dr. Y. B. Manjulatha", designation: "Associate professor", profile: "Member" },
+        { id: 7, name: "R. Vijay Bhaskara Reddy", designation: "CSO, Therallen Pharma, Hyderabad.", profile: "Industrial Nominee" },
+        { id: 8, name: "Mr. G. Madana Gopal", designation: "Senior Scientist, Eugia Pharmaceuticals, Hyderabad", profile: "Nominee from Alumni" },
+        { id: 9, name: "Ms. Battula J V N S Kedareswari", designation: "Student", profile: "Student member" },
+        { id: 10, name: "Mr. Chilintala Naveen", designation: "Student", profile: "Student member" }
       ]
     },
     'anti-discrimination': {
@@ -53,9 +70,19 @@ interface CommitteeData {
         "Ensure compliance with anti-discrimination policies"
       ],
       members: [
-        { id: 1, name: "Dr. K. R. Patel", designation: "Professor, Social Sciences", profile: "Chairman" },
-        { id: 2, name: "Dr. S. K. Gupta", designation: "Associate Professor", profile: "Member Secretary" },
-        { id: 3, name: "Ms. Rekha Singh", designation: "Assistant Professor", profile: "Member" }
+        { id: 1, name: "Mr. K.S. Sumanth", designation: "Chairperson - OBC Welfare", profile: "Chairperson" },
+        { id: 2, name: "Dr. X. Antro Jennie", designation: "Chairperson", profile: "Chairperson" },
+        { id: 3, name: "Mr. J.N.B. Indu Sekhar", designation: "Member Secretary", profile: "Member Secretary" },
+        { id: 4, name: "Ms. M. Sharmila", designation: "Member", profile: "Member" },
+        { id: 5, name: "Mr. M. Ajay Rathnam", designation: "Member", profile: "Member" },
+        { id: 6, name: "Mr. Galanki Bhagath", designation: "Student member", profile: "Student member" },
+        { id: 7, name: "Ms. Kuthada Mounika", designation: "Student member", profile: "Student member" },
+        { id: 8, name: "Ms. Mohammad Ahmadunnisa", designation: "Student member", profile: "Student member" },
+        { id: 9, name: "Mr. Mohammad Shaman", designation: "Student member", profile: "Student member" },
+        { id: 10, name: "Mr. Sayed Maazan", designation: "Student member", profile: "Student member" },
+        { id: 11, name: "Ms. Shaik Farheenunissa", designation: "Student member", profile: "Student member" },
+        { id: 12, name: "Ms. Gogulamudi Mercy", designation: "Student member", profile: "Student member" },
+        { id: 13, name: "Mr. Bhukya Ramudu", designation: "Student member", profile: "Student member" }
       ]
     },
     'grd': {
@@ -68,9 +95,20 @@ interface CommitteeData {
         "Suggest improvements in institutional processes"
       ],
       members: [
-        { id: 1, name: "Dr. M. K. Reddy", designation: "Senior Professor", profile: "Chairman" },
-        { id: 2, name: "Dr. P. Kumar", designation: "Professor", profile: "Member Secretary" },
-        { id: 3, name: "Dr. S. Mehta", designation: "Associate Professor", profile: "Member" }
+        { id: 1, name: "Dr. Y.B. Manjulatha", designation: "Chair person", profile: "Chairperson" },
+        { id: 2, name: "Mrs. A. Pallavi", designation: "Convener", profile: "Convener" },
+        { id: 3, name: "Mrs. B. Vijayaambica Durga", designation: "Member", profile: "Member" },
+        { id: 4, name: "Mrs. M. Sharmila", designation: "Member", profile: "Member" },
+        { id: 5, name: "Mrs. R. Satyavathi", designation: "Non teaching representative", profile: "Non teaching representative" },
+        { id: 6, name: "K. Aparna", designation: "Student representative", profile: "Student representative" },
+        { id: 7, name: "N. Leela Lakshmi Kumari", designation: "Student representative", profile: "Student representative" },
+        { id: 8, name: "G.S.L. Prasanna", designation: "Student representative", profile: "Student representative" },
+        { id: 9, name: "M. Pooja", designation: "Student representative", profile: "Student representative" },
+        { id: 10, name: "D. Lalitha", designation: "Student representative", profile: "Student representative" },
+        { id: 11, name: "R. Sowjanya", designation: "Student representative", profile: "Student representative" },
+        { id: 12, name: "G.V.S.S. Jahnavi", designation: "Student representative", profile: "Student representative" },
+        { id: 13, name: "M. Kavyasree", designation: "Student representative", profile: "Student representative" },
+        { id: 14, name: "M. Priyanka", designation: "Hostel representative", profile: "Hostel representative" }
       ]
     },
     'library': {
@@ -83,9 +121,17 @@ interface CommitteeData {
         "Ensure optimal utilization of library facilities"
       ],
       members: [
-        { id: 1, name: "Dr. A. K. Mishra", designation: "Chief Librarian", profile: "Chairman" },
-        { id: 2, name: "Dr. R. S. Kumar", designation: "Professor", profile: "Member Secretary" },
-        { id: 3, name: "Ms. P. Sharma", designation: "Assistant Librarian", profile: "Member" }
+        { id: 1, name: "Mr. K. S. Sumanth", designation: "Assoc. Professor, Department of Pharmaceutical Analysis", profile: "Chairman" },
+        { id: 2, name: "Dr. Y. B. Manjulatha", designation: "Professor, Department of Pharmaceutical Biotechnology", profile: "Member" },
+        { id: 3, name: "Mrs. M. Sharmila", designation: "Assoc. Professor, Department of Pharmaceutical Chemistry", profile: "Member" },
+        { id: 4, name: "Mrs. D. Bindu", designation: "Asst professor, Department of Pharmaceutical Chemistry", profile: "Member" },
+        { id: 5, name: "Mrs. Y. Vijaya Lakshmi", designation: "Librarian", profile: "Member Secretary" },
+        { id: 6, name: "Mr. K. Girish", designation: "I Year 622185901048", profile: "Student member" },
+        { id: 7, name: "Ms. K. Lavanya", designation: "I Year 622185901050", profile: "Student member" },
+        { id: 8, name: "Ms. P. Lavanya", designation: "II Year 621185901074", profile: "Student member" },
+        { id: 9, name: "Mr. V. Aditya", designation: "II Year 621185901099", profile: "Student member" },
+        { id: 10, name: "Ms. M. Sneha", designation: "III Year 620185901066", profile: "Student member" },
+        { id: 11, name: "Mr. P. ManiTeja", designation: "III Year 622185901080", profile: "Student member" }
       ]
     },
     'animal-ethical': {
@@ -98,9 +144,15 @@ interface CommitteeData {
         "Conduct regular inspections of animal facilities"
       ],
       members: [
-        { id: 1, name: "Dr. V. S. Rao", designation: "Professor, Pharmacology", profile: "Chairman" },
-        { id: 2, name: "Dr. N. K. Jain", designation: "Veterinarian", profile: "Member Secretary" },
-        { id: 3, name: "Dr. P. Das", designation: "External Expert", profile: "Member" }
+        { id: 1, name: "Dr. Gangireddy Ramanaiah", designation: "Main Nominee", profile: "Member" },
+        { id: 2, name: "Dr. Ghanta VijayaKumar", designation: "Link Nominee", profile: "Member" },
+        { id: 3, name: "Dr. Konda Ravi Kumar", designation: "Scientist from outside of the Institute", profile: "Member" },
+        { id: 4, name: "Dr. Mahendra Pratap Singh Tomar", designation: "Socially aware Nominee", profile: "Member" },
+        { id: 5, name: "Dr. P. Narayana Raju", designation: "Chairman", profile: "Chairman" },
+        { id: 6, name: "Dr. Bhaskara Raju Vatchavai", designation: "Member Secretary", profile: "Member Secretary" },
+        { id: 7, name: "Dr. Y.B. Manjulatha", designation: "Scientist from different biological discipline", profile: "Member" },
+        { id: 8, name: "Mr. D.K. Satapathy", designation: "Scientist-In-Charge", profile: "Member" },
+        { id: 9, name: "Dr. M. Abhishek", designation: "Veterinarian", profile: "Member" }
       ]
     },
     'women-empowerment': {
@@ -113,9 +165,17 @@ interface CommitteeData {
         "Provide counseling and support services"
       ],
       members: [
-        { id: 1, name: "Dr. Priya Sharma", designation: "Professor, Women Studies", profile: "Chairperson" },
-        { id: 2, name: "Dr. Meena Kumari", designation: "Associate Professor", profile: "Coordinator" },
-        { id: 3, name: "Ms. Anjali Desai", designation: "Student Counselor", profile: "Member" }
+        { id: 1, name: "Dr. Y. B. Manjulatha", designation: "Professor, Department of Pharmaceutical Biotechnology", profile: "Chairman" },
+        { id: 2, name: "Mrs. B. Vijaya Ambika Durga", designation: "Assoc. Professor, Department of Pharmacology", profile: "Member" },
+        { id: 3, name: "Mrs. M. Sharmila", designation: "Assoc Professor, Department of Pharmaceutical Chemistry", profile: "Member Secretary" },
+        { id: 4, name: "Mrs. A. Durga Pallavi", designation: "Assoc. Professor, Department of Pharmaceutics", profile: "Member" },
+        { id: 5, name: "Mrs. D. Bindhu", designation: "Asst. Professor, Department of Pharmaceutical Chemistry", profile: "Member" },
+        { id: 6, name: "Ms. P. Esther", designation: "Asst. Professor, Department of Pharmaceutics", profile: "Member" },
+        { id: 7, name: "Mrs. B. Pallavi", designation: "Asst. Professor, Department of Pharmaceutical Analysis", profile: "Member" },
+        { id: 8, name: "Ms. A. Bhavani Durga", designation: "III Year 620185901001", profile: "Student member" },
+        { id: 9, name: "Ms. B. J V N S Kedareswari", designation: "III Year 620185901010", profile: "Student member" },
+        { id: 10, name: "Ms. Goda B. Ahalya Sindhu", designation: "622185901034 I year", profile: "Student member" },
+        { id: 11, name: "Ms. Jujjavarapu Saritha", designation: "622185901044 I year", profile: "Student Member" }
       ]
     },
     'entrepreneurship': {
@@ -128,9 +188,18 @@ interface CommitteeData {
         "Coordinate with industry partners"
       ],
       members: [
-        { id: 1, name: "Dr. R. K. Verma", designation: "Professor, Business Studies", profile: "Chairman" },
-        { id: 2, name: "Mr. S. K. Joshi", designation: "Industry Expert", profile: "Member Secretary" },
-        { id: 3, name: "Ms. N. Patel", designation: "Startup Mentor", profile: "Member" }
+        { id: 1, name: "Mr. P. Rambabu", designation: "Assoc. Professor, Department of Pharmaceutics", profile: "Chairman" },
+        { id: 2, name: "Dr. P. Narayana Raju", designation: "Professor and HOD, Department of Pharmaceutics", profile: "Member" },
+        { id: 3, name: "Dr. Y. B. Manjulatha", designation: "Professor, Department of Pharmaceutical Biotechnology", profile: "Member Secretary" },
+        { id: 4, name: "Mr. K. S. Sumanth", designation: "Assoc. Professor, Department of Pharmaceutical Analysis", profile: "Member" },
+        { id: 5, name: "Mr. P. Srinu", designation: "Assoc. Professor, Department of Pharmacology", profile: "Member" },
+        { id: 6, name: "Ms. A. D. Pallavi", designation: "Assoc. Professor, Department of Pharmaceutics", profile: "Member" },
+        { id: 7, name: "Ms. B. Vijaya Ambika Durga", designation: "Assoc. Professor, Department of Pharmacology", profile: "Member" },
+        { id: 8, name: "Mr. M. Ajay Rathnam", designation: "Asst. Professor, Department of Pharmaceutics", profile: "Member" },
+        { id: 9, name: "Ms. Addagaala Bhavani Durga", designation: "III Year 620185901001", profile: "Student member" },
+        { id: 10, name: "Ms. Battula J V N S Kedareswari", designation: "III Year 620185901010", profile: "Student member" },
+        { id: 11, name: "Mr. Chilintala Naveen", designation: "II Year 621185901011", profile: "Student member" },
+        { id: 12, name: "Mr. Chinthapalli Anil Krishna", designation: "II Year 621185901012", profile: "Student member" }
       ]
     },
     'alumni': {
@@ -143,24 +212,39 @@ interface CommitteeData {
         "Create networking opportunities"
       ],
       members: [
-        { id: 1, name: "Dr. M. S. Rao", designation: "Senior Professor", profile: "Chairman" },
-        { id: 2, name: "Mr. K. P. Singh", designation: "Alumni Coordinator", profile: "Member Secretary" },
-        { id: 3, name: "Ms. R. Kapoor", designation: "Alumni Representative", profile: "Member" }
+        { id: 1, name: "Mr. P. Rambabu", designation: "Assoc. Professor, Department of Pharmaceutics", profile: "Chairman" },
+        { id: 2, name: "Dr. X. Antro Jennie", designation: "Professor, Department of Pharmaceutical Chemistry", profile: "Member Secretary" },
+        { id: 3, name: "Mrs. B. Vijaya Ambika Durga", designation: "Assoc. Professor, Department of Pharmacology", profile: "Member" },
+        { id: 4, name: "Mrs. T. Yamini Kumari", designation: "Assoc. Professor, Department of Pharmaceutical Analysis", profile: "Member" },
+        { id: 5, name: "Mrs. D. Bindhu", designation: "Asst. Professor, Department of Pharmaceutical Chemistry", profile: "Member" },
+        { id: 6, name: "Ms. V. Sri Sowmya", designation: "Asst. Professor, Department of Pharmacognosy", profile: "Member" },
+        { id: 7, name: "Ms. P. Esther", designation: "Asst. Professor, Department of Pharmaceutics", profile: "Member" },
+        { id: 8, name: "Mrs. B. Pallavi", designation: "Asst. Professor, Department of Pharmaceutical Analysis", profile: "Member" },
+        { id: 9, name: "Mr. J.N.B. Indu Sekar", designation: "Asst. Professor, Department of Pharmacognosy", profile: "Member" },
+        { id: 10, name: "Mr. Chapala Sudheer", designation: "I Year 622185901015", profile: "Student member" },
+        { id: 11, name: "Ms. Pyla Manimala", designation: "I Year 622185901086", profile: "Student member" },
+        { id: 12, name: "Ms. Dharavathu Pushpanjali", designation: "II Year 621185901015", profile: "Student member" },
+        { id: 13, name: "Ms. Periketi Lavanya", designation: "II Year 621185901074", profile: "Student member" },
+        { id: 14, name: "Ms. Moka Sneha", designation: "III Year 620185901066", profile: "Student member" },
+        { id: 15, name: "Mr. Guttula Phaneendra", designation: "IV Year 620185901038", profile: "Student member" }
       ]
     },
     'st-sc-welfare': {
-      title: 'ST/SC Welfare Cell',
-      description: 'The ST/SC Welfare Cell ensures the well-being and development of students from Scheduled Tribes and Scheduled Castes.',
+      title: 'SC/ST Welfare Cell',
+      description: 'The SC/ST Welfare Cell ensures equal opportunities and support for students from scheduled categories and promotes their educational development.',
       responsibilities: [
-        "Implement welfare schemes",
-        "Address concerns of ST/SC students",
-        "Monitor scholarship disbursement",
-        "Organize awareness programs"
+        "Implement welfare schemes for SC/ST students",
+        "Monitor scholarship distribution",
+        "Address concerns of SC/ST students",
+        "Promote inclusive education and equal opportunities"
       ],
       members: [
-        { id: 1, name: "Dr. B. K. Meena", designation: "Professor", profile: "Chairman" },
-        { id: 2, name: "Dr. R. L. Kumar", designation: "Associate Professor", profile: "Member Secretary" },
-        { id: 3, name: "Mr. S. K. Ram", designation: "Welfare Officer", profile: "Member" }
+        { id: 1, name: "Mr. K.S. Sumanth", designation: "Assoc. Professor, Department of Pharmaceutical Analysis", profile: "Chairperson" },
+        { id: 2, name: "Ms. M. Sharmila", designation: "Assoc. Professor, Department of Pharmaceutical Chemistry", profile: "Member" },
+        { id: 3, name: "Mr. J.N.B. Indu Sekhar", designation: "Asst. Professor, Department of Pharmacognosy", profile: "Member Secretary" },
+        { id: 4, name: "Mr. M. Ajay Rathnam", designation: "Asst. Professor, Department of Pharmaceutics", profile: "Member" },
+        { id: 5, name: "Ms. G. Mercy", designation: "IV Year 620185901033", profile: "Student member" },
+        { id: 6, name: "Mr. Bhukya Ramudu", designation: "IV Year 620185901012", profile: "Student member" }
       ]
     },
     'minority': {
@@ -173,9 +257,16 @@ interface CommitteeData {
         "Promote inclusive education"
       ],
       members: [
-        { id: 1, name: "Dr. A. Khan", designation: "Professor", profile: "Chairman" },
-        { id: 2, name: "Dr. S. Ahmed", designation: "Associate Professor", profile: "Member Secretary" },
-        { id: 3, name: "Ms. M. Joseph", designation: "Counselor", profile: "Member" }
+        { id: 1, name: "Dr. X. Antro Jennie", designation: "Professor & HOD, Department of Pharmaceutical Chemistry", profile: "Chairperson" },
+        { id: 2, name: "Ms. M. Sharmila", designation: "Assoc. Professor, Department of Pharmaceutical Chemistry", profile: "Member" },
+        { id: 3, name: "Mr. J.N.B. Indu Sekhar", designation: "Asst. Professor, Department of Pharmacognosy", profile: "Member Secretary" },
+        { id: 4, name: "Mr. M. Ajay Rathnam", designation: "Asst. Professor, Department of Pharmaceutics", profile: "Member" },
+        { id: 5, name: "Mr. Galanki Bhagath", designation: "622185901033 I year", profile: "Student member" },
+        { id: 6, name: "Ms. Kuthada Mounika", designation: "622185901057 I year", profile: "Student member" },
+        { id: 7, name: "Ms. Mohammad Ahmadunnisa", designation: "621185901060 II year", profile: "Student member" },
+        { id: 8, name: "Mr. Mohammad Shaman", designation: "621185901061 II year", profile: "Student member" },
+        { id: 9, name: "Mr. Sayed Maazan", designation: "620185901089 III year", profile: "Student member" },
+        { id: 10, name: "Ms. Shaik Farheenunissa", designation: "620185901090 III year", profile: "Student member" }
       ]
     },
     'student-mentoring': {
@@ -188,9 +279,14 @@ interface CommitteeData {
         "Evaluate mentoring effectiveness"
       ],
       members: [
-        { id: 1, name: "Dr. P. K. Sharma", designation: "Senior Professor", profile: "Chairman" },
-        { id: 2, name: "Dr. M. R. Gupta", designation: "Chief Mentor", profile: "Member Secretary" },
-        { id: 3, name: "Ms. S. Reddy", designation: "Student Counselor", profile: "Member" }
+        { id: 1, name: "Mr. K. S. Sumanth", designation: "Assoc. Professor, Department of Pharmaceutical Analysis", profile: "Chairman" },
+        { id: 2, name: "Dr. M. Srinivasu", designation: "Professor, Department of Pharmacology", profile: "Member" },
+        { id: 3, name: "Dr. P. Narayana Raju", designation: "Professor & HOD, Department of Pharmaceutics", profile: "Member Secretary" },
+        { id: 4, name: "Mr. P. Srinu", designation: "Assoc. Professor, Department of Pharmacology", profile: "Member" },
+        { id: 5, name: "Mrs. A. Durga Pallavi", designation: "Assoc. Professor, Department of Pharmaceutics", profile: "Member" },
+        { id: 6, name: "Mrs. D. Bindu", designation: "Asst. Professor, Department of Pharmaceutical Chemistry", profile: "Member" },
+        { id: 7, name: "Ms. P. Esther", designation: "Asst. Professor, Department of Pharmaceutics", profile: "Member" },
+        { id: 8, name: "Mrs. B. Pallavi", designation: "Asst. Professor, Department of Pharmaceutical Analysis", profile: "Member" }
       ]
     },
     'examination': {
@@ -203,9 +299,10 @@ interface CommitteeData {
         "Handle examination grievances"
       ],
       members: [
-        { id: 1, name: "Dr. S. K. Mishra", designation: "Controller of Examinations", profile: "Chairman" },
-        { id: 2, name: "Dr. R. P. Singh", designation: "Deputy Controller", profile: "Member Secretary" },
-        { id: 3, name: "Mr. A. Kumar", designation: "Technical Officer", profile: "Member" }
+        { id: 1, name: "Mr. P. Rambabu", designation: "Assoc. Professor, Department of Pharmaceutics", profile: "Chairperson" },
+        { id: 2, name: "Mr. D. K. Satapathy", designation: "Assoc. Professor, Department of Pharmacology", profile: "Member" },
+        { id: 3, name: "Mr. K. S. Sumanth", designation: "Assoc. Professor, Department of Pharmaceutical Analysis", profile: "Member Secretary" },
+        { id: 4, name: "Ms. T. Yamini Kumari", designation: "Assoc. Professor, Department of Pharmaceutical Analysis", profile: "Member" }
       ]
     },
     'r-and-d': {
@@ -218,9 +315,12 @@ interface CommitteeData {
         "Organize research seminars"
       ],
       members: [
-        { id: 1, name: "Dr. V. K. Gupta", designation: "Research Director", profile: "Chairman" },
-        { id: 2, name: "Dr. S. P. Rao", designation: "Research Coordinator", profile: "Member Secretary" },
-        { id: 3, name: "Dr. M. Kumar", designation: "Senior Researcher", profile: "Member" }
+        { id: 1, name: "Dr. P. Narayana Raju", designation: "Professor & HOD, Department of Pharmaceutics", profile: "Chairman" },
+        { id: 2, name: "Dr. X. Antro Jennie", designation: "Professor & HOD, Department of Pharmaceutical Chemistry", profile: "Member Secretary" },
+        { id: 3, name: "Dr. Y. B. Manjulatha", designation: "Professor & HOD, Department of Pharmaceutical Biotechnology", profile: "Member" },
+        { id: 4, name: "Dr. M. Srinivasu", designation: "Professor, Department of Pharmacology", profile: "Member" },
+        { id: 5, name: "Mr. D. K. Satapathy", designation: "Assoc. Professor, Department of Pharmacology", profile: "Member" },
+        { id: 6, name: "Mr. P. Rambabu", designation: "Assoc. Professor, Department of Pharmaceutics", profile: "Member" }
       ]
     },
     'internal-complaint': {
@@ -233,9 +333,20 @@ interface CommitteeData {
         "Recommend appropriate actions"
       ],
       members: [
-        { id: 1, name: "Dr. S. Mathur", designation: "Senior Professor", profile: "Chairman" },
-        { id: 2, name: "Dr. R. Khanna", designation: "Legal Advisor", profile: "Member Secretary" },
-        { id: 3, name: "Ms. P. Reddy", designation: "Counselor", profile: "Member" }
+        { id: 1, name: "Dr. Y.B. Manjulatha", designation: "Chair person", profile: "Chairperson" },
+        { id: 2, name: "Mrs. A. Pallavi", designation: "Convener", profile: "Convener" },
+        { id: 3, name: "Mrs. B. Vijayaambica Durga", designation: "Member", profile: "Member" },
+        { id: 4, name: "Mrs. M. Sharmila", designation: "Member", profile: "Member" },
+        { id: 5, name: "Mrs. R. Satyavathi", designation: "Non teaching representative", profile: "Non teaching representative" },
+        { id: 6, name: "K. Aparna", designation: "Student representative", profile: "Student representative" },
+        { id: 7, name: "N. Leela Lakshmi Kumari", designation: "Student representative", profile: "Student representative" },
+        { id: 8, name: "G.S.L. Prasanna", designation: "Student representative", profile: "Student representative" },
+        { id: 9, name: "M. Pooja", designation: "Student representative", profile: "Student representative" },
+        { id: 10, name: "D. Lalitha", designation: "Student representative", profile: "Student representative" },
+        { id: 11, name: "R. Sowjanya", designation: "Student representative", profile: "Student representative" },
+        { id: 12, name: "G.V.S.S. Jahnavi", designation: "Student representative", profile: "Student representative" },
+        { id: 13, name: "M. Kavyasree", designation: "Student representative", profile: "Student representative" },
+        { id: 14, name: "M. Priyanka", designation: "Hostel representative", profile: "Hostel representative" }
       ]
     },
     'sc-st-obc': {
@@ -248,9 +359,14 @@ interface CommitteeData {
         "Organize support programs"
       ],
       members: [
-        { id: 1, name: "Dr. R. K. Verma", designation: "Professor", profile: "Chairman" },
-        { id: 2, name: "Dr. S. K. Das", designation: "Welfare Officer", profile: "Member Secretary" },
-        { id: 3, name: "Mr. P. Kumar", designation: "Coordinator", profile: "Member" }
+        { id: 1, name: "Mr. K. S. Sumanth", designation: "HOD of Pharmaceutical Analysis", profile: "Chairperson" },
+        { id: 2, name: "Mr. J. N. B. Indu Sekhar", designation: "Assistant Professor", profile: "Member Secretary" },
+        { id: 3, name: "Ms. M. Sharmila", designation: "Assistant Professor", profile: "Member" },
+        { id: 4, name: "Mr. M. Ajay Rathnam", designation: "Assistant Professor", profile: "Member" },
+        { id: 5, name: "Ms. G. Mercy", designation: "620185901033 (IV Year)", profile: "Student Member" },
+        { id: 6, name: "Mr. B. Ramudu", designation: "620185901012 (IV Year)", profile: "Student Member" },
+        { id: 7, name: "Mr. B. Lakshmandu", designation: "621185901007 (III Year)", profile: "Student Member" },
+        { id: 8, name: "Ms. D. Pushpanjali", designation: "621185901015 (III Year)", profile: "Student Member" }
       ]
     }
-  };
+};

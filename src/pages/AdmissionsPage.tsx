@@ -1,12 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 import PageTransition from '../components/PageTransition';
 import Hero from '../components/Hero';
 import SectionHeading from '../components/SectionHeading';
 
 const AdmissionsPage: React.FC = () => {
+  const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
+
+  const handleClosePopup = () => {
+    setSelectedPdf(null);
+  };
+
+  const handleDownload = (filePath: string) => {
+    const link = document.createElement('a');
+    link.href = filePath;
+    link.download = filePath.split('/').pop() || 'file.pdf';
+    link.click();
+  };
+
   return (
     <PageTransition>
       {/* Hero Section */}
@@ -138,6 +151,183 @@ const AdmissionsPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Academics Information Section */}
+      <section id="academics-info" className="py-16 md:py-24 bg-gray-100">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading 
+            title="Academics Information"
+            subtitle="Explore the academic resources and information available for students."
+          />
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            {/* B.Pharmacy Syllabus */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white p-6 rounded-lg shadow-lg flex items-center justify-between cursor-pointer"
+              onClick={() => setSelectedPdf('/documents/bpharmacy-syllabus.pdf')}
+            >
+              <h3 className="text-xl font-bold text-gray-900">B.Pharmacy Syllabus</h3>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 text-blue-600 cursor-pointer"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent triggering the container's onClick
+                  handleDownload('/documents/bpharmacy-syllabus.pdf');
+                }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+            </motion.div>
+
+            {/* M.Pharmacy Syllabus */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-white p-6 rounded-lg shadow-lg flex items-center justify-between cursor-pointer"
+              onClick={() => setSelectedPdf('/documents/mpharmacy-syllabus.pdf')}
+            >
+              <h3 className="text-xl font-bold text-gray-900">M.Pharmacy Syllabus</h3>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 text-blue-600 cursor-pointer"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent triggering the container's onClick
+                  handleDownload('/documents/mpharmacy-syllabus.pdf');
+                }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+            </motion.div>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {/* AU Academic Calendar */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-white p-6 rounded-lg shadow-lg cursor-pointer"
+              onClick={() => window.location.href = '/documents/au-academic-calendar.pdf'}
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4">AU Academic Calendar</h3>
+              <div className="flex items-center text-blue-600 hover:text-blue-700">
+                <span>Download</span>
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </div>
+            </motion.div>
+
+            {/* Course Outcomes */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="bg-white p-6 rounded-lg shadow-lg cursor-pointer"
+              onClick={() => window.location.href = '/documents/course-outcomes.pdf'}
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Course Outcomes</h3>
+              <div className="flex items-center text-blue-600 hover:text-blue-700">
+                <span>Download</span>
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </div>
+            </motion.div>
+
+            {/* Program Outcomes */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="bg-white p-6 rounded-lg shadow-lg cursor-pointer"
+              onClick={() => window.location.href = '/documents/program-outcomes.pdf'}
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Program Outcomes</h3>
+              <div className="flex items-center text-blue-600 hover:text-blue-700">
+                <span>Download</span>
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </div>
+            </motion.div>
+
+            {/* Course Files */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="bg-white p-6 rounded-lg shadow-lg cursor-pointer"
+              onClick={() => window.location.href = '/documents/course-files.pdf'}
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Course Files</h3>
+              <div className="flex items-center text-blue-600 hover:text-blue-700">
+                <span>Download</span>
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* PDF Viewer Popup */}
+      {selectedPdf && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-4xl w-full h-3/4 relative">
+            <button
+              onClick={handleClosePopup}
+              className="absolute top-4 right-4 text-gray-600 hover:text-gray-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <iframe
+              src={selectedPdf}
+              title="PDF Viewer"
+              className="w-full h-full"
+            ></iframe>
+          </div>
+        </div>
+      )}
 
       {/* Student Admission Section */}
       <section id="admission-form" className="py-16 md:py-24 bg-gray-100">
