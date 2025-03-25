@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 // Components
@@ -24,7 +24,7 @@ import CommitteesPage from './components/committee/CommiteePage';
 
 const App: React.FC = () => {
   return (
-    <Router>
+
       <div className="min-h-screen bg-white flex flex-col">
         <Header />
         <main className="flex-grow">
@@ -50,7 +50,7 @@ const App: React.FC = () => {
         </main>
         <Footer />
       </div>
-    </Router>
+  
   );
 };
 
