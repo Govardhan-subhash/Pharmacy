@@ -20,6 +20,7 @@ import CampusLifePage from './pages/CampusLifePage';
 import ResearchPage from './pages/Researchpage';
 import PCIPage from './pages/PCIPage';
 import CommitteesPage from './components/committee/CommiteePage';
+import PlacementPage from './pages/PlacementPage';
 
 
 const App: React.FC = () => {
@@ -43,6 +44,7 @@ const App: React.FC = () => {
               <Route path="/research" element={<ResearchPage />} />
               <Route path="/campus-life" element={<CampusLifePage />} />
               <Route path="/pci" element={<PCIPage />} />
+              <Route path="/placement" element={<PlacementPage />} />
               {/* Uncomment this if you have a NotFoundPage */}
       
             </Routes>

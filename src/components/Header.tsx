@@ -52,14 +52,14 @@ const Header: React.FC = () => {
   ];
 
   const dropdownLinks = [
-    { name: 'RTI', path: '/rti' },
+    { name: 'RTI', path: '/pdfs/RTI_2023.pdf', external: true }, // Link to the RTI PDF
     { name: 'LMS', path: '/lms' },
     { name: 'PCI', path: '/pci' },
     { name: 'NAAC', path: '/naac' },
     {
       name: 'VLogin',
       path: 'https://sves.org.in/ecap_pharma/',
-      external: true, // Indicates this is an external link
+      external: true,
     },
     {
       name: 'RouteMap',
@@ -69,7 +69,7 @@ const Header: React.FC = () => {
     {
       name: 'FeePayments',
       path: 'https://sves.org.in/Ecap_Pharma/olpaymentlogin.aspx',
-      external: true, // Indicates this is an external link
+      external: true,
     },
   ];
 

@@ -1,143 +1,174 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
 import PageTransition from '../components/PageTransition';
-import Hero from '../components/Hero';
-import SectionHeading from '../components/SectionHeading';
-import EventCard from '../components/EventCard';
-import CTASection from '../components/CTASection';
-import { ArrowRight } from 'lucide-react';
 
 const PlacementPage: React.FC = () => {
-  const [selectedEvent, setSelectedEvent] = useState<any | null>(null);
+  const [selectedSection, setSelectedSection] = useState('placement-cell');
 
-  // Sample data for events
-  const events = [
+  const sections = [
     {
-      id: "cultural-fest",
-      title: "Cultural Fest 2025",
-      description: "Join us for a celebration of culture, music, and dance. Participate in various competitions and enjoy performances by talented artists.",
-      date: "September 10, 2025",
-      time: "10:00 AM - 8:00 PM",
-      location: "Main Auditorium",
-      learnMoreLink: "/events/cultural-fest" // Add this property
+      id: 'placement-cell',
+      title: 'Placement Cell',
+      content: `
+        SRI VASAVI PHARMACY PLACEMENTS WING
+
+        Welcome to Sri Vasavi Institute of Pharmaceutical Sciences Placements and Training Wing, where we mold aspiring pharmacists into industry-ready professionals.
+
+        1. Our comprehensive program is designed to bridge the gap between academia and the dynamic pharmaceutical landscape, ensuring our students thrive in their careers.
+
+        2. Through strategic partnerships with leading pharmaceutical companies, we offer unparalleled opportunities for internships, co-op placements, and full-time employment upon graduation. Our dedicated team provides personalized career guidance, resume workshops, and interview preparation to empower students to secure their dream jobs.
+
+        3. With state-of-the-art facilities and hands-on training, we cultivate practical skills in drug formulation, clinical trials, regulatory affairs, and pharmacovigilance. Our industry-experienced faculty members impart invaluable insights and mentorship, preparing students to excel in a competitive market.
+
+        Join us at the forefront of innovation and discovery, where every student is empowered to make a meaningful impact in the world of pharmacy.
+
+        PLACEMENTS HEAD  
+        Dr. P. Narayana Raju  
+
+        PLACEMENT COORDINATOR  
+        Mr. J.N.B. Indusekhar  
+      `,
     },
     {
-      id: "sports-day",
-      title: "Annual Sports Day",
-      description: "Showcase your athletic skills and compete in various sports events. Cheer for your friends and enjoy a day full of excitement.",
-      date: "October 5, 2025",
-      time: "8:00 AM - 5:00 PM",
-      location: "Sports Ground",
-      learnMoreLink: "/events/sports-day" // Add this property
+      id: 'highlights',
+      title: 'Highlights',
+      content: `
+        1. Industry-Aligned Curriculum:  
+           Our curriculum is meticulously crafted to meet the evolving demands of the pharmaceutical industry, ensuring that students graduate with the skills and knowledge sought after by employers.
+
+        2. Extensive Network of Partnerships:  
+           We boast strategic alliances with leading pharmaceutical companies, providing students with unparalleled access to internship, co-op, and placement opportunities in top-tier organizations.
+
+        3. Personalized Career Guidance:  
+           Our dedicated team of career advisors offers personalized support to students, helping them navigate their career paths, refine their professional profiles, and excel in interviews.
+      `,
     },
     {
-      id: "tech-meetup",
-      title: "Tech Meetup",
-      description: "Network with tech enthusiasts, attend workshops, and learn about the latest trends in technology.",
-      date: "November 15, 2025",
-      time: "9:00 AM - 4:00 PM",
-      location: "Conference Hall A",
-      learnMoreLink: "/events/tech-meetup" // Add this property
-    }
+      id: 'alumni-interactions',
+      title: 'Alumni Interactions',
+      content: `
+        Alumni interactions provide students with insights into the industry and career guidance. 
+        Our alumni frequently visit the campus to share their experiences and mentor students.
+      `,
+      images: [
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+      ],
+    },
+    {
+      id: 'guest-lectures',
+      title: 'Guest Lectures',
+      content: `
+        We organize guest lectures by industry experts to help students stay updated with the latest trends and technologies. 
+        These sessions provide valuable knowledge and networking opportunities.
+      `,
+      images: [
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+      ],
+    },
+    {
+      id: 'gallery',
+      title: 'Placement Gallery',
+      content: `
+        Explore our gallery to see moments from our placement drives, alumni interactions, and guest lectures. 
+        These images showcase the vibrant and professional environment at SVIPS.
+      `,
+      images: [
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+        'https://www.svips.ac.in/image/WhatsApp%20Image%202024-08-01%20at%2010.33.08%20AM.jpeg',
+     
+      ],
+    },
   ];
 
-  const handleLearnMoreClick = (event: any) => {
-    setSelectedEvent(event);
-  };
-
-  const handleClosePopup = () => {
-    setSelectedEvent(null);
-  };
+  const selectedSectionData = sections.find((section) => section.id === selectedSection);
 
   return (
     <PageTransition>
       {/* Hero Section */}
-      <Hero 
-        title=" A Better Placements "
-        subtitle="Stay updated with the latest placements, companies at SVIPS."
-        image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-        primaryButtonText="Placemnets Update "
-        // primaryButtonLink="#events"
-        // secondaryButtonText="Past Events"
-        // secondaryButtonLink="/past-events"
-      />
-
-      {/* Events Section */}
-      <section id="events" className="py-16 md:py-24">
+      <section className="relative bg-blue-600 text-white py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading 
-            title="Upcoming Events"
-            subtitle="Stay updated with our latest events, workshops, and seminars."
-          />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {events.map((event, index) => (
-              <EventCard 
-                key={event.id}
-                id={event.id}
-                title={event.title}
-                description={event.description}
-                date={event.date}
-                time={event.time}
-                location={event.location}
-                learnMoreLink={event.learnMoreLink} // Pass this prop
-                delay={index * 0.1}
-              />
-            ))}
+          <div className="relative z-10">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Placements</h1>
+            <p className="text-lg md:text-xl">
+              Explore the placement opportunities, alumni interactions, and career guidance at SVIPS.
+            </p>
           </div>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-center mt-12"
-          >
-            <Link to="/events" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors duration-300">
-              View All Events <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </motion.div>
+          <div className="absolute inset-0 z-0 opacity-50">
+            <img
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+              alt="Placements Hero Background"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
       </section>
 
-      {/* Popup for Event Details */}
-      {selectedEvent && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg max-w-3xl w-full relative">
-            <button 
-              onClick={handleClosePopup} 
-              className="absolute top-4 right-4 text-gray-600 hover:text-gray-800"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">{selectedEvent.title}</h3>
-            <ul className="list-disc list-inside text-gray-600">
-              <li>Point 1 about the event</li>
-              <li>Point 2 about the event</li>
-              <li>Point 3 about the event</li>
-              <li>Point 4 about the event</li>
-              <li>Point 5 about the event</li>
-            </ul>
+      {/* Main Content Section */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
+          {/* Left Vertical Container */}
+          <div className="bg-gray-100 w-full md:w-1/3 p-6 flex-shrink-0">
+            <h2 className="text-xl font-bold text-gray-800 mb-6">Placement Sections</h2>
+            <nav className="space-y-4">
+              {sections.map((section) => (
+                <button
+                  key={section.id}
+                  onClick={() => setSelectedSection(section.id)}
+                  className={`w-full text-left px-4 py-2 rounded-lg ${
+                    selectedSection === section.id
+                      ? 'bg-blue-50 text-blue-600 font-bold'
+                      : 'text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {section.title}
+                </button>
+              ))}
+            </nav>
+          </div>
+
+          {/* Right Content Container */}
+          <div className="w-full md:flex-grow p-6">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">{selectedSectionData?.title}</h3>
+            <p className="text-gray-600 whitespace-pre-line">{selectedSectionData?.content}</p>
+
+            {/* Render Images if Available */}
+            {selectedSectionData?.images && (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+                {selectedSectionData.images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`Gallery Image ${index + 1}`}
+                    className="w-full h-40 object-cover rounded-lg shadow-md"
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </div>
-      )}
-
-      {/* CTA Section */}
-      <CTASection 
-        title="Join Our Events"
-        subtitle="Participate in our events and make the most of your time at SVIPS."
-        primaryButtonText="Explore Events"
-        primaryButtonLink="/events"
-        secondaryButtonText="Contact Us"
-        secondaryButtonLink="/contact"
-      />
+      </div>
     </PageTransition>
   );
 };
