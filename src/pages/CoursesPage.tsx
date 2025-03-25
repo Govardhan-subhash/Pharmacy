@@ -119,7 +119,7 @@ const CoursesPage: React.FC = () => {
                     <select
                       value={selectedLevel}
                       onChange={(e) => setSelectedLevel(e.target.value)}
-                      className="appearance-none w-full px-4 py-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                      className="appearance-none w-full px-4 py-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white hover:bg-gray-100 transition duration-200"
                     >
                       <option value="all">All Levels</option>
                       <option value="Undergraduate">Undergraduate</option>
@@ -131,11 +131,12 @@ const CoursesPage: React.FC = () => {
                     <select
                       value={selectedCategory}
                       onChange={(e) => setSelectedCategory(e.target.value)}
-                      className="appearance-none w-full px-4 py-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                      className="appearance-none w-full px-4 py-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white hover:bg-gray-100 transition duration-200"
                     >
                       <option value="all">All Categories</option>
                       <option value="business">Business</option>
                       <option value="technology">Technology</option>
+                      <option value="pharmaceutical">Pharmaceutical</option>
                     </select>
                     <Filter className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
                   </div>

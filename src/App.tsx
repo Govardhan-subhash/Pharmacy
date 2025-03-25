@@ -1,9 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
-import { Routes, Route } from 'react-router-dom';
-=======
 import { Route, Routes } from 'react-router-dom';
->>>>>>> 3b69a9b61c62ea6b38ad8493c0e502ec263cfa58
 import { AnimatePresence } from 'framer-motion';
 
 // Components
@@ -25,6 +21,8 @@ import ResearchPage from './pages/Researchpage';
 import PCIPage from './pages/PCIPage';
 import CommitteesPage from './components/committee/CommiteePage';
 import PlacementPage from './pages/PlacementPage';
+import NAACPage from './pages/NAACPage';
+import Criteria1 from './pages/Criteria1';
 
 
 const App: React.FC = () => {
@@ -48,6 +46,13 @@ const App: React.FC = () => {
               <Route path="/campus-life" element={<CampusLifePage />} />
               <Route path="/pci" element={<PCIPage />} />
               <Route path="/placement" element={<PlacementPage />} />
+              <Route path="/naac" element={<NAACPage />} />
+              <Route path="/research/publications" element={<div>Publications Page</div>} />
+              <Route path="/research/projects" element={<div>Projects Page</div>} />
+              <Route path="/research/collaborations" element={<div>Collaborations Page</div>} />
+              <Route path="/research/funding" element={<div>Funding Page</div>} />
+              <Route path="/research/patents" element={<div>Patents Page</div>} />
+              <Route path="/criteria/criteria-i" element={<Criteria1 />} />
               {/* Uncomment this if you have a NotFoundPage */}
       
             </Routes>
