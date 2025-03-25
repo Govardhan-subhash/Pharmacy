@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Routes, Route } from 'react-router-dom';
+=======
+import { Route, Routes } from 'react-router-dom';
+>>>>>>> 3b69a9b61c62ea6b38ad8493c0e502ec263cfa58
 import { AnimatePresence } from 'framer-motion';
 
 // Components
@@ -20,11 +24,11 @@ import CampusLifePage from './pages/CampusLifePage';
 import ResearchPage from './pages/Researchpage';
 import PCIPage from './pages/PCIPage';
 import CommitteesPage from './components/committee/CommiteePage';
+import PlacementPage from './pages/PlacementPage';
 
 
 const App: React.FC = () => {
   return (
-    // <Router>
       <div className="min-h-screen bg-white flex flex-col">
         <Header />
         <main className="flex-grow">
@@ -43,6 +47,7 @@ const App: React.FC = () => {
               <Route path="/research" element={<ResearchPage />} />
               <Route path="/campus-life" element={<CampusLifePage />} />
               <Route path="/pci" element={<PCIPage />} />
+              <Route path="/placement" element={<PlacementPage />} />
               {/* Uncomment this if you have a NotFoundPage */}
       
             </Routes>
@@ -50,7 +55,7 @@ const App: React.FC = () => {
         </main>
         <Footer />
       </div>
-    // </Router>
+  
   );
 };
 
