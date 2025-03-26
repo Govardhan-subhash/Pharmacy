@@ -4,7 +4,7 @@
 
 @keyframes scroll {
   0% {
-    transform: translateX(0); /* Start from the right side */
+    transform: translateX(100%); /* Start from the right side */
   }
   100% {
     transform: translateX(-100%); /* Move to the left side */
@@ -15,8 +15,10 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box-shadow for a shine effect */
-  width: 200px; /* Ensure a fixed width for consistent spacing */
+  width: 120px; /* Fixed width for logos */
+  height: 100px; /* Fixed height for logos */
   transition: transform 0.3s ease-in-out;
+  flex-shrink: 0;
 }
 
 .logo-container:hover {
@@ -93,6 +95,11 @@
   }
 }
 
+.company-logos-container {
+  display: flex;
+  animation: scroll 10s linear infinite; /* Reduce duration for faster scrolling */
+}
+
 /* Media query for mobile devices */
 @media (max-width: 768px) {
   .animate-scroll {
@@ -128,12 +135,18 @@
   }
 
   .logo-container {
-    width: 50vw; /* Adjust logo container width for mobile */
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
+    width: 80px; /* Adjust logo width for mobile */
+    height: 80px; /* Adjust logo height for mobile */
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
 
   .logo-container img {
-    max-height: 15vw; /* Adjust logo image max-height for mobile */
+    max-height: 60px; /* Adjust logo image max-height for mobile */
+  }
+
+  .company-logos-container {
+    width: calc(200%); /* Ensure the container width accommodates all logos */
+    animation: scroll 10s linear infinite; /* Ensure consistent animation for mobile */
   }
 }

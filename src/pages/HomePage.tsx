@@ -193,11 +193,6 @@ const HomePage: React.FC = () => {
     }
   };
 
-  // Ensure there are enough duplicated logos to fill the container
-  const logoCount = companyLogos.length;
-  const repeatCount = 5; // Repeat logos at least 5 times
-  const duplicatedLogos = Array(repeatCount).fill(companyLogos).flat();
-
   return (
     <PageTransition>
       {/* Hero Section */}
@@ -294,7 +289,7 @@ const HomePage: React.FC = () => {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false, margin: "-100px" }}
-              transition={{ duration: 1, delay: 0.3 }} // Increased delay
+              transition={{ duration: 1, delay: 0.2 }} // Increased delay
               className="relative"
             >
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-600 rounded-lg opacity-20 animate-pulse-slow"></div>
@@ -354,7 +349,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                   className="flex items-start"
                 >
                   <div className="flex-shrink-0 mt-1">
@@ -372,7 +367,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: false }}
-                transition={{ duration: 0.5, delay: 0.4 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <Link to="/about" className="mt-8 inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors duration-300">
                   Learn more about our history <ArrowRight className="ml-2 h-5 w-5" />
@@ -499,7 +494,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false }} // Trigger animation every time it comes into view
-            transition={{ duration: 1, delay: 0.5 }} // Increased delay
+            transition={{ duration: 1, delay: 0.2 }} // Increased delay
           >
             {events.map((event, index) => (
               <EventCard 
@@ -583,38 +578,31 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
-        transition={{ duration: 1.0, delay: 0.2 }}
+        transition={{ duration: 0.5 }}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Companies Visited"
             subtitle="Our students have been placed in top companies across various sectors."
           />
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            transition={{ duration: 2, ease: 'easeOut' }}
-            className="overflow-x-hidden relative"
-          >
-            <div className="animate-scroll flex whitespace-nowrap py-4">
-              {duplicatedLogos.map((company, index) => (
-                <motion.div
+          <div className="overflow-hidden relative">
+            <div className="company-logos-container animate-scroll">
+              {companyLogos.map((company, index) => (
+                <div
                   key={index}
-                  className="mx-4 flex-shrink-0 logo-container"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
+                  className="logo-container inline-block mx-2 sm:mx-4 w-24 sm:w-32"
                 >
                   <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-md">
                     <img
                       src={company.logo}
                       alt={company.name}
-                      className="max-h-20 max-w-full object-contain"
+                      className="max-h-16 max-w-full object-contain"
                     />
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </motion.section>
     </PageTransition>
