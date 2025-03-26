@@ -18,6 +18,7 @@ import QualityCriteria7 from './criteria/quality/Criteria7';
 const NAACPage: React.FC = () => {
   const [selectedDocument, setSelectedDocument] = useState<string | null>(null);
   const [selectedCriteria, setSelectedCriteria] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false); // State for mobile dropdown menu
 
   const documents = [
     {
@@ -168,7 +169,15 @@ const NAACPage: React.FC = () => {
           {/* Sidebar */}
           <div className="bg-white p-4 rounded shadow">
             <h2 className="text-lg font-semibold text-gray-800 mb-4">Documents</h2>
-            <ul className="space-y-2">
+            <button
+              className="md:hidden w-full text-left px-4 py-2 bg-gray-100 rounded-lg mb-4"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? 'Hide Menu' : 'Show Menu'}
+            </button>
+            <ul
+              className={`space-y-2 ${menuOpen ? 'block' : 'hidden'} md:block`}
+            >
               {documents.map((doc) => (
                 <li key={doc.id}>
                   <button
@@ -180,6 +189,7 @@ const NAACPage: React.FC = () => {
                     onClick={() => {
                       setSelectedDocument(doc.content);
                       setSelectedCriteria(null); // Reset criteria selection
+                      setMenuOpen(false); // Close menu on mobile
                     }}
                   >
                     {doc.title}
