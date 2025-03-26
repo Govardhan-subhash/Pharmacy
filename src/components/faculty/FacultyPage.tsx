@@ -19,6 +19,7 @@ const designationColors: { [key: string]: string } = {
 const FacultyPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<FacultyCategory>('all');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [pdfUrl, setPdfUrl] = useState<string | null>(null); // State to manage the PDF URL
 
   const categories = [
     { id: 'all', name: 'All Faculty' },
@@ -156,7 +157,12 @@ const FacultyPage: React.FC = () => {
                             </span>
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-blue-600 hover:underline">
-                            <a href={faculty.profile} target="_blank" rel="noopener noreferrer">View</a>
+                            <button
+                              onClick={() => setPdfUrl(faculty.profile)} // Open PDF in modal
+                              className="text-blue-600 hover:underline"
+                            >
+                              View
+                            </button>
                           </td>
                         </tr>
                       ))}
@@ -168,6 +174,31 @@ const FacultyPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* PDF Modal */}
+      {pdfUrl && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-3/4 lg:w-1/2">
+            <div className="flex justify-between items-center p-4 border-b">
+              <h2 className="text-lg font-semibold">PDF Viewer</h2>
+              <button
+                onClick={() => setPdfUrl(null)} // Close the modal
+                className="text-gray-600 hover:text-gray-800"
+              >
+                Close
+              </button>
+            </div>
+            <div className="p-4">
+              <iframe
+                src={pdfUrl}
+                title="PDF Viewer"
+                className="w-full h-96"
+                frameBorder="0"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
     </PageTransition>
   );
 };
