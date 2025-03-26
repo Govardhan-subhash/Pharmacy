@@ -12,94 +12,54 @@ const CoursesPage: React.FC = () => {
   // Sample data for courses
   const allCourses = [
     {
-      id: "bba",
-      title: "Bachelor of Business Administration",
-      description: "A comprehensive program that prepares students for careers in business management, entrepreneurship, and corporate leadership.",
-      image: "https://images.unsplash.com/photo-1523289333742-be1143f6b766?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      duration: "3 Years",
-      level: "Undergraduate",
-      students: 1200,
-      category: "business"
-    },
-    {
-      id: "bca",
-      title: "Bachelor of Computer Applications",
-      description: "A program focused on computer applications and software development, preparing students for the IT industry.",
-      image: "https://images.unsplash.com/photo-1581092921461-39b9d08a9b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      duration: "3 Years",
-      level: "Undergraduate",
-      students: 950,
-      category: "technology"
-    },
-    {
-      id: "mba",
-      title: "Master of Business Administration",
-      description: "An advanced program for developing leadership skills and business acumen for executive positions.",
-      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      id: "pharma-analysis",
+      title: "Pharmaceutical Analysis",
+      description: "A program focused on the analysis and quality control of pharmaceutical products.",
+      image: "https://images.unsplash.com/photo-1581092334395-3a9b6a4b7b3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
       duration: "2 Years",
       level: "Postgraduate",
-      students: 780,
-      category: "business"
+      students: 300,
+      category: "pharmaceutical"
     },
     {
-      id: "mca",
-      title: "Master of Computer Applications",
-      description: "An advanced program focusing on computer applications, software development, and IT management.",
-      image: "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      id: "pharma-bio-tech",
+      title: "Pharmaceutical Bio-Technology",
+      description: "A program exploring the application of biotechnology in the pharmaceutical industry.",
+      image: "https://images.unsplash.com/photo-1581091012184-7c3d3b3c3b3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
       duration: "2 Years",
       level: "Postgraduate",
-      students: 650,
-      category: "technology"
+      students: 250,
+      category: "pharmaceutical"
     },
     {
-      id: "bcom",
-      title: "Bachelor of Commerce",
-      description: "A program that provides a strong foundation in accounting, finance, and business principles.",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1511&q=80",
-      duration: "3 Years",
-      level: "Undergraduate",
-      students: 850,
-      category: "business"
-    },
-    {
-      id: "bsc-cs",
-      title: "Bachelor of Science in Computer Science",
-      description: "A program that provides a strong foundation in computer science theory and practical programming skills.",
-      image: "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
-      duration: "3 Years",
-      level: "Undergraduate",
-      students: 720,
-      category: "technology"
-    },
-    {
-      id: "pgdm",
-      title: "Post Graduate Diploma in Management",
-      description: "A specialized program focusing on management skills and business strategies for working professionals.",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      duration: "1 Year",
-      level: "Postgraduate",
-      students: 450,
-      category: "business"
-    },
-    {
-      id: "bba-ba",
-      title: "BBA in Business Analytics",
-      description: "A specialized BBA program focusing on data analytics and its application in business decision-making.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-      duration: "3 Years",
-      level: "Undergraduate",
-      students: 380,
-      category: "business"
-    },
-    {
-      id: "msc-ds",
-      title: "Master of Science in Data Science",
-      description: "An advanced program focusing on data science, machine learning, and big data analytics.",
-      image: "https://images.unsplash.com/photo-1599658880436-c61792e70672?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      id: "pharma-chemistry",
+      title: "Pharmaceutical Chemistry",
+      description: "A program focusing on the chemical aspects of drug design and development.",
+      image: "https://images.unsplash.com/photo-1581092334395-3a9b6a4b7b3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
       duration: "2 Years",
       level: "Postgraduate",
-      students: 320,
-      category: "technology"
+      students: 200,
+      category: "pharmaceutical"
+    },
+    {
+      id: "pharmacology",
+      title: "Pharmacology",
+      description: "A program dedicated to the study of drug action and its effects on biological systems.",
+      image: "https://images.unsplash.com/photo-1581092334395-3a9b6a4b7b3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      duration: "2 Years",
+      level: "Postgraduate",
+      students: 220,
+      category: "pharmaceutical"
+    },
+    {
+      id: "pharmaceutics",
+      title: "Pharmaceutics",
+      description: "A program that focuses on the formulation and delivery of pharmaceutical products.",
+      image: "https://images.unsplash.com/photo-1581092334395-3a9b6a4b7b3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+      duration: "2 Years",
+      level: "Postgraduate",
+      students: 280,
+      category: "pharmaceutical"
     }
   ];
 
@@ -159,7 +119,7 @@ const CoursesPage: React.FC = () => {
                     <select
                       value={selectedLevel}
                       onChange={(e) => setSelectedLevel(e.target.value)}
-                      className="appearance-none w-full px-4 py-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                      className="appearance-none w-full px-4 py-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white hover:bg-gray-100 transition duration-200"
                     >
                       <option value="all">All Levels</option>
                       <option value="Undergraduate">Undergraduate</option>
@@ -171,11 +131,12 @@ const CoursesPage: React.FC = () => {
                     <select
                       value={selectedCategory}
                       onChange={(e) => setSelectedCategory(e.target.value)}
-                      className="appearance-none w-full px-4 py-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                      className="appearance-none w-full px-4 py-3 pl-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white hover:bg-gray-100 transition duration-200"
                     >
                       <option value="all">All Categories</option>
                       <option value="business">Business</option>
                       <option value="technology">Technology</option>
+                      <option value="pharmaceutical">Pharmaceutical</option>
                     </select>
                     <Filter className="absolute left-3 top-3.5 h-5 w-5 text-gray-400" />
                   </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PageTransition from '../PageTransition';
+import { Link } from 'react-router-dom';
 
 const ResearchPage: React.FC = () => {
   const [selectedSection, setSelectedSection] = useState('research-policies');
@@ -89,6 +90,14 @@ const ResearchPage: React.FC = () => {
     },
   ];
 
+  const researchPages = [
+    { path: '/research/publications', label: 'Publications' },
+    { path: '/research/projects', label: 'Projects' },
+    { path: '/research/collaborations', label: 'Collaborations' },
+    { path: '/research/funding', label: 'Funding' },
+    { path: '/research/patents', label: 'Patents' },
+  ];
+
   const selectedSectionData = researchSections.find((section) => section.id === selectedSection);
 
   return (
@@ -139,6 +148,26 @@ const ResearchPage: React.FC = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{selectedSectionData?.title}</h3>
               <p className="text-gray-600 whitespace-pre-line">{selectedSectionData?.content}</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Research Pages Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900">Explore More Research Pages</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {researchPages.map((page) => (
+              <Link
+                key={page.path}
+                to={page.path}
+                className="block bg-blue-600 text-white text-center py-4 rounded-lg shadow-md hover:bg-blue-700 transition duration-200"
+              >
+                {page.label}
+              </Link>
+            ))}
           </div>
         </div>
       </section>
