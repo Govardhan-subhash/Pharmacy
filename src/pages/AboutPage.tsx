@@ -130,6 +130,34 @@ const InfoModal: React.FC<{
   );
 };
 
+const timeline = [
+  {
+    year: "2005",
+    title: "Foundation",
+    description: "Sri Vasavi Institute of Pharmaceutical Sciences (SVIPS) was established to provide top-notch pharmacy education."
+  },
+  {
+    year: "2010",
+    title: "Infrastructure Expansion",
+    description: "Expanded the campus with modern laboratories, library, and audiovisual classrooms."
+  },
+  {
+    year: "2015",
+    title: "Top 10 Ranking",
+    description: "Ranked among the top 10 pharmacy institutions in Andhra Pradesh."
+  },
+  {
+    year: "2020",
+    title: "ISO Certification",
+    description: "Achieved ISO-14001-2015, ISO-50001-2018, and ISO-21001-2018 certifications."
+  },
+  {
+    year: "2023",
+    title: "Digital Transformation",
+    description: "Implemented e-cap, digital updates for exams, events, and feedback on the college website."
+  }
+];
+
 const AboutPage: React.FC = () => {
   const [selectedModal, setSelectedModal] = useState<{
     title: string;
@@ -137,50 +165,17 @@ const AboutPage: React.FC = () => {
     image?: string;
   } | null>(null);
 
-  const timeline = [
-    {
-      year: "1998",
-      title: "Foundation",
-      description: "SVIPS was established with a vision to provide quality education to students."
-    },
-    {
-      year: "2003",
-      title: "Campus Expansion",
-      description: "Expanded the campus with new buildings and modern facilities."
-    },
-    {
-      year: "2008",
-      title: "Accreditation",
-      description: "Received accreditation from the National Assessment and Accreditation Council (NAAC)."
-    },
-    {
-      year: "2012",
-      title: "Research Center",
-      description: "Established a dedicated research center to promote innovation and research."
-    },
-    {
-      year: "2018",
-      title: "International Partnerships",
-      description: "Formed partnerships with international universities for student exchange programs."
-    },
-    {
-      year: "2023",
-      title: "Digital Transformation",
-      description: "Implemented digital learning platforms and smart classrooms across the campus."
-    }
-  ];
-
   return (
     <PageTransition>
       {/* Hero Section */}
       <Hero 
         title="About SVIPS"
-        subtitle="Learn about our history, mission, and values that drive us towards excellence."
+        subtitle="Discover the journey of Sri Vasavi Institute of Pharmaceutical Sciences, a leader in pharmacy education."
         image="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1486&q=80"
         primaryButtonText="Our Programs"
         primaryButtonLink="/courses"
-        secondaryButtonText="Meet Our Team"
-        secondaryButtonLink="/faculty"
+        secondaryButtonText="Contact Us"
+        secondaryButtonLink="/contact"
       />
 
       {/* Leadership & Governance Section */}
@@ -367,7 +362,7 @@ const AboutPage: React.FC = () => {
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Mission & Vision</h2>
               <p className="text-gray-600 mb-6">
-                At Sri Venkateshwara Institute of Professional Studies, we are committed to providing a transformative educational experience that prepares students for successful careers and meaningful lives. Our institution stands on the pillars of academic excellence, innovation, and ethical values.
+                At SVIPS, we are committed to providing transformative education and fostering innovation in pharmaceutical sciences.
               </p>
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -378,7 +373,7 @@ const AboutPage: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="text-xl font-medium text-gray-900">Our Mission</h4>
-                    <p className="text-gray-600">To empower students with knowledge, skills, and values that enable them to excel in their chosen fields and contribute positively to society.</p>
+                    <p className="text-gray-600">Provide quality pharmaceutical education by collaborating with research institutes and industries, nurturing team spirit, professional skills, and ethics among students.</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -389,7 +384,7 @@ const AboutPage: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <h4 className="text-xl font-medium text-gray-900">Our Vision</h4>
-                    <p className="text-gray-600">To be a globally recognized institution known for academic excellence, innovation, and producing leaders who make a difference in the world.</p>
+                    <p className="text-gray-600">To become an eminent institute of pharmaceutical sciences catering to global healthcare needs.</p>
                   </div>
                 </div>
               </div>
