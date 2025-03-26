@@ -4,41 +4,44 @@ const Criteria1: React.FC = () => {
   const tableData = [
     {
       sno: 1,
-      metricNo: '1.1.1',
+      metricNo: '1.1',
       description:
         'The Institution ensures effective curriculum planning and delivery through a well-planned and documented process including Academic calendar and conduct of continuous internal Assessment',
       downloads: [
-        { name: 'Academic Regulations', url: '/pdfs/academic-regulations.pdf' },
-        { name: 'Syllabus', url: '/pdfs/syllabus.pdf' },
-        { name: 'Class Timetable', url: '/pdfs/class-timetable.pdf' },
-        { name: 'All Academic Calendars', url: '/pdfs/academic-calendars.pdf' },
-        { name: 'Midterm Exam Timetable', url: '/pdfs/midterm-exam-timetable.pdf' },
-        { name: 'Seminar and Exam Timetables', url: '/pdfs/seminar-exam-timetables.pdf' },
-        { name: 'Faculty Workload', url: '/pdfs/faculty-workload.pdf' },
-        { name: 'Course File', url: '/pdfs/course-file.pdf' },
+        { name: '2023-24', url: '/uploads/naac/AU Approval Students List-2023-24.pdf' },
+        { name: '2022-23', url: '/uploads/naac/AU Approval Students List-2022-23.pdf' },
+        { name: '2021-22', url: '/uploads/naac/AU Approval Students List-2021-22.pdf' },
+        { name: '2020-21', url: '/uploads/naac/AU Approval Students List-2020-21.pdf' },
+        { name: '2019-20', url: '/uploads/naac/AU Approval Students List-2019-20.pdf' },
       ],
     },
     {
       sno: 2,
-      metricNo: '1.2.1',
-      description:
-        'Number of Add on/Certificate/Value added programs offered during the last five years',
+      metricNo: '2.1',
+      description: 'List of Faculty during last five years',
       downloads: [
-        { name: 'Brochures', url: '/pdfs/brochures.pdf' },
-        { name: 'List of Students Enrolled', url: '/pdfs/students-enrolled.pdf' },
-        { name: 'Attendance Sheets', url: '/pdfs/attendance-sheets.pdf' },
-        { name: 'Summary Reports', url: '/pdfs/summary-reports.pdf' },
-        { name: 'Certificates', url: '/pdfs/certificates.pdf' },
+        { name: 'View', url: '/uploads/naac/2.1 List of Faculty during last five years.pdf' },
       ],
     },
     {
       sno: 3,
-      metricNo: '1.4.1',
-      description:
-        'Institution obtains feedback on the syllabus and its transaction at the institution from stakeholders',
+      metricNo: '2.2',
+      description: '',
       downloads: [
-        { name: 'Feedback Forms', url: '/pdfs/feedback-forms.pdf' },
-        { name: 'Action Taken Reports', url: '/pdfs/action-taken-reports.pdf' },
+        { name: '2023-24', url: '/uploads/naac/2.4.1 Faculty List For-2023-24.pdf' },
+        { name: '2022-23', url: '/uploads/naac/2.4.1 Faculty List For-2022-23.pdf' },
+        { name: '2021-22', url: '/uploads/naac/2.4.1 Faculty List For-2021-22.pdf' },
+        { name: '2020-21', url: '/uploads/naac/2.4.1 Faculty List For-2020-21.pdf' },
+        { name: '2019-20', url: '/uploads/naac/2.4.1 Faculty List For-2019-20.pdf' },
+      ],
+    },
+    {
+      sno: 4,
+      metricNo: '3.1',
+      description: 'Exp Statement excluding Salaries<br>Financial Statement',
+      downloads: [
+        { name: 'Exp Statement excluding Salaries', url: '/uploads/naac/Exp Statement excluding Salaries.pdf' },
+        { name: 'Financial Statement', url: '/uploads/naac/Financial Statement.pdf' },
       ],
     },
   ];

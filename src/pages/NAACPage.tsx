@@ -1,7 +1,23 @@
 import React, { useState } from 'react';
+import DvvCriteria1 from './criteria/dvv/Criteria1'; // Import DVV criteria components
+import DvvCriteria2 from './criteria/dvv/Criteria2';
+import DvvCriteria3 from './criteria/dvv/Criteria3';
+import DvvCriteria4 from './criteria/dvv/Criteria4';
+import DvvCriteria5 from './criteria/dvv/Criteria5';
+import DvvCriteria6 from './criteria/dvv/Criteria6';
+import DvvCriteria7 from './criteria/dvv/Criteria7';
+
+import QualityCriteria1 from './criteria/quality/Criteria1'; // Import Quality Indicator criteria components
+import QualityCriteria2 from './criteria/quality/Criteria2';
+import QualityCriteria3 from './criteria/quality/Criteria3';
+import QualityCriteria4 from './criteria/quality/Criteria4';
+import QualityCriteria5 from './criteria/quality/Criteria5';
+import QualityCriteria6 from './criteria/quality/Criteria6';
+import QualityCriteria7 from './criteria/quality/Criteria7';
 
 const NAACPage: React.FC = () => {
   const [selectedDocument, setSelectedDocument] = useState<string | null>(null);
+  const [selectedCriteria, setSelectedCriteria] = useState<string | null>(null);
 
   const documents = [
     {
@@ -78,36 +94,60 @@ const NAACPage: React.FC = () => {
     },
     {
       id: 7,
-      title: 'Quality Indicator',
-      content: 'Quality Indicator Metrics',
-      table: [
-        { name: 'CRITERIA-I', url: '/criteria/criteria-i' },
-        { name: 'CRITERIA-II', url: '/criteria/criteria-ii' },
-        { name: 'CRITERIA-III', url: '/criteria/criteria-iii' },
-        { name: 'CRITERIA-IV', url: '/criteria/criteria-iv' },
-        { name: 'CRITERIA-V', url: '/criteria/criteria-v' },
-        { name: 'CRITERIA-VI', url: '/criteria/criteria-vi' },
-        { name: 'CRITERIA-VII', url: '/criteria/criteria-vii' },
+      title: 'Quality Indicator Metrics',
+      content: 'Quality Indicator Metrics Content',
+      criteria: [
+        { id: 'criteria-i', title: 'CRITERIA-I', component: <QualityCriteria1 /> },
+        { id: 'criteria-ii', title: 'CRITERIA-II', component: <QualityCriteria2 /> },
+        { id: 'criteria-iii', title: 'CRITERIA-III', component: <QualityCriteria3 /> },
+        { id: 'criteria-iv', title: 'CRITERIA-IV', component: <QualityCriteria4 /> },
+        { id: 'criteria-v', title: 'CRITERIA-V', component: <QualityCriteria5 /> },
+        { id: 'criteria-vi', title: 'CRITERIA-VI', component: <QualityCriteria6 /> },
+        { id: 'criteria-vii', title: 'CRITERIA-VII', component: <QualityCriteria7 /> },
       ],
     },
     {
       id: 8,
       title: 'DVV Clarification Metrics',
       content: 'DVV Clarification Metrics Content',
-      links: [],
+      criteria: [
+        { id: 'criteria-i', title: 'CRITERIA-I', component: <DvvCriteria1 /> },
+        { id: 'criteria-ii', title: 'CRITERIA-II', component: <DvvCriteria2 /> },
+        { id: 'criteria-iii', title: 'CRITERIA-III', component: <DvvCriteria3 /> },
+        { id: 'criteria-iv', title: 'CRITERIA-IV', component: <DvvCriteria4 /> },
+        { id: 'criteria-v', title: 'CRITERIA-V', component: <DvvCriteria5 /> },
+        { id: 'criteria-vi', title: 'CRITERIA-VI', component: <DvvCriteria6 /> },
+        { id: 'criteria-vii', title: 'CRITERIA-VII', component: <DvvCriteria7 /> },
+      ],
     },
-    {
-      id: 9,
-      title: 'Extended Profile Deviations',
-      content: 'Extended Profile Deviations Content',
-      links: [],
-    },
-    {
-      id: 10,
-      title: 'Metric Level Deviations',
-      content: 'Metric Level Deviations Content',
-      links: [],
-    },
+    // {
+    //   id: 9,
+    //   title: 'Extended Profile Deviations',
+    //   content: 'Extended Profile Deviations Content',
+    //   table: [
+    //     { name: 'CRITERIA-I', url: '/criteria/extended-profile-criteria-i' },
+    //     { name: 'CRITERIA-II', url: '/criteria/extended-profile-criteria-ii' },
+    //     { name: 'CRITERIA-III', url: '/criteria/extended-profile-criteria-iii' },
+    //     { name: 'CRITERIA-IV', url: '/criteria/extended-profile-criteria-iv' },
+    //     { name: 'CRITERIA-V', url: '/criteria/extended-profile-criteria-v' },
+    //     { name: 'CRITERIA-VI', url: '/criteria/extended-profile-criteria-vi' },
+    //     { name: 'CRITERIA-VII', url: '/criteria/extended-profile-criteria-vii' },
+    //   ],
+    // },
+    // {
+    //   id: 10,
+    //   title: 'Metric Level Deviations',
+    //   content: 'Metric Level Deviations Content',
+    //   table: [
+    //     { name: 'CRITERIA-I', url: '/criteria/metric-level-criteria-i' },
+    //     { name: 'CRITERIA-II', url: '/criteria/metric-level-criteria-ii' },
+    //     { name: 'CRITERIA-III', url: '/criteria/metric-level-criteria-iii' },
+    //     { name: 'CRITERIA-IV', url: '/criteria/metric-level-criteria-iv' },
+    //     { name: 'CRITERIA-V', url: '/criteria/metric-level-criteria-v' },
+    //     { name: 'CRITERIA-VI', url: '/criteria/metric-level-criteria-vi' },
+    //     { name: 'CRITERIA-VII', url: '/criteria/metric-level-criteria-vii' },
+    //   ],
+    // },
   ];
 
   return (
@@ -137,127 +177,119 @@ const NAACPage: React.FC = () => {
                         ? 'bg-blue-100 text-blue-600 font-semibold'
                         : 'hover:bg-gray-100 text-gray-800'
                     }`}
-                    onClick={() => setSelectedDocument(doc.content)}
+                    onClick={() => {
+                      setSelectedDocument(doc.content);
+                      setSelectedCriteria(null); // Reset criteria selection
+                    }}
                   >
                     {doc.title}
                   </button>
                 </li>
               ))}
+             
             </ul>
           </div>
 
           {/* Content Area */}
           <div className="col-span-3 bg-white p-6 rounded shadow">
-            {selectedDocument === 'Extended Profile Content' ? (
+            {selectedDocument === 'DVV Clarification Metrics Content' ? (
               <div>
-                <h2 className="text-2xl font-semibold text-gray-800 mb-4">Extended Profile</h2>
+                <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                  DVV Clarification Metrics
+                </h2>
+                <ul className="space-y-2">
+                  {documents
+                    .find((doc) => doc.content === selectedDocument)
+                    ?.criteria.map((criterion) => (
+                      <li key={criterion.id}>
+                        <button
+                          className={`w-full text-left px-4 py-2 rounded-lg ${
+                            selectedCriteria === criterion.id
+                              ? 'bg-blue-100 text-blue-600 font-semibold'
+                              : 'hover:bg-gray-100 text-gray-800'
+                          }`}
+                          onClick={() => setSelectedCriteria(criterion.id)}
+                        >
+                          {criterion.title}
+                        </button>
+                      </li>
+                    ))}
+                </ul>
+                {selectedCriteria &&
+                  documents
+                    .find((doc) => doc.content === selectedDocument)
+                    ?.criteria.find((criterion) => criterion.id === selectedCriteria)
+                    ?.component}
+              </div>
+            ) : selectedDocument === 'Quality Indicator Metrics Content' ? (
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                  Quality Indicator Metrics
+                </h2>
+                <ul className="space-y-2">
+                  {documents
+                    .find((doc) => doc.content === selectedDocument)
+                    ?.criteria.map((criterion) => (
+                      <li key={criterion.id}>
+                        <button
+                          className={`w-full text-left px-4 py-2 rounded-lg ${
+                            selectedCriteria === criterion.id
+                              ? 'bg-blue-100 text-blue-600 font-semibold'
+                              : 'hover:bg-gray-100 text-gray-800'
+                          }`}
+                          onClick={() => setSelectedCriteria(criterion.id)}
+                        >
+                          {criterion.title}
+                        </button>
+                      </li>
+                    ))}
+                </ul>
+                {selectedCriteria &&
+                  documents
+                    .find((doc) => doc.content === selectedDocument)
+                    ?.criteria.find((criterion) => criterion.id === selectedCriteria)
+                    ?.component}
+              </div>
+            ) : selectedDocument === 'Extended Profile Content' ? (
+              <div>
+                <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+                  {documents.find((doc) => doc.content === selectedDocument)?.title}
+                </h2>
                 <table className="table-auto w-full border-collapse border border-gray-300">
                   <thead>
-                    <tr>
+                    <tr className="bg-gray-200">
                       <th className="border border-gray-300 px-4 py-2">S.No</th>
                       <th className="border border-gray-300 px-4 py-2">Metric No.</th>
                       <th className="border border-gray-300 px-4 py-2">Metric Description</th>
-                      <th className="border border-gray-300 px-4 py-2">Download</th>
+                      <th className="border border-gray-300 px-4 py-2">Downloads</th>
                     </tr>
                   </thead>
                   <tbody>
                     {documents
-                      .find((doc) => doc.title === 'Extended Profile')
+                      .find((doc) => doc.content === selectedDocument)
                       ?.table.map((row, index) => (
                         <tr key={index}>
                           <td className="border border-gray-300 px-4 py-2 text-center">{row.sno}</td>
                           <td className="border border-gray-300 px-4 py-2 text-center">{row.metricNo}</td>
                           <td className="border border-gray-300 px-4 py-2">{row.description}</td>
                           <td className="border border-gray-300 px-4 py-2">
-                            {row.downloads.map((download, i) => (
-                              <a
-                                key={i}
-                                href={download.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-blue-600 hover:underline mr-2"
-                              >
-                                {download.name}
-                              </a>
-                            ))}
+                            <ul className="list-disc ml-4">
+                              {row.downloads.map((download, i) => (
+                                <li key={i}>
+                                  <a
+                                    href={download.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-600 hover:underline"
+                                  >
+                                    {download.name}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
                           </td>
                         </tr>
                       ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : selectedDocument === 'Quality Indicator Metrics' ? (
-              <div>
-                <h2 className="text-2xl font-semibold text-gray-800 mb-4">Quality Indicator Metrics</h2>
-                <table className="table-auto w-full border-collapse border border-gray-300">
-                  <tbody>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-2 text-center">
-                        <a
-                          href="/criteria/criteria-i"
-                          className="text-yellow-600 hover:underline"
-                        >
-                          CRITERIA-I
-                        </a>
-                      </td>
-                      <td className="border border-gray-300 px-4 py-2 text-center">
-                        <a
-                          href="/criteria/criteria-iv"
-                          className="text-yellow-600 hover:underline"
-                        >
-                          CRITERIA-IV
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-2 text-center">
-                        <a
-                          href="/criteria/criteria-ii"
-                          className="text-yellow-600 hover:underline"
-                        >
-                          CRITERIA-II
-                        </a>
-                      </td>
-                      <td className="border border-gray-300 px-4 py-2 text-center">
-                        <a
-                          href="/criteria/criteria-v"
-                          className="text-yellow-600 hover:underline"
-                        >
-                          CRITERIA-V
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="border border-gray-300 px-4 py-2 text-center">
-                        <a
-                          href="/criteria/criteria-iii"
-                          className="text-yellow-600 hover:underline"
-                        >
-                          CRITERIA-III
-                        </a>
-                      </td>
-                      <td className="border border-gray-300 px-4 py-2 text-center">
-                        <a
-                          href="/criteria/criteria-vi"
-                          className="text-yellow-600 hover:underline"
-                        >
-                          CRITERIA-VI
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td
-                        colSpan={2}
-                        className="border border-gray-300 px-4 py-2 text-center"
-                      >
-                        <a
-                          href="/criteria/criteria-vii"
-                          className="text-yellow-600 hover:underline"
-                        >
-                          CRITERIA-VII
-                        </a>
-                      </td>
-                    </tr>
                   </tbody>
                 </table>
               </div>
