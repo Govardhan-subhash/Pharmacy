@@ -1,5 +1,5 @@
 .animate-scroll {
-  animation: scroll 05s linear infinite; /* Adjust duration as needed */
+  animation: scroll 30s linear infinite; /* Adjust duration as needed */
 }
 
 @keyframes scroll {
@@ -16,6 +16,11 @@
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box-shadow for a shine effect */
   width: 200px; /* Ensure a fixed width for consistent spacing */
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo-container:hover {
+  transform: scale(1.1);
 }
 
 .logo-container::before {
@@ -57,6 +62,11 @@
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   animation: flash 3s linear infinite; /* Add flash animation */
+}
+
+.news-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .news-item .bg-white {
