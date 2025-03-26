@@ -23,19 +23,21 @@ const FacultyCard: React.FC<FacultyCardProps> = ({
   website,
   delay = 0 
 }) => {
+  const imageHeight = 2250 / (1750 / 300); // Calculate height to maintain aspect ratio
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5, delay: delay }}
-      className="bg-white rounded-lg shadow-md overflow-hidden group"
+      className="bg-white rounded-2xl shadow-md overflow-hidden group w-80"
     >
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden rounded-t-2xl">
         <img 
           src={image} 
           alt={name} 
-          className="w-full h-64 object-cover object-center transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-60 object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">

@@ -1,0 +1,129 @@
+.animate-scroll {
+  animation: scroll 05s linear infinite; /* Adjust duration as needed */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0); /* Start from the right side */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the left side */
+  }
+}
+
+.logo-container {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box-shadow for a shine effect */
+  width: 200px; /* Ensure a fixed width for consistent spacing */
+}
+
+.logo-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(163, 13, 13, 0) 0%, rgba(10, 59, 174, 0.3) 100%);
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+.animate-scroll-news {
+  animation: scrollNews 20s linear infinite; /* Adjust duration as needed */
+}
+
+@keyframes scrollNews {
+  0% {
+    transform: translateX(0); /* Start from the right side */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to the left side */
+  }
+}
+
+.news-item {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  animation: flash 3s linear infinite; /* Add flash animation */
+}
+
+.news-item .bg-white {
+  transition: background-color 0.3s ease;
+}
+
+.news-item:hover .bg-white {
+  background-color: #d0e9ff; /* Subtle light blue background color change on hover */
+}
+
+.news-item.active {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+@keyframes flash {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.7); /* More visible blue shadow */
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.9); /* More intense blue shadow */
+    transform: scale(1.03); /* Slight scale up for emphasis */
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .animate-scroll {
+    animation: scrollMobile 5s linear infinite; /* Adjust logo scroll speed for mobile */
+  }
+
+  @keyframes scrollMobile {
+    0% {
+      transform: translateX(100%); /* Start from the right side */
+    }
+    100% {
+      transform: translateX(-100%); /* Move to the left side */
+    }
+  }
+
+  .animate-scroll-news {
+    animation: scrollNewsMobile 30s linear infinite; /* Adjust news scroll speed for mobile */
+  }
+
+  @keyframes scrollNewsMobile {
+    0% {
+      transform: translateX(0); /* Start from the right side */
+    }
+    100% {
+      transform: translateX(-100%); /* Move to the left side */
+    }
+  }
+
+  .news-item {
+    width: 80vw; /* Adjust news item width for mobile */
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .logo-container {
+    width: 50vw; /* Adjust logo container width for mobile */
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+  }
+
+  .logo-container img {
+    max-height: 15vw; /* Adjust logo image max-height for mobile */
+  }
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   BookOpen, 
@@ -17,12 +17,14 @@ import 'swiper/css/navigation';
 import PageTransition from '../components/PageTransition';
 import Hero from '../components/Hero';
 import SectionHeading from '../components/SectionHeading';
-import CourseCard from '../components/CourseCard';
+// import CourseCard from '../components/CourseCard';
 import FacultyCard from '../components/FacultyCard';
 import EventCard from '../components/EventCard';
 import TestimonialCard from '../components/TestimonialCard';
 import StatsSection from '../components/StatsSection';
-import CTASection from '../components/CTASection';
+// import CTASection from '../components/CTASection';
+import companyLogos from '../data/companyLogos.json';
+import './HomePage.css';
 
 const HomePage: React.FC = () => {
   // Sample data for courses
@@ -59,28 +61,44 @@ const HomePage: React.FC = () => {
   // Sample data for faculty
   const faculty = [
     {
-      name: "Dr. Priya Sharma",
-      title: "Dean, School of Business",
-      bio: "Ph.D. in Business Management with over 15 years of experience in academia and industry consulting.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80",
+      name: "Dr.V. Bhaskara Raju",
+      title: "Principal & Hod , Pharmaceutical Analysis",
+      bio: "M.Pharm,Ph.D",
+      image: "https://www.svips.ac.in/image/1.jpg",
       linkedin: "#",
-      email: "priya.sharma@svips.edu.in"
+      email: " principal@svips.ac.in"
     },
     {
-      name: "Prof. Rajesh Kumar",
-      title: "Head, Computer Science Department",
-      bio: "M.Tech in Computer Science with expertise in AI and Machine Learning. Former tech lead at a leading IT company.",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      name: "Dr.P.Narayana Raju",
+      title: "Head, pharmaceutics",
+      bio: "M.Pharm,Ph.D",
+      image: "https://www.svips.ac.in/image/2.jpg",
       linkedin: "#",
-      email: "rajesh.kumar@svips.edu.in"
+      email: "narayanaraju@svips.ac.in"
     },
     {
-      name: "Dr. Anita Desai",
-      title: "Professor, Economics",
-      bio: "Ph.D. in Economics with research focus on developmental economics and policy making. Published author of multiple research papers.",
-      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+      name: "Dr.Y. B. Manjulatha",
+      title: "Head, Pharmaceutical Bio-Technology",
+      bio: "M.Pharm,Ph.D",
+      image: "https://www.svips.ac.in/image/3.jpg",
       linkedin: "#",
-      email: "anita.desai@svips.edu.in"
+      email: "manjulatha@svips.ac.in"
+    },
+    {
+      name:"Dr. M. Srinivasu",
+      title: "Head, Pharmacology",
+      bio: "M.Pharm,Ph.D",
+      image: "https://www.svips.ac.in/image/4.jpg",
+      linkedin: "#",
+      email: "srinivasu@svips.ac.in"
+    },
+    {
+      name: "Dr. X. Antro Jennie",
+      title: "Head, Pharmaceutical Chemistry",
+      bio: "M.Pharm,Ph.D",
+      image: "https://www.svips.ac.in/image/5.jpg",
+      linkedin: "#",
+      email: "xantrojennie@gmail.com"
     }
   ];
 
@@ -140,6 +158,46 @@ const HomePage: React.FC = () => {
     }
   ];
 
+  // Sample data for news
+  const news = [
+    {
+      id: 1,
+      title: "SVIPS Announces New Pharmacy Program",
+      content: "Sri Vasavi Institute of Pharmaceutical Sciences is excited to announce the launch of a new Bachelor of Pharmacy program starting in the fall semester of 2024.",
+      date: "July 10, 2024"
+    },
+    {
+      id: 2,
+      title: "Faculty Member Receives Prestigious Award",
+      content: "Dr. Priya Sharma has been awarded the 'Excellence in Pharmaceutical Research' award for her contributions to the field.",
+      date: "July 5, 2024"
+    },
+    {
+      id: 3,
+      title: "SVIPS Hosts National Conference on Drug ",
+      content: "The institute successfully hosted a national conference on drug discovery, attracting researchers and experts from across the country.",
+      date: "June 28, 2024"
+    }
+  ];
+
+  const duplicatedNews = [...news, ...news, ...news];
+
+  const [activeNewsId, setActiveNewsId] = useState<number | null>(null);
+  const [activeNews, setActiveNews] = useState<{ id: number; title: string; content: string; date: string } | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleNewsClick = (item: { id: number; title: string; content: string; date: string }) => {
+    setActiveNews(item === activeNews ? null : item);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.style.animationPlayState = item.id === activeNews?.id ? 'running' : 'paused';
+    }
+  };
+
+  // Ensure there are enough duplicated logos to fill the container
+  const logoCount = companyLogos.length;
+  const repeatCount = 5; // Repeat logos at least 5 times
+  const duplicatedLogos = Array(repeatCount).fill(companyLogos).flat();
+
   return (
     <PageTransition>
       {/* Hero Section */}
@@ -152,6 +210,48 @@ const HomePage: React.FC = () => {
         secondaryButtonText="Get in Touch"
         secondaryButtonLink="/contact"
       />
+
+      {/* News Section */}
+      <section className="py-8 bg-gray-100">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            title="Latest News"
+            subtitle="Stay updated with the latest news and announcements from SVIPS."
+          />
+          <div className="overflow-x-hidden relative">
+            <div
+              className="animate-scroll-news flex whitespace-nowrap py-4"
+              ref={scrollContainerRef}
+            >
+              {duplicatedNews.map(item => (
+                <div
+                  key={item.id}
+                  className="mx-4 flex-shrink-0 w-[400px] news-item"
+                  onClick={() => handleNewsClick(item)}
+                >
+                  <div className="bg-white rounded-lg shadow-md p-4">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* News Pop-up */}
+      {activeNews && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={() => handleNewsClick(activeNews)}>
+          <div className="bg-white rounded-lg p-8 max-w-md mx-auto" onClick={(e) => e.stopPropagation()}>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">{activeNews.title}</h3>
+            <p className="text-gray-700 mb-4">{activeNews.content}</p>
+            <p className="text-gray-500 text-sm">Date: {activeNews.date}</p>
+            <button onClick={() => handleNewsClick(activeNews)} className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Close
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* About Section */}
       <section id="about" className="py-16 md:py-24 bg-gray-50">
@@ -322,19 +422,40 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
             title="Our Faculty"
             subtitle="Meet our team of experienced educators and industry professionals dedicated to student success."
           />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {faculty.map((member, index) => (
-              <FacultyCard 
-                key={member.name}
-                name={member.name}
-                title={member.title}
-                bio={member.bio}
-                image={member.image}
-                linkedin={member.linkedin}
-                email={member.email}
-                delay={index * 0.1}
-              />
-            ))}
+          <div className="grid grid-cols-1 gap-8">
+            {/* First row with one faculty member */}
+            {faculty.length > 0 && (
+              <div className="flex justify-center">
+                <FacultyCard
+                  key={faculty[0].name}
+                  name={faculty[0].name}
+                  title={faculty[0].title}
+                  bio={faculty[0].bio}
+                  image={faculty[0].image}
+                  linkedin={faculty[0].linkedin}
+                  email={faculty[0].email}
+                  delay={0}
+                  className="h-48"
+                />
+              </div>
+            )}
+
+            {/* Second row with the remaining faculty members */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {faculty.slice(1).map((member, index) => (
+                <FacultyCard
+                  key={member.name}
+                  name={member.name}
+                  title={member.title}
+                  bio={member.bio}
+                  image={member.image}
+                  linkedin={member.linkedin}
+                  email={member.email}
+                  delay={(index + 1) * 0.1}
+                  className="h-48"
+                />
+              ))}
+            </div>
           </div>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -428,15 +549,31 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
         </div>
       </section>
 
-      {/* CTA Section */}
-      <CTASection 
-        title="Ready to Start Your Journey?"
-        subtitle="Applications for the 2025-26 academic year are now open. Take the first step towards a successful career."
-        primaryButtonText="Apply Now"
-        primaryButtonLink="/admissions"
-        secondaryButtonText="Download Brochure"
-        secondaryButtonLink="#"
-      />
+      {/* Companies Visited Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            title="Companies Visited"
+            subtitle="Our students have been placed in top companies across various sectors."
+          />
+          <div className="overflow-x-hidden relative">
+            <div className="animate-scroll flex whitespace-nowrap py-4">
+              {duplicatedLogos.map((company, index) => (
+                <div key={index} className="mx-2 flex-shrink-0 logo-container">
+                  {/* Adjust width as needed */}
+                  <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-md">
+                    <img
+                      src={company.logo}
+                      alt={company.name}
+                      className="max-h-20 max-w-full object-contain"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div> 
+        </div>
+      </section>
     </PageTransition>
   );
 };
