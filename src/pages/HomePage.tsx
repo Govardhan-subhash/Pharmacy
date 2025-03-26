@@ -429,7 +429,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }} // Trigger animation every time it comes into view
-        transition={{ duration: 1.2, delay: 0.3 }} // Increased duration and delay
+        transition={{ duration: 1.2, delay: 0.2 }} // Increased duration and delay
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading 
@@ -441,7 +441,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false }} // Trigger animation every time it comes into view
-            transition={{ duration: 1, delay: 0.4 }} // Increased delay
+            transition={{ duration: 1, delay: 0.2 }} // Increased delay
           >
             {/* First row with one faculty member */}
             {faculty.length > 0 && (
@@ -518,7 +518,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="text-center mt-12"
           >
             <Link to="/events" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors duration-300">
@@ -534,7 +534,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.5 }}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading 
@@ -583,7 +583,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1.0, delay: 0.2 }}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
