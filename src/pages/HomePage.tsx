@@ -16,7 +16,6 @@ import 'swiper/css/navigation';
 
 import PageTransition from '../components/PageTransition';
 import Hero from '../components/Hero';
-import SectionHeading from '../components/SectionHeading';
 // import CourseCard from '../components/CourseCard';
 import FacultyCard from '../components/FacultyCard';
 import EventCard from '../components/EventCard';
@@ -25,6 +24,38 @@ import StatsSection from '../components/StatsSection';
 // import CTASection from '../components/CTASection';
 import companyLogos from '../data/companyLogos.json';
 import './HomePage.css';
+
+const letterAnimation = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.05,
+      duration: 0.5,
+    },
+  }),
+};
+
+const AnimatedSectionHeading: React.FC<{ title: string; subtitle: string }> = ({ title, subtitle }) => (
+  <div className="text-center mb-12">
+    <h2 className="text-3xl font-bold text-gray-900 mb-4">
+      {title.split('').map((char, index) => (
+        <motion.span
+          key={index}
+          custom={index}
+          variants={letterAnimation}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false }} // Trigger animation every time it comes into view
+        >
+          {char === ' ' ? '\u00A0' : char}
+        </motion.span>
+      ))}
+    </h2>
+    <p className="text-gray-600">{subtitle}</p>
+  </div>
+);
 
 const HomePage: React.FC = () => {
   // Sample data for courses
@@ -214,7 +245,7 @@ const HomePage: React.FC = () => {
       {/* News Section */}
       <section className="py-8 bg-gray-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
+          <AnimatedSectionHeading
             title="Latest News"
             subtitle="Stay updated with the latest news and announcements from SVIPS."
           />
@@ -263,7 +294,7 @@ const HomePage: React.FC = () => {
         transition={{ duration: 1.2, delay: 0.2 }} // Increased duration and added delay
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading 
+          <AnimatedSectionHeading 
             title="About SVIPS"
             subtitle="Sri Vasavi Institute of Pharmaceutical Sciences is dedicated to providing quality education, fostering research, and developing skilled professionals in the pharmaceutical field."
           />
@@ -432,7 +463,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
         transition={{ duration: 1.2, delay: 0.3 }} // Increased duration and delay
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading 
+          <AnimatedSectionHeading 
             title="Our Faculty"
             subtitle="Meet our team of experienced educators and industry professionals dedicated to student success."
           />
@@ -490,7 +521,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
         transition={{ duration: 1.2, delay: 0.4 }} // Increased duration and delay
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading 
+          <AnimatedSectionHeading 
             title="Upcoming Events"
             subtitle="Stay updated with our latest events, workshops, and seminars."
           />
@@ -537,7 +568,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
         transition={{ duration: 0.8 }}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading 
+          <AnimatedSectionHeading 
             title="Student Testimonials"
             subtitle="Hear what our students have to say about their experience at SVIPS."
           />
@@ -586,7 +617,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
         transition={{ duration: 0.8 }}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
+          <AnimatedSectionHeading
             title="Companies Visited"
             subtitle="Our students have been placed in top companies across various sectors."
           />

@@ -38,10 +38,8 @@ const leadershipMessages: LeadershipMessage[] = [
     name: "Sri Grandhi Satyanarayana",
     role: "President",
     message: [
-      "With immense pleasure, I welcome you all to Sri Venkateshwara Institute of Professional Studies (SVIPS).",
-      "Our President has extensive experience in the education field, successfully managing GMR Educational Institutions for over 16 years.",
-      "Under his leadership, SVIPS has grown to become a premier institution for pharmaceutical education.",
-      "We are committed to providing quality education and producing skilled professionals who contribute to the healthcare sector."
+      "Our President, Sri. Grandhi Satyanarayana has good experience in the education field.",
+      "He has been running a school, colleges, and degree colleges in the name of GMR Educational Institutions for the last 16 years."
     ],
     image: "https://www.svips.ac.in/image/president.jpeg"
   },
@@ -49,22 +47,26 @@ const leadershipMessages: LeadershipMessage[] = [
     title: "Secretary's Message",
     name: "Sri Ch.V.V Subba Rao",
     role: "Secretary",
-    message:["Our Secretary & Correspondent, Sri Chalamcharla V.V.Subba Rao is a personality with an enhanced caliber of leadership and assertive skills.", 
-      "These qualities contribute to the elevation of the institution in a big way.", 
-      "He revels in shaping the career of the students with his unparalleled vision and mission.", 
-      "He also has plans to extend his vision and goals across the man-made barriers and wish to earn global reputation."],
-     
+    message: [
+      "Our Secretary & Correspondent, Sri Chalamcharla V.V.Subba Rao is a personality with an enhanced caliber of leadership and assertive skills.",
+      "These qualities contribute to the elevation of the institution in a big way.",
+      "He revels in shaping the career of the students with his unparalleled vision and mission.",
+      "He also has plans to extend his vision and goals across the man-made barriers and wishes to earn a global reputation."
+    ],
     image: "https://www.svips.ac.in/image/secretary.JPG"
   },
   {
     title: "Principal's Message",
-    name: "Dr. K. Padmalatha",
+    name: "Dr. Bhaskara Raju Vatchavai",
     role: "Principal",
     message: [
-      "As the Principal of SVIPS, I'm proud to lead an institution dedicated to pharmaceutical excellence.",
-      "We provide comprehensive pharmaceutical education with a perfect blend of theory and practical training.",
-      "Our focus is on developing skilled professionals ready to meet industry demands.",
-      "We encourage research, innovation, and continuous learning among our students and faculty."
+      "Dr. Bhaskara Raju Vatchavai is working as Principal & Professor at Sri Vasavi Institute of Pharmaceutical Sciences, Tadepalligudem West Godavari District, Andhra Pradesh-534101.",
+      "Dr. Bhaskara Raju Vatchavai completed his B.Pharmacy from SRM College of Pharmacy, Chennai and M.Pharmacy from JSS College of Pharmacy OOTY.",
+      "Dr. Raju was awarded the degree of Doctor of Philosophy (Ph.D) in Pharmaceutical Sciences in December 2013 by Acharya Nagarjuna University, Guntur, Andhra Pradesh.",
+      "He has 17 years of experience in Pharmaceutical Industry, Teaching, and Research activities and has guided 32 postgraduate students.",
+      "He has to his credit 30 scientific research papers in reputed indexed National and International journals.",
+      "He is Chairperson, Co-Chairperson, and Evaluator for oral and poster presentations in National and International Conferences and Seminars.",
+      "He is a Life Member of various professional bodies, including the Association of Pharmaceutical Teachers of India."
     ],
     image: "https://www.svips.ac.in/image/principal.jpg"
   }
@@ -190,31 +192,14 @@ const AboutPage: React.FC = () => {
             title="Leadership & Governance"
             subtitle="Meet the visionaries leading our institution"
           />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            {/* Quality Policy */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
-              onClick={() => setSelectedModal({
-                title: "Quality Policy",
-                content: "Our institution is committed to maintaining high standards...",
-                image: "https://example.com/quality.jpg"
-              })}
-            >
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Policy</h3>
-              <p className="text-gray-600 line-clamp-3">Click to view our quality policy and commitment to excellence.</p>
-            </motion.div>
-
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
             {/* Leadership Messages */}
             {leadershipMessages.map((message, index) => (
               <motion.div
                 key={message.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ margin: "-100px" }} // Removed `once: true`
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-white rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow overflow-hidden"
                 onClick={() => setSelectedModal({
@@ -262,81 +247,215 @@ const AboutPage: React.FC = () => {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+            {/* Quality Policy */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ margin: "-100px" }} // Removed `once: true`
+              transition={{ duration: 0.5 }}
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
+              onClick={() => setSelectedModal({
+                title: "Quality Policy",
+                content: (
+                  <div className="space-y-4">
+                    <p>
+                      At Sri Vasavi Institute of Pharmaceutical Sciences, we are dedicated to upholding the highest standards of quality in all aspects of our educational and research endeavors. Our commitment to excellence permeates every facet of our institution, guiding our actions and decisions to ensure the best possible outcomes for our students, faculty, and stakeholders.
+                    </p>
+                    <h4 className="text-lg font-bold text-gray-900">Our Quality Policy is founded on the following principles:</h4>
+                    <ul className="list-disc list-inside space-y-2">
+                      <li>
+                        <strong>Academic Excellence:</strong> We strive to provide a rigorous academic environment that fosters intellectual growth, critical thinking, and professional development among our students. Our faculty members are dedicated to delivering quality education through innovative teaching methodologies and comprehensive curriculum.
+                      </li>
+                      <li>
+                        <strong>Research Integrity:</strong> We uphold the principles of scientific integrity and ethical conduct in all research activities conducted within our institution. Our research endeavors are characterized by transparency, reproducibility, and adherence to the highest standards of scholarly rigor.
+                      </li>
+                      <li>
+                        <strong>Continuous Improvement:</strong> We are committed to continuous improvement in all aspects of our operations. Through ongoing assessment, evaluation, and feedback mechanisms, we identify areas for enhancement and implement proactive measures to optimize our educational programs, facilities, and support services.
+                      </li>
+                      <li>
+                        <strong>Compliance and Accreditation:</strong> We adhere to all relevant regulatory requirements and accreditation standards governing pharmaceutical education and research. Our programs undergo rigorous evaluation to ensure alignment with industry best practices and to maintain accreditation from recognized accrediting bodies.
+                      </li>
+                      <li>
+                        <strong>Stakeholder Engagement:</strong> We actively engage with our stakeholders, including students, faculty, alumni, industry partners, and the community, to solicit feedback, foster collaboration, and address their evolving needs and expectations. By listening attentively and responding thoughtfully, we cultivate strong relationships built on trust and mutual respect.
+                      </li>
+                      <li>
+                        <strong>Safety and Well-being:</strong> We prioritize the safety, health, and well-being of our students, faculty, staff, and visitors. We maintain a safe and conducive learning environment, promote wellness initiatives, and adhere to established health and safety protocols to mitigate risks and ensure the welfare of our community members.
+                      </li>
+                    </ul>
+                    <p>
+                      Through our unwavering commitment to quality, we endeavor to empower our students to become competent, compassionate, and ethical healthcare professionals who contribute meaningfully to society and advance the field of pharmaceutical sciences.
+                    </p>
+                    <p className="italic">
+                      *Note: Our Quality Policy is subject to periodic review and updates to reflect our ongoing commitment to quality improvement.*
+                    </p>
+                  </div>
+                ),
+                image: "https://svips.ac.in/images/quality.jpg"
+              })}
+            >
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src="https://svips.ac.in/images/quality.jpg"
+                  alt="Quality Policy"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Policy</h3>
+                <p className="text-gray-600 line-clamp-3">Click to view our quality policy and commitment to excellence.</p>
+                <button className="mt-4 text-blue-600 font-medium hover:text-blue-700">
+                  Read more →
+                </button>
+              </div>
+            </motion.div>
 
             {/* Governing Body */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ margin: "-100px" }} // Removed `once: true`
               transition={{ duration: 0.5 }}
               className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
               onClick={() => setSelectedModal({
-                title: "Govering Body",
-                content: "The governing body of our institution comprises...",
-                image: "https://example.com/governing-body.jpg"
+                title: "Governing Body",
+                content: (
+                  <div className="space-y-4">
+                    <p>
+                      Board of governance is a deciding component of organizational effectiveness and a crucial part of the functioning life of organizations. Good governance ensures that objectives are realized, resources are well managed, and the interests of stakeholders are protected and reflected in key decisions.
+                    </p>
+                    <p>
+                      The following is the Board of Governance (BOG) of Sri Vasavi Institute Of Pharmaceutical Sciences:
+                    </p>
+                    <table className="table-auto w-full border-collapse border border-gray-300 text-left text-gray-600">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="border border-gray-300 px-4 py-2">S.No</th>
+                          <th className="border border-gray-300 px-4 py-2">Name</th>
+                          <th className="border border-gray-300 px-4 py-2">Designation</th>
+                          <th className="border border-gray-300 px-4 py-2">Position</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2">1</td>
+                          <td className="border border-gray-300 px-4 py-2">Sri O.P.Goenka</td>
+                          <td className="border border-gray-300 px-4 py-2">Technical director, FFF Ltd., Tadepalligudem</td>
+                          <td className="border border-gray-300 px-4 py-2">Chairman</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2">2</td>
+                          <td className="border border-gray-300 px-4 py-2">Sri Ch.S.N.Murthy</td>
+                          <td className="border border-gray-300 px-4 py-2">Vice President, Vasavi educational society</td>
+                          <td className="border border-gray-300 px-4 py-2">Member</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2">3</td>
+                          <td className="border border-gray-300 px-4 py-2">Sri. Ch.V.V.Subba Rao</td>
+                          <td className="border border-gray-300 px-4 py-2">Secretary and Correspondent, Vasavi educational society</td>
+                          <td className="border border-gray-300 px-4 py-2">Member</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2">4</td>
+                          <td className="border border-gray-300 px-4 py-2">Sri. P.Venkateswara Rao</td>
+                          <td className="border border-gray-300 px-4 py-2">Joint Secretary, Vasavi educational society</td>
+                          <td className="border border-gray-300 px-4 py-2">Member</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2">5</td>
+                          <td className="border border-gray-300 px-4 py-2">Sri. P.Bala Kasaiah</td>
+                          <td className="border border-gray-300 px-4 py-2">Treasurer, Vasavi educational society</td>
+                          <td className="border border-gray-300 px-4 py-2">Member</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2">6</td>
+                          <td className="border border-gray-300 px-4 py-2">Dr. V.Bhaskara Raju</td>
+                          <td className="border border-gray-300 px-4 py-2">Principal & HOD, Pharmaceutical Analysis, SVIPS</td>
+                          <td className="border border-gray-300 px-4 py-2">Member Secretary</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2">7</td>
+                          <td className="border border-gray-300 px-4 py-2">Dr. Y.B.Manjulatha</td>
+                          <td className="border border-gray-300 px-4 py-2">HOD, Pharmaceutical Biotechnology, SVIPS</td>
+                          <td className="border border-gray-300 px-4 py-2">Member</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2">8</td>
+                          <td className="border border-gray-300 px-4 py-2">The Regional Officer</td>
+                          <td className="border border-gray-300 px-4 py-2">To be nominated</td>
+                          <td className="border border-gray-300 px-4 py-2">Member</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 px-4 py-2">9</td>
+                          <td className="border border-gray-300 px-4 py-2">University Nominee</td>
+                          <td className="border border-gray-300 px-4 py-2">To be nominated</td>
+                          <td className="border border-gray-300 px-4 py-2">Member</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                ),
+                image: "https://assets.6sigma.com/wp-content/uploads/2017/06/governing-body.jpg?x97426"
               })}
             >
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Governing Body</h3>
-              <p className="text-gray-600 line-clamp-3">Learn about our governing body and leadership structure.</p>
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src="https://assets.6sigma.com/wp-content/uploads/2017/06/governing-body.jpg?x97426"
+                  alt="Governing Body"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Governing Body</h3>
+                <p className="text-gray-600 line-clamp-3">Learn about our governing body and leadership structure.</p>
+                <button className="mt-4 text-blue-600 font-medium hover:text-blue-700">
+                  Read more →
+                </button>
+              </div>
             </motion.div>
 
             {/* Organogram */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ margin: "-100px" }} // Removed `once: true`
               transition={{ duration: 0.5 }}
               className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
               onClick={() => setSelectedModal({
                 title: "Organogram",
-                content: "View our organizational structure and hierarchy.",
-                image: "https://example.com/organogram.jpg"
-              })}
-            >
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Organogram</h3>
-              <p className="text-gray-600 line-clamp-3">View our organizational structure</p>
-            </motion.div>
-
-            {/* Departments */}
-            {departments.map((dept, index) => (
-              <motion.div
-                key={dept.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
-                onClick={() => setSelectedModal({
-                  title: dept.name,
-                  content: (
-                    <div>
-                      <p className="font-medium text-gray-900 mb-2">HOD: {dept.hodName}</p>
-                      <p className="text-gray-600">{dept.description}</p>
+                content: (
+                  <div className="space-y-4">
+                    <p>
+                      View our organizational structure and hierarchy below:
+                    </p>
+                    <div className="h-96 overflow-y-auto border border-gray-300 rounded-lg">
+                      <img 
+                        src="https://svips.ac.in/image/organogram.png" 
+                        alt="Organogram" 
+                        className="w-full object-contain"
+                      />
                     </div>
-                  ),
-                  image: dept.image
-                })}
-              >
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{dept.name}</h3>
-                <p className="text-gray-600 line-clamp-3">Click to learn more about the department</p>
-              </motion.div>
-            ))}
-
-            {/* Affiliations */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
-              onClick={() => setSelectedModal({
-                title: "Affiliations",
-                content: "Our institution is proudly affiliated with...",
-                image: "https://example.com/affiliations.jpg"
+                  </div>
+                ),
+                image: null // No header image for this modal
               })}
             >
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Affiliations</h3>
-              <p className="text-gray-600 line-clamp-3">View our institutional affiliations and partnerships</p>
+              <div className="h-48 overflow-hidden">
+                <img 
+                  src="https://img3.stockfresh.com/files/s/simo988/m/83/4930036_stock-vector-business-hierarchy-structure.jpg"
+                  alt="Organogram"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">Organogram</h3>
+                <p className="text-gray-600 line-clamp-3">View our organizational structure.</p>
+                <button className="mt-4 text-blue-600 font-medium hover:text-blue-700">
+                  Read more →
+                </button>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -362,12 +481,12 @@ const AboutPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }}
               transition={{ duration: 0.7 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Mission & Vision</h2>
               <p className="text-gray-600 mb-6">
-                At Sri Venkateshwara Institute of Professional Studies, we are committed to providing a transformative educational experience that prepares students for successful careers and meaningful lives. Our institution stands on the pillars of academic excellence, innovation, and ethical values.
+                At Sri Vasavi Institute Of Pharmaceutical And Sciences, we are committed to providing a transformative educational experience that prepares students for successful careers and meaningful lives. Our institution stands on the pillars of academic excellence, innovation, and ethical values.
               </p>
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -397,15 +516,15 @@ const AboutPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }}
               transition={{ duration: 0.7 }}
               className="relative"
             >
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-600 rounded-lg opacity-20 animate-pulse-slow"></div>
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-blue-600 rounded-lg opacity-20 animate-pulse-slow" style={{ animationDelay: "1s" }}></div>
               <img 
-                src="https://images.unsplash.com/photo-1517486808906-6ca8b3f8e1c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" 
-                alt="SVIPS Mission" 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYlojiriOuI0Y2aSdBF6BklEe18vUxD5mobA&s" 
+                alt="Vision and Mission" 
                 className="rounded-lg shadow-lg w-full h-auto relative z-10"
               />
             </motion.div>
@@ -424,9 +543,9 @@ const AboutPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }} // Removed `once: true`
               transition={{ duration: 0.5 }}
-              className="bg-white p-8 rounded-lg shadow-md"
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
             >
               <div className="bg-blue-100 rounded-full p-3 w-14 h-14 flex items-center justify-center mb-6">
                 <BookOpen className="h-7 w-7 text-blue-600" />
@@ -439,9 +558,9 @@ const AboutPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }} // Removed `once: true`
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white p-8 rounded-lg shadow-md"
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
             >
               <div className="bg-blue-100 rounded-full p-3 w-14 h-14 flex items-center justify-center mb-6">
                 <Award className="h-7 w-7 text-blue-600" />
@@ -454,9 +573,9 @@ const AboutPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }} // Removed `once: true`
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white p-8 rounded-lg shadow-md"
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
             >
               <div className="bg-blue-100 rounded-full p-3 w-14 h-14 flex items-center justify-center mb-6">
                 <Users className="h-7 w-7 text-blue-600" />
@@ -469,9 +588,9 @@ const AboutPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }} // Removed `once: true`
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-white p-8 rounded-lg shadow-md"
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
             >
               <div className="bg-blue-100 rounded-full p-3 w-14 h-14 flex items-center justify-center mb-6">
                 <Lightbulb className="h-7 w-7 text-blue-600" />
@@ -484,9 +603,9 @@ const AboutPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }} // Removed `once: true`
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-white p-8 rounded-lg shadow-md"
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
             >
               <div className="bg-blue-100 rounded-full p-3 w-14 h-14 flex items-center justify-center mb-6">
                 <Heart className="h-7 w-7 text-blue-600" />
@@ -499,9 +618,9 @@ const AboutPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }} // Removed `once: true`
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="bg-white p-8 rounded-lg shadow-md"
+              className="bg-white p-6 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow"
             >
               <div className="bg-blue-100 rounded-full p-3 w-14 h-14 flex items-center justify-center mb-6">
                 <Target className="h-7 w-7 text-blue-600" />
