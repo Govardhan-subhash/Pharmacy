@@ -19,6 +19,7 @@ const NAACPage: React.FC = () => {
   const [selectedDocument, setSelectedDocument] = useState<string | null>(null);
   const [selectedCriteria, setSelectedCriteria] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false); // State for mobile dropdown menu
+  const [pdfUrl, setPdfUrl] = useState<string | null>(null); // State for the PDF URL to display in the modal
 
   const documents = [
     {
@@ -71,24 +72,26 @@ const NAACPage: React.FC = () => {
           metricNo: '1.1',
           description: 'AU Approvals Students List',
           downloads: [
-            { name: '2023-24', url: '/pdfs/au-approvals-2023-24.pdf' },
-            { name: '2022-23', url: '/pdfs/au-approvals-2022-23.pdf' },
-            { name: '2021-22', url: '/pdfs/au-approvals-2021-22.pdf' },
+            { name: '2023-24', url: 'public/uploads/pdfs/au-approvals-2023-24.pdf' },
+            { name: '2022-23', url: 'public/uploads/pdfs/au-approvals-2022-23.pdf' },
+            { name: '2021-22', url: 'public/uploads/pdfs/au-approvals-2021-22.pdf' },
+            { name: '2020-21', url: 'public/uploads/pdfs/au-approvals-2020-21.pdf' },
+            { name: '2019-20', url: 'public/uploads/pdfs/au-approvals-2019-20.pdf' }
           ],
         },
         {
           sno: 2,
           metricNo: '2.1',
           description: 'List of Faculty during last five years',
-          downloads: [{ name: 'View', url: '/pdfs/faculty-list.pdf' }],
+          downloads: [{ name: 'View', url: 'public/uploads/pdfs/faculty-list.pdf' }],
         },
         {
           sno: 3,
           metricNo: '3.1',
           description: 'Exp Statement excluding Salaries',
           downloads: [
-            { name: 'View', url: '/pdfs/exp-statement.pdf' },
-            { name: 'Financial Statement', url: '/pdfs/financial-statement.pdf' },
+            { name: 'View', url: 'public/pdfs/exp-statement.pdf' },
+            { name: 'Financial Statement', url: '/uploads/pdfs/financial-statement.pdf' },
           ],
         },
       ],
@@ -286,14 +289,12 @@ const NAACPage: React.FC = () => {
                             <ul className="list-disc ml-4">
                               {row.downloads.map((download, i) => (
                                 <li key={i}>
-                                  <a
-                                    href={download.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                  <button
+                                    onClick={() => setPdfUrl(download.url)}
                                     className="text-blue-600 hover:underline"
                                   >
                                     {download.name}
-                                  </a>
+                                  </button>
                                 </li>
                               ))}
                             </ul>
@@ -335,6 +336,30 @@ const NAACPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* PDF Modal */}
+      {pdfUrl && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-3/4 lg:w-1/2">
+            <div className="flex justify-between items-center p-4 border-b">
+              <h2 className="text-lg font-semibold">PDF Viewer</h2>
+              <button
+                onClick={() => setPdfUrl(null)}
+                className="text-gray-600 hover:text-gray-800"
+              >
+                Close
+              </button>
+            </div>
+            <div className="p-4">
+              <embed
+                src={pdfUrl}
+                type="application/pdf"
+                className="w-full h-96"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
