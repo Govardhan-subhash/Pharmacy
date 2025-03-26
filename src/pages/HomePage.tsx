@@ -254,7 +254,14 @@ const HomePage: React.FC = () => {
       )}
 
       {/* About Section */}
-      <section id="about" className="py-16 md:py-24 bg-gray-50">
+      <motion.section
+        id="about"
+        className="py-16 md:py-24 bg-gray-50"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 1.2, delay: 0.2 }} // Increased duration and added delay
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading 
             title="About SVIPS"
@@ -286,8 +293,8 @@ const HomePage: React.FC = () => {
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 1, delay: 0.3 }} // Increased delay
               className="relative"
             >
               <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-600 rounded-lg opacity-20 animate-pulse-slow"></div>
@@ -301,8 +308,8 @@ const HomePage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 1, delay: 0.4 }} // Increased delay
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision & Mission</h3>
               <p className="text-gray-600 mb-6">      
@@ -312,7 +319,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                   className="flex items-start"
                 >
@@ -329,7 +336,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="flex items-start"
                 >
@@ -346,7 +353,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
                 <motion.div 
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                   className="flex items-start"
                 >
@@ -364,7 +371,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
                 <Link to="/about" className="mt-8 inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors duration-300">
@@ -374,7 +381,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
             </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Courses Section
       <section id="courses" className="py-16 md:py-24">
@@ -416,13 +423,26 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
       <StatsSection />
 
       {/* Faculty Section */}
-      <section id="faculty" className="py-16 md:py-24 bg-gray-50">
+      <motion.section
+        id="faculty"
+        className="py-16 md:py-24 bg-gray-50"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }} // Trigger animation every time it comes into view
+        transition={{ duration: 1.2, delay: 0.3 }} // Increased duration and delay
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading 
             title="Our Faculty"
             subtitle="Meet our team of experienced educators and industry professionals dedicated to student success."
           />
-          <div className="grid grid-cols-1 gap-8">
+          <motion.div
+            className="grid grid-cols-1 gap-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }} // Trigger animation every time it comes into view
+            transition={{ duration: 1, delay: 0.4 }} // Increased delay
+          >
             {/* First row with one faculty member */}
             {faculty.length > 0 && (
               <div className="flex justify-center">
@@ -451,34 +471,36 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
                   image={member.image}
                   linkedin={member.linkedin}
                   email={member.email}
-                  delay={(index + 1) * 0.1}
+                  delay={(index + 1) * 0.2} // Increased delay for each card
                   className="h-48"
                 />
               ))}
             </div>
-          </div>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-center mt-12"
-          >
-            <Link to="/faculty" className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors duration-300">
-              View All Faculty Members <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Events Section */}
-      <section id="events" className="py-16 md:py-24">
+      <motion.section
+        id="events"
+        className="py-16 md:py-24"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }} // Trigger animation every time it comes into view
+        transition={{ duration: 1.2, delay: 0.4 }} // Increased duration and delay
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading 
             title="Upcoming Events"
             subtitle="Stay updated with our latest events, workshops, and seminars."
           />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false }} // Trigger animation every time it comes into view
+            transition={{ duration: 1, delay: 0.5 }} // Increased delay
+          >
             {events.map((event, index) => (
               <EventCard 
                 key={event.id}
@@ -488,14 +510,14 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
                 date={event.date}
                 time={event.time}
                 location={event.location}
-                delay={index * 0.1}
+                delay={index * 0.2} // Increased delay for each card
               />
             ))}
-          </div>
+          </motion.div>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-center mt-12"
           >
@@ -504,10 +526,16 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
             </Link>
           </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <motion.section
+        className="py-16 md:py-24 bg-gray-50"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading 
             title="Student Testimonials"
@@ -547,20 +575,35 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
             </Swiper>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Companies Visited Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <motion.section
+        className="py-16 md:py-24 bg-gray-50"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Companies Visited"
             subtitle="Our students have been placed in top companies across various sectors."
           />
-          <div className="overflow-x-hidden relative">
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            transition={{ duration: 2, ease: 'easeOut' }}
+            className="overflow-x-hidden relative"
+          >
             <div className="animate-scroll flex whitespace-nowrap py-4">
               {duplicatedLogos.map((company, index) => (
-                <div key={index} className="mx-2 flex-shrink-0 logo-container">
-                  {/* Adjust width as needed */}
+                <motion.div
+                  key={index}
+                  className="mx-4 flex-shrink-0 logo-container"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-md">
                     <img
                       src={company.logo}
@@ -568,12 +611,12 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
                       className="max-h-20 max-w-full object-contain"
                     />
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div> 
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </PageTransition>
   );
 };

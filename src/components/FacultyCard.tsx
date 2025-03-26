@@ -29,7 +29,7 @@ const FacultyCard: React.FC<FacultyCardProps> = ({
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: false, margin: "-100px" }} // Trigger animation every time it comes into view
       transition={{ duration: 0.5, delay: delay }}
       className="bg-white rounded-2xl shadow-md overflow-hidden group w-80"
     >
