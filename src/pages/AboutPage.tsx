@@ -646,7 +646,7 @@ const AboutPage: React.FC = () => {
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
+                  viewport={{ margin: "-100px" }} // Removed `once: true`
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
                 >
@@ -680,7 +680,7 @@ const AboutPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }} // Removed `once: true`
               transition={{ duration: 0.7 }}
               className="space-y-6"
             >
@@ -735,7 +735,7 @@ const AboutPage: React.FC = () => {
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ margin: "-100px" }} // Removed `once: true`
               transition={{ duration: 0.7 }}
             >
               <div className="grid grid-cols-2 gap-4">
