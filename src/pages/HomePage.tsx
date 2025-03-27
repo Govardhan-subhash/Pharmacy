@@ -5,7 +5,10 @@ import {
   Users, 
   Award, 
   ArrowRight, 
-  ChevronRight 
+  ChevronRight,
+  MessageCircle,
+  X,
+  ChevronUp
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -24,6 +27,8 @@ import StatsSection from '../components/StatsSection';
 // import CTASection from '../components/CTASection';
 import companyLogos from '../data/companyLogos.json';
 import './HomePage.css';
+import ChatBot from "../components/Chatbot";
+
 
 const letterAnimation = {
   hidden: { opacity: 0, y: 50 },
@@ -224,6 +229,12 @@ const HomePage: React.FC = () => {
     }
   };
 
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  const toggleChat = () => {
+    setIsChatOpen(!isChatOpen);
+  };
+
   return (
     <PageTransition>
       {/* Hero Section */}
@@ -401,7 +412,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <Link to="/about" className="mt-8 inline-flex items-center text-blue-600 font-medium hover:text-blue-800 transition-colors duration-300">
-                  Learn more about our history <ArrowRight className="ml-2 h-5 w-5" />
+                  Learn more about our history <ArrowRight className="ml-2 h-5 w-5 arrow-icon" style={{ zIndex: 500 }} />
                 </Link>
               </motion.div>
             </motion.div>
@@ -636,6 +647,13 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
           </div>
         </div>
       </motion.section>
+
+      <ChatBot />
+
+
+
+      {/* Chatbot Popup */}
+
     </PageTransition>
   );
 };

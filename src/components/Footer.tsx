@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { 
   GraduationCap, 
   Facebook, 
@@ -19,114 +18,83 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
-      {/* Top Footer with Newsletter */}
-      <div className="bg-blue-600 py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <h3 className="text-2xl font-bold text-white mb-2">Stay Updated</h3>
-              <p className="text-blue-100">Subscribe to our newsletter for the latest news and events</p>
-            </div>
-            <div className="w-full md:w-auto">
-              <form className="flex flex-col sm:flex-row gap-2">
-                <input 
-                  type="email" 
-                  placeholder="Your email address" 
-                  className="px-4 py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-white"
-                />
-                <button 
-                  type="submit" 
-                  className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-md font-medium transition-colors duration-300"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+    <footer className="relative bg-gray-900 text-white shadow-lg rounded-t-3xl rounded-b-3xl">
       {/* Main Footer */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 py-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* About Section */}
           <div>
             <div className="flex items-center mb-6">
               <GraduationCap className="h-8 w-8 text-blue-400" />
               <span className="ml-2 text-xl font-bold">SVIPS</span>
             </div>
             <p className="text-gray-400 mb-6">
-              Sri Venkateshwara Institute of Professional Studies - Empowering students with knowledge, skills, and values since 1998.
+            Sri Vasavi Institute Of Pharmaceutical Sciences
+            - Empowering students with knowledge, skills, and values since 1998.
             </p>
+          </div>
+
+          {/* Contact Us Section */}
+          <div>
+            <h4 className="text-lg font-bold mb-6 text-white">Contact Us</h4>
+            <ul className="space-y-3">
+              <li className="text-gray-400">
+                <span className="font-medium text-white">Address:</span> 123 Main Street, West Godavari, Andhra Pradesh
+              </li>
+              <li className="text-gray-400">
+                <span className="font-medium text-white">Phone:</span> +91 98765 43210
+              </li>
+              <li className="text-gray-400">
+                <span className="font-medium text-white">Email:</span> info@svips.edu.in
+              </li>
+              <li className="text-gray-400">
+                <span className="font-medium text-white">Working Hours:</span> Mon - Fri, 9:00 AM - 5:00 PM
+              </li>
+            </ul>
+          </div>
+
+          {/* Connect With Us Section */}
+          <div>
+            <h4 className="text-lg font-bold mb-6 text-white">Connect With Us</h4>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                <Facebook className="h-5 w-5" />
+                <Facebook className="h-6 w-6" />
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                <Twitter className="h-5 w-5" />
+                <Twitter className="h-6 w-6" />
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-6 w-6" />
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-6 w-6" />
               </a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                <Youtube className="h-5 w-5" />
+                <Youtube className="h-6 w-6" />
               </a>
             </div>
           </div>
-          
-          <div>
-            <h4 className="text-lg font-bold mb-6 text-white">Quick Links</h4>
-            <ul className="space-y-3">
-              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors duration-300">Home</Link></li>
-              <li><Link to="/about" className="text-gray-400 hover:text-white transition-colors duration-300">About Us</Link></li>
-              <li><Link to="/courses" className="text-gray-400 hover:text-white transition-colors duration-300">Courses</Link></li>
-              <li><Link to="/faculty" className="text-gray-400 hover:text-white transition-colors duration-300">Faculty</Link></li>
-              <li><Link to="/events" className="text-gray-400 hover:text-white transition-colors duration-300">Events</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-white transition-colors duration-300">Contact</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-bold mb-6 text-white">Programs</h4>
-            <ul className="space-y-3">
-              <li><Link to="/courses" className="text-gray-400 hover:text-white transition-colors duration-300">BBA</Link></li>
-              <li><Link to="/courses" className="text-gray-400 hover:text-white transition-colors duration-300">BCA</Link></li>
-              <li><Link to="/courses" className="text-gray-400 hover:text-white transition-colors duration-300">MBA</Link></li>
-              <li><Link to="/courses" className="text-gray-400 hover:text-white transition-colors duration-300">MCA</Link></li>
-              <li><Link to="/courses" className="text-gray-400 hover:text-white transition-colors duration-300">B.Com</Link></li>
-              <li><Link to="/courses" className="text-gray-400 hover:text-white transition-colors duration-300">M.Com</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-bold mb-6 text-white">Resources</h4>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Student Portal</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Library</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Research</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Careers</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Alumni</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">Media</a></li>
-            </ul>
-          </div>
         </div>
-        
+
+        {/* Developed By Section */}
+        <div className="mt-8 text-center">
+          <p className="text-gray-400 text-sm mb-2">Developed By</p>
+          <img
+            src="https://aikyam.ppsijc.org/wp-content/uploads/2024/08/FooterLogo.png"
+            alt="Developed By Logo"
+            className="mx-auto h-12"
+          />
+        </div>
+
         {/* Bottom Footer */}
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-center md:text-left mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Sri Venkateshwara Institute of Professional Studies. All rights reserved.
+        <div className="border-t border-gray-800 mt-8 pt-6 text-center">
+          <p className="text-gray-400">
+            &copy; {new Date().getFullYear()} Sri Vasavi Institute Of Pharmaceutical Sciences
+            . All rights reserved.
           </p>
-          <div className="flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Terms of Service</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm">Sitemap</a>
-          </div>
         </div>
       </div>
-      
+
       {/* Scroll to top button */}
       <button 
         onClick={scrollToTop}
