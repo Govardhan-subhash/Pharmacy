@@ -57,6 +57,10 @@ const Header: React.FC = () => {
     { name: 'PCI', path: '/pci' },
     { name: 'NAAC', path: '/naac' },
     {
+      name: 'Feedback', // Added Feedback option
+      path: '/feedback',
+    },
+    {
       name: 'VLogin',
       path: 'https://sves.org.in/ecap_pharma/',
       external: true,
@@ -71,6 +75,7 @@ const Header: React.FC = () => {
       path: 'https://sves.org.in/Ecap_Pharma/olpaymentlogin.aspx',
       external: true,
     },
+ 
   ];
 
   const isActive = (path: string) => {
