@@ -100,22 +100,6 @@
   animation: scroll 10s linear infinite; /* Reduce duration for faster scrolling */
 }
 
-/* Infinite scrolling text */
-.scrolling-text {
-  display: flex;
-  white-space: nowrap;
-  animation: scroll-left 20s linear infinite; /* Reduced duration for faster scrolling */
-}
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(100%); /* Start from the right side */
-  }
-  100% {
-    transform: translateX(-100%); /* Move to the left side */
-  }
-}
-
 /* Floating button hover effect */
 .fixed button:hover {
   transform: scale(1.1);
@@ -201,61 +185,6 @@
   .company-logos-container {
     width: calc(200%); /* Ensure the container width accommodates all logos */
     animation: scroll 10s linear infinite; /* Ensure consistent animation for mobile */
-  }
-
-  /* Hero Section */
-  .hero {
-    flex-direction: column; /* Stack text and image vertically */
-    text-align: center; /* Center-align text */
-    padding: 1rem; /* Add padding for smaller screens */
-  }
-
-  .hero img {
-    width: 100%; /* Make the image responsive */
-    height: auto; /* Maintain aspect ratio */
-  }
-
-  .hero h1 {
-    font-size: 1.5rem; /* Adjust font size */
-    margin-bottom: 1rem;
-  }
-
-  .hero p {
-    font-size: 1rem; /* Adjust font size */
-    margin-bottom: 1rem;
-  }
-
-  .hero button {
-    width: 100%; /* Make buttons full-width */
-    margin-bottom: 0.5rem;
-  }
-
-  /* Latest News Section */
-  .scrolling-text {
-    font-size: 0.9rem; /* Adjust font size for smaller screens */
-    padding: 0.5rem; /* Add padding */
-  }
-
-  .scrolling-text span {
-    margin: 0 0.5rem; /* Reduce spacing between news items */
-  }
-
-  /* News Pop-up */
-  .news-popup {
-    width: 90%; /* Adjust width for smaller screens */
-    padding: 1rem; /* Add padding */
-  }
-
-  /* Stats Section */
-  .stats-section {
-    grid-template-columns: 1fr; /* Stack stats vertically */
-    gap: 1rem; /* Add spacing between items */
-  }
-
-  /* Chatbot Button */
-  .fixed {
-    bottom: 1rem; /* Adjust spacing from the bottom */
-    right: 1rem; /* Adjust spacing from the right */
   }
 }
 
