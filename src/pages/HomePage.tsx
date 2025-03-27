@@ -63,6 +63,38 @@ const AnimatedSectionHeading: React.FC<{ title: string; subtitle: string }> = ({
 );
 
 const HomePage: React.FC = () => {
+  const flyFallRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null); // Track the active image for mobile
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true); // Trigger animation when the section is visible
+        } else {
+          setIsVisible(false); // Reset animation when the section is out of view
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the section is visible
+    );
+
+    if (flyFallRef.current) {
+      observer.observe(flyFallRef.current);
+    }
+
+    return () => {
+      if (flyFallRef.current) {
+        observer.unobserve(flyFallRef.current);
+      }
+    };
+  }, []);
+
+  const handleImageClick = (index: number) => {
+    // Toggle the active image on click
+    setActiveImageIndex(activeImageIndex === index ? null : index);
+  };
+
   // Sample data for courses
   const courses = [
     {
@@ -183,7 +215,7 @@ const HomePage: React.FC = () => {
     {
       name: "Neha Singh",
       title: "MBA Graduate, 2023",
-      quote: "The MBA program at SVIPS provided me with a comprehensive understanding of business management. The case studies, industry visits, and mentorship programs gave me a competitive edge in the job market.",
+      quote: "The MBA program at SVIPS provided me with a comprehensive understanding of business management. The case studies, industry visits, and  competitive edge in the job market.",
       image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80"
     },
     {
@@ -304,28 +336,46 @@ const HomePage: React.FC = () => {
             title="About SVIPS"
             subtitle="Sri Vasavi Institute of Pharmaceutical Sciences is dedicated to providing quality education, fostering research, and developing skilled professionals in the pharmaceutical field."
           />
-          <div className="flex flex-wrap justify-center items-center">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvuD7O9_iy4sJmYzRkL8eBW8Z0yavZdJvwmQ&s"
-              alt="SVIPS Campus"
-              className="rounded-lg shadow-lg w-1/12 h-auto relative z-10 m-2"
-            />
-            <img
-              src="https://fabrikbrands.com/wp-content/uploads/Logos-of-Multinational-Companies-11-1200x750.png"
-              alt="SVIPS Campus"
-              className="rounded-lg shadow-lg w-1/12 h-auto relative z-10 m-2"
-            />
-            <img
-              src="https://mbits.ac.in/wp-content/uploads/2023/03/naac.png"
-              alt="SVIPS Campus"
-              className="rounded-lg shadow-lg w-1/12 h-auto relative z-10 m-2"
-            />
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2AMTIWKIzMlQl3Vwm_tR-ynWIRnXsh2KeEg&s"
-              alt="SVIPS Campus"
-              className="rounded-lg shadow-lg w-1/12 h-auto relative z-10 m-2"
-            />
+          <div
+            ref={flyFallRef} // Attach the ref to the container
+            className="flex flex-wrap justify-center items-center relative"
+          >
+            {[
+              { src: "public/uploads/images/l2.png", alt: "AU" },
+              { src: "public/uploads/images/l3.png", alt: "Pharmacy Council of India" },
+              { src: "public/uploads/images/l4.png", alt: "NAAC" },
+              { src: "public/uploads/images/l5.png", alt: "ISO" },
+            ].map((image, index) => (
+              <div
+                key={index}
+                className={`relative group w-1/5 m-4 rounded-lg shadow-lg overflow-hidden ${
+                  isVisible ? "animate-fly-fall" : ""
+                }`}
+                style={{
+                  animationDelay: `${index * 0.5}s`, // Delay each image by 0.5 seconds
+                }}
+                onClick={() => handleImageClick(index)} // Handle click for mobile
+              >
+                {/* Image */}
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className={`w-full h-auto transition-transform duration-300 ${
+                    activeImageIndex === index ? "blur-lg opacity-50" : "group-hover:blur-lg group-hover:opacity-50"
+                  }`}
+                />
+                {/* Centered Text */}
+                <div
+                  className={`absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 ${
+                    activeImageIndex === index ? "opacity-100" : "opacity-0 group-hover:opacity-100"
+                  } transition-opacity duration-300`}
+                >
+                  <p className="text-white text-lg font-medium">{image.alt}</p>
+                </div>
+              </div>
+            ))}
           </div>
+
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
@@ -419,6 +469,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
           </div>
         </div>
       </motion.section>
+      
 
       {/* Courses Section
       <section id="courses" className="py-16 md:py-24">
