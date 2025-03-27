@@ -22,6 +22,7 @@ import PCIPage from './pages/PCIPage';
 import CommitteesPage from './components/committee/CommiteePage';
 import PlacementPage from './pages/PlacementPage';
 import NAACPage from './pages/NAACPage';
+
 import Criteria1 from './pages/criteria/quality/Criteria1';
 import Criteria2 from './pages/criteria/quality/Criteria2';
 import Criteria3 from './pages/criteria/quality/Criteria3';
@@ -36,6 +37,7 @@ import DvvCriteria4 from './pages/criteria/dvv/Criteria4';
 import DvvCriteria5 from './pages/criteria/dvv/Criteria5';
 import DvvCriteria6 from './pages/criteria/dvv/Criteria6';
 import DvvCriteria7 from './pages/criteria/dvv/Criteria7';
+import FeedbackPage from './pages/Feedbackpage';
 
 
 
@@ -62,6 +64,7 @@ const App: React.FC = () => {
               <Route path="/pci" element={<PCIPage />} />
               <Route path="/placement" element={<PlacementPage />} />
               <Route path="/naac" element={<NAACPage />} />
+              <Route path="/feedback" element={<FeedbackPage/>} />
               <Route path="/research/publications" element={<div>Publications Page</div>} />
               <Route path="/research/projects" element={<div>Projects Page</div>} />
               <Route path="/research/collaborations" element={<div>Collaborations Page</div>} />
