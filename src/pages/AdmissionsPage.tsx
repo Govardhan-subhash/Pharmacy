@@ -113,19 +113,17 @@ const AdmissionsPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white p-6 rounded-lg shadow-lg"
+              className="bg-white p-6 rounded-lg shadow-lg cursor-pointer"
+              onClick={() => setSelectedPdf('public/uploads/pdfs/EAPCET RANK ANALYSIS – 2023-24.pdf')}
             >
               <h3 className="text-xl font-bold text-gray-900 mb-4">Cutoff Ranks</h3>
-              <p className="text-gray-600 mb-4">View the previous year's cutoff ranks for different courses and categories.</p>
-              <Link 
-                to="/documents/cutoff-ranks.pdf" 
-                className="inline-flex items-center text-blue-600 hover:text-blue-700"
-              >
-                <span>View Cutoff Ranks</span>
+              <p className="text-gray-600 mb-4">View the previous year's cutoff ranks for different courses and categories, including EAPCET Rank Analysis – 2023-24.</p>
+              <div className="flex items-center text-blue-600 hover:text-blue-700">
+                <span>View EAPCET Rank Analysis</span>
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
-              </Link>
+              </div>
             </motion.div>
 
             {/* Intake Details */}
@@ -134,19 +132,17 @@ const AdmissionsPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-white p-6 rounded-lg shadow-lg"
+              className="bg-white p-6 rounded-lg shadow-lg cursor-pointer"
+              onClick={() => setSelectedPdf('public/uploads/pdfs/intake.pdf')}
             >
               <h3 className="text-xl font-bold text-gray-900 mb-4">Intake Details</h3>
               <p className="text-gray-600 mb-4">Check the seat availability and distribution across various programs.</p>
-              <Link 
-                to="/documents/intake-details.pdf" 
-                className="inline-flex items-center text-blue-600 hover:text-blue-700"
-              >
+              <div className="flex items-center text-blue-600 hover:text-blue-700">
                 <span>View Intake Details</span>
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
-              </Link>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -162,63 +158,63 @@ const AdmissionsPage: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 mb-8">
             {/* B.Pharmacy Syllabus */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white p-6 rounded-lg shadow-lg flex items-center justify-between cursor-pointer"
-              onClick={() => setSelectedPdf('/documents/bpharmacy-syllabus.pdf')}
-            >
-              <h3 className="text-xl font-bold text-gray-900">B.Pharmacy Syllabus</h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 text-blue-600 cursor-pointer"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevent triggering the container's onClick
-                  handleDownload('/documents/bpharmacy-syllabus.pdf');
-                }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="bg-white p-6 rounded-lg shadow-lg flex items-center justify-between cursor-pointer"
+                onClick={() => setSelectedPdf('/documents/bpharmacy-syllabus.pdf')}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                />
-              </svg>
-            </motion.div>
+                <h3 className="text-xl font-bold text-gray-900">B.Pharmacy Syllabus</h3>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6 text-blue-600 cursor-pointer"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent triggering the container's onClick
+                    handleDownload('/documents/bpharmacy-syllabus.pdf');
+                  }}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  />
+                </svg>
+              </motion.div>
 
-            {/* M.Pharmacy Syllabus */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white p-6 rounded-lg shadow-lg flex items-center justify-between cursor-pointer"
-              onClick={() => setSelectedPdf('/documents/mpharmacy-syllabus.pdf')}
-            >
-              <h3 className="text-xl font-bold text-gray-900">M.Pharmacy Syllabus</h3>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6 text-blue-600 cursor-pointer"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                onClick={(e) => {
-                  e.stopPropagation(); // Prevent triggering the container's onClick
-                  handleDownload('/documents/mpharmacy-syllabus.pdf');
-                }}
+              {/* M.Pharmacy Syllabus */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="bg-white p-6 rounded-lg shadow-lg flex items-center justify-between cursor-pointer"
+                onClick={() => setSelectedPdf('public/uploads/pdfs/B_Pharm.Syllabus.pdf')}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                />
-              </svg>
-            </motion.div>
+                <h3 className="text-xl font-bold text-gray-900">M.Pharmacy Syllabus</h3>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6 text-blue-600 cursor-pointer"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent triggering the container's onClick
+                    handleDownload('public/uploads/pdfs/M Pharm Regulations 2020.pdf');
+                  }}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                  />
+                </svg>
+              </motion.div>
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
@@ -229,11 +225,11 @@ const AdmissionsPage: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="bg-white p-6 rounded-lg shadow-lg cursor-pointer"
-              onClick={() => window.location.href = '/documents/au-academic-calendar.pdf'}
+              onClick={() => setSelectedPdf('public/uploads/pdfs/Academic Calender 2023-24.pdf')}
             >
               <h3 className="text-xl font-bold text-gray-900 mb-4">AU Academic Calendar</h3>
               <div className="flex items-center text-blue-600 hover:text-blue-700">
-                <span>Download</span>
+                <span>View</span>
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
@@ -247,11 +243,11 @@ const AdmissionsPage: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="bg-white p-6 rounded-lg shadow-lg cursor-pointer"
-              onClick={() => window.location.href = '/documents/course-outcomes.pdf'}
+              onClick={() => setSelectedPdf('public/uploads/pdfs/COS EDITED.pdf')}
             >
               <h3 className="text-xl font-bold text-gray-900 mb-4">Course Outcomes</h3>
               <div className="flex items-center text-blue-600 hover:text-blue-700">
-                <span>Download</span>
+                <span>View</span>
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
@@ -265,11 +261,11 @@ const AdmissionsPage: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.5 }}
               className="bg-white p-6 rounded-lg shadow-lg cursor-pointer"
-              onClick={() => window.location.href = '/documents/program-outcomes.pdf'}
+              onClick={() => setSelectedPdf('public/uploads/pdfs/PROGRAM OUTCOME1.pdf')}
             >
               <h3 className="text-xl font-bold text-gray-900 mb-4">Program Outcomes</h3>
               <div className="flex items-center text-blue-600 hover:text-blue-700">
-                <span>Download</span>
+                <span>View</span>
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
@@ -283,11 +279,13 @@ const AdmissionsPage: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.6 }}
               className="bg-white p-6 rounded-lg shadow-lg cursor-pointer"
-              onClick={() => window.location.href = '/documents/course-files.pdf'}
+              // onClick={() => setSelectedPdf('public/uploads/pdfs/1.1.1 PPC CF Theory. Signed.pdf')}
+              onClick={() => setSelectedPdf('public/uploads/pdfs/faculty-list.pdf')}
+
             >
               <h3 className="text-xl font-bold text-gray-900 mb-4">Course Files</h3>
               <div className="flex items-center text-blue-600 hover:text-blue-700">
-                <span>Download</span>
+                <span>View</span>
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
