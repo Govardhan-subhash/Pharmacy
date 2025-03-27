@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import DvvCriteria1 from './criteria/dvv/Criteria1'; // Import DVV criteria components
-import DvvCriteria2 from './criteria/dvv/Criteria2';
-import DvvCriteria3 from './criteria/dvv/Criteria3';
-import DvvCriteria4 from './criteria/dvv/Criteria4';
-import DvvCriteria5 from './criteria/dvv/Criteria5';
-import DvvCriteria6 from './criteria/dvv/Criteria6';
-import DvvCriteria7 from './criteria/dvv/Criteria7';
+// import DvvCriteria1 from './criteria/dvv/Criteria1'; // Import DVV criteria components
+// import DvvCriteria2 from './criteria/dvv/Criteria2';
+// import DvvCriteria3 from './criteria/dvv/Criteria3';
+// import DvvCriteria4 from './criteria/dvv/Criteria4';
+// import DvvCriteria5 from './criteria/dvv/Criteria5';
+// import DvvCriteria6 from './criteria/dvv/Criteria6';
+// import DvvCriteria7 from './criteria/dvv/Criteria7';
 
 import QualityCriteria1 from './criteria/quality/Criteria1'; // Import Quality Indicator criteria components
 import QualityCriteria2 from './criteria/quality/Criteria2';
@@ -27,9 +27,9 @@ const NAACPage: React.FC = () => {
       title: 'IIQA',
       content: 'IIQA Content',
       links: [
-        { name: 'IIQA', url: '/pdfs/iiqa.pdf' },
-        { name: 'Undertaking Form', url: '/pdfs/undertaking-form.pdf' },
-        { name: 'Self Declaration', url: '/pdfs/self-declaration.pdf' },
+        { name: 'IIQA', url: 'public/uploads/pdfs/SRI_VASAVI_INSTITUTE_OF_PHARMACEUTICAL_SCIENCES_iiqa.pdf' },
+        { name: 'Undertaking Form', url: 'public/uploads/pdfs/UNDERTAKING.pdf' },
+        { name: 'Self Declaration', url: 'public/uploads/pdfs/SELF DECLARATION.pdf' },
       ],
     },
     {
@@ -43,7 +43,7 @@ const NAACPage: React.FC = () => {
       title: 'SSR',
       content: 'SSR Content',
       links: [
-        { name: 'Self Study Report', url: '/pdfs/ssr.pdf' },
+        { name: 'Self Study Report', url: 'public/uploads/pdfs/APCOGN101359 Dt 21 Sept 2024.pdf' },
       ],
     },
     {
@@ -51,7 +51,7 @@ const NAACPage: React.FC = () => {
       title: 'Executive Summary',
       content: 'Executive Summary Content',
       links: [
-        { name: 'Executive Summary Report', url: '/pdfs/executive-summary.pdf' },
+        { name: 'Executive Summary Report', url: 'public/uploads/pdfs/APCOGN101359 Dt 21 Sept 2024.pdf' },
       ],
     },
     {
@@ -59,7 +59,7 @@ const NAACPage: React.FC = () => {
       title: 'Profile',
       content: 'Profile Content',
       links: [
-        { name: 'Institutional Profile', url: '/pdfs/profile.pdf' },
+        { name: 'Institutional Profile', url: 'public/uploads/pdfs/APCOGN101359 Dt 21 Sept 2024.pdf' },
       ],
     },
     {
@@ -110,20 +110,20 @@ const NAACPage: React.FC = () => {
         { id: 'criteria-vii', title: 'CRITERIA-VII', component: <QualityCriteria7 /> },
       ],
     },
-    {
-      id: 8,
-      title: 'DVV Clarification Metrics',
-      content: 'DVV Clarification Metrics Content',
-      criteria: [
-        { id: 'criteria-i', title: 'CRITERIA-I', component: <DvvCriteria1 /> },
-        { id: 'criteria-ii', title: 'CRITERIA-II', component: <DvvCriteria2 /> },
-        { id: 'criteria-iii', title: 'CRITERIA-III', component: <DvvCriteria3 /> },
-        { id: 'criteria-iv', title: 'CRITERIA-IV', component: <DvvCriteria4 /> },
-        { id: 'criteria-v', title: 'CRITERIA-V', component: <DvvCriteria5 /> },
-        { id: 'criteria-vi', title: 'CRITERIA-VI', component: <DvvCriteria6 /> },
-        { id: 'criteria-vii', title: 'CRITERIA-VII', component: <DvvCriteria7 /> },
-      ],
-    },
+    // {
+    //   id: 8,
+    //   title: 'DVV Clarification Metrics',
+    //   content: 'DVV Clarification Metrics Content',
+    //   criteria: [
+    //     { id: 'criteria-i', title: 'CRITERIA-I', component: <DvvCriteria1 /> },
+    //     { id: 'criteria-ii', title: 'CRITERIA-II', component: <DvvCriteria2 /> },
+    //     { id: 'criteria-iii', title: 'CRITERIA-III', component: <DvvCriteria3 /> },
+    //     { id: 'criteria-iv', title: 'CRITERIA-IV', component: <DvvCriteria4 /> },
+    //     { id: 'criteria-v', title: 'CRITERIA-V', component: <DvvCriteria5 /> },
+    //     { id: 'criteria-vi', title: 'CRITERIA-VI', component: <DvvCriteria6 /> },
+    //     { id: 'criteria-vii', title: 'CRITERIA-VII', component: <DvvCriteria7 /> },
+    //   ],
+    // },
     // {
     //   id: 9,
     //   title: 'Extended Profile Deviations',
@@ -268,41 +268,44 @@ const NAACPage: React.FC = () => {
                 <h2 className="text-2xl font-semibold text-gray-800 mb-4">
                   {documents.find((doc) => doc.content === selectedDocument)?.title}
                 </h2>
-                <table className="table-auto w-full border-collapse border border-gray-300">
-                  <thead>
-                    <tr className="bg-gray-200">
-                      <th className="border border-gray-300 px-4 py-2">S.No</th>
-                      <th className="border border-gray-300 px-4 py-2">Metric No.</th>
-                      <th className="border border-gray-300 px-4 py-2">Metric Description</th>
-                      <th className="border border-gray-300 px-4 py-2">Downloads</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {documents
-                      .find((doc) => doc.content === selectedDocument)
-                      ?.table.map((row, index) => (
-                        <tr key={index}>
-                          <td className="border border-gray-300 px-4 py-2 text-center">{row.sno}</td>
-                          <td className="border border-gray-300 px-4 py-2 text-center">{row.metricNo}</td>
-                          <td className="border border-gray-300 px-4 py-2">{row.description}</td>
-                          <td className="border border-gray-300 px-4 py-2">
-                            <ul className="list-disc ml-4">
-                              {row.downloads.map((download, i) => (
-                                <li key={i}>
-                                  <button
-                                    onClick={() => setPdfUrl(download.url)}
-                                    className="text-blue-600 hover:underline"
-                                  >
-                                    {download.name}
-                                  </button>
-                                </li>
-                              ))}
-                            </ul>
-                          </td>
-                        </tr>
-                      ))}
-                  </tbody>
-                </table>
+                {/* Responsive Table for Extended Profile */}
+                <div className="overflow-x-auto">
+                  <table className="table-auto w-full border-collapse border border-gray-300">
+                    <thead>
+                      <tr className="bg-gray-200">
+                        <th className="border border-gray-300 px-4 py-2">S.No</th>
+                        <th className="border border-gray-300 px-4 py-2">Metric No.</th>
+                        <th className="border border-gray-300 px-4 py-2">Metric Description</th>
+                        <th className="border border-gray-300 px-4 py-2">Downloads</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {documents
+                        .find((doc) => doc.content === selectedDocument)
+                        ?.table.map((row, index) => (
+                          <tr key={index}>
+                            <td className="border border-gray-300 px-4 py-2 text-center">{row.sno}</td>
+                            <td className="border border-gray-300 px-4 py-2 text-center">{row.metricNo}</td>
+                            <td className="border border-gray-300 px-4 py-2">{row.description}</td>
+                            <td className="border border-gray-300 px-4 py-2">
+                              <ul className="list-disc ml-4">
+                                {row.downloads.map((download, i) => (
+                                  <li key={i}>
+                                    <button
+                                      onClick={() => setPdfUrl(download.url)}
+                                      className="text-blue-600 hover:underline"
+                                    >
+                                      {download.name}
+                                    </button>
+                                  </li>
+                                ))}
+                              </ul>
+                            </td>
+                          </tr>
+                        ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             ) : selectedDocument ? (
               <div>
