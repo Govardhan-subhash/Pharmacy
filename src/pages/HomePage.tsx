@@ -281,27 +281,21 @@ const HomePage: React.FC = () => {
       />
 
       {/* News Section */}
-      <section className="py-8 bg-gray-100">
+      <section className="py-8 bg-blue-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSectionHeading
             title="Latest News"
             subtitle="Stay updated with the latest news and announcements from SVIPS."
           />
-          <div className="overflow-x-hidden relative">
-            <div
-              className="animate-scroll-news flex whitespace-nowrap py-4"
-              ref={scrollContainerRef}
-            >
-              {duplicatedNews.map(item => (
-                <div
+          <div className="overflow-hidden relative">
+            <div className="scrolling-text">
+              {duplicatedNews.map((item) => (
+                <span
                   key={item.id}
-                  className="mx-4 flex-shrink-0 w-[400px] news-item"
-                  onClick={() => handleNewsClick(item)}
+                  className="inline-block mx-8 text-blue-900 font-semibold text-lg"
                 >
-                  <div className="bg-white rounded-lg shadow-md p-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h3>
-                  </div>
-                </div>
+                  {item.title}
+                </span>
               ))}
             </div>
           </div>

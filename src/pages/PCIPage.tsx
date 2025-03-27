@@ -29,7 +29,7 @@ const PCIPage: React.FC = () => {
           <ul className="space-y-4">
             <li>
               <a
-                href="/pdfs/AU_Approval_Letter_2023-2024.pdf"
+                href="public/uploads/pdfs/AU APPROVAL LETTER-2023-24.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline"
@@ -39,7 +39,7 @@ const PCIPage: React.FC = () => {
             </li>
             <li>
               <a
-                href="/pdfs/PCI_Approval_Letter_2023-2024.pdf"
+                href="public/uploads/pdfs/PCI APPROVAL LETTER-2023-24.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline"

@@ -52,7 +52,7 @@ const Header: React.FC = () => {
   ];
 
   const dropdownLinks = [
-    { name: 'RTI', path: '/pdfs/RTI_2023.pdf', external: true }, // Link to the RTI PDF
+    { name: 'RTI', path: 'public/uploads/pdfs/RTI_2023.pdf', external: true }, // Link to the RTI PDF
     { name: 'LMS', path: '/lms' },
     { name: 'PCI', path: '/pci' },
     { name: 'NAAC', path: '/naac' },
@@ -97,8 +97,14 @@ const Header: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="flex items-center"
             >
-              <GraduationCap className={`h-10 w-10 ${scrolled ? 'text-blue-600' : 'text-white'}`} />
-              <span className={`ml-2 text-2xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>SVIPS</span>
+              <img
+                // src="public/uploads/images/l.png" // Replace with your logo URL
+                // alt="SVIPS Logo"
+                // className={`h-10 w-10 ${scrolled ? 'filter brightness-100' : 'filter brightness-200'}`}
+              />
+              <span className={`ml-2 text-2xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
+                SVIPS
+              </span>
             </motion.div>
           </Link>
 
