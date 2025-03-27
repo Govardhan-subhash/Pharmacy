@@ -337,8 +337,8 @@ const HomePage: React.FC = () => {
             subtitle="Sri Vasavi Institute of Pharmaceutical Sciences is dedicated to providing quality education, fostering research, and developing skilled professionals in the pharmaceutical field."
           />
           <div
-            ref={flyFallRef} // Attach the ref to the container
-            className="flex flex-wrap justify-center items-center relative"
+            ref={flyFallRef}
+            className="flex flex-wrap justify-center items-center relative sm:flex-nowrap sm:justify-between"
           >
             {[
               { src: "public/uploads/images/l2.png", alt: "AU" },
@@ -348,15 +348,14 @@ const HomePage: React.FC = () => {
             ].map((image, index) => (
               <div
                 key={index}
-                className={`relative group w-1/5 m-4 rounded-lg shadow-lg overflow-hidden ${
+                className={`relative group w-full sm:w-1/5 m-4 rounded-lg shadow-lg overflow-hidden ${
                   isVisible ? "animate-fly-fall" : ""
                 }`}
                 style={{
-                  animationDelay: `${index * 0.5}s`, // Delay each image by 0.5 seconds
+                  animationDelay: `${index * 0.5}s`,
                 }}
-                onClick={() => handleImageClick(index)} // Handle click for mobile
+                onClick={() => handleImageClick(index)}
               >
-                {/* Image */}
                 <img
                   src={image.src}
                   alt={image.alt}
@@ -364,7 +363,6 @@ const HomePage: React.FC = () => {
                     activeImageIndex === index ? "blur-lg opacity-50" : "group-hover:blur-lg group-hover:opacity-50"
                   }`}
                 />
-                {/* Centered Text */}
                 <div
                   className={`absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 ${
                     activeImageIndex === index ? "opacity-100" : "opacity-0 group-hover:opacity-100"
@@ -516,8 +514,8 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
         className="py-16 md:py-24 bg-gray-50"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false }} // Trigger animation every time it comes into view
-        transition={{ duration: 1.2, delay: 0.2 }} // Increased duration and delay
+        viewport={{ once: false }}
+        transition={{ duration: 1.2, delay: 0.2 }}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSectionHeading 
@@ -525,45 +523,25 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
             subtitle="Meet our team of experienced educators and industry professionals dedicated to student success."
           />
           <motion.div
-            className="grid grid-cols-1 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: false }} // Trigger animation every time it comes into view
-            transition={{ duration: 1, delay: 0.2 }} // Increased delay
+            viewport={{ once: false }}
+            transition={{ duration: 1, delay: 0.2 }}
           >
-            {/* First row with one faculty member */}
-            {faculty.length > 0 && (
-              <div className="flex justify-center">
-                <FacultyCard
-                  key={faculty[0].name}
-                  name={faculty[0].name}
-                  title={faculty[0].title}
-                  bio={faculty[0].bio}
-                  image={faculty[0].image}
-                  linkedin={faculty[0].linkedin}
-                  email={faculty[0].email}
-                  delay={0}
-                  className="h-48"
-                />
-              </div>
-            )}
-
-            {/* Second row with the remaining faculty members */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {faculty.slice(1).map((member, index) => (
-                <FacultyCard
-                  key={member.name}
-                  name={member.name}
-                  title={member.title}
-                  bio={member.bio}
-                  image={member.image}
-                  linkedin={member.linkedin}
-                  email={member.email}
-                  delay={(index + 1) * 0.2} // Increased delay for each card
-                  className="h-48"
-                />
-              ))}
-            </div>
+            {faculty.map((member, index) => (
+              <FacultyCard
+                key={member.name}
+                name={member.name}
+                title={member.title}
+                bio={member.bio}
+                image={member.image}
+                linkedin={member.linkedin}
+                email={member.email}
+                delay={index * 0.2}
+                className="h-auto"
+              />
+            ))}
           </motion.div>
         </div>
       </motion.section>

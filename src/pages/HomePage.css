@@ -48,6 +48,8 @@
 
 .animate-scroll-news {
   animation: scrollNews 20s linear infinite; /* Adjust duration as needed */
+  white-space: normal; /* Prevent horizontal scrolling */
+  overflow: visible;
 }
 
 @keyframes scrollNews {
@@ -205,4 +207,62 @@
 
 .animate-fly-fall {
   animation: fly-fall 1.5s ease-in-out forwards;
+}
+
+/* Ensure no container overflows */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+  max-width: 100%;
+  overflow: hidden; /* Prevent individual scrollbars */
+}
+
+section {
+  overflow: visible; /* Ensure sections don't create scrollbars */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+  max-width: 100%; /* Ensure containers don't exceed the viewport width */
+  overflow-x: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 8px;
+}
+
+@media (min-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Ensure headings are not cut off */
+#about h2 {
+  margin-top: 0;
+  padding-top: 1rem; /* Add padding to prevent cutting */
+  z-index: 10; /* Ensure it appears above other elements */
+}
+
+/* Prevent overlapping */
+#about {
+  position: relative;
+  overflow: visible;
 }
