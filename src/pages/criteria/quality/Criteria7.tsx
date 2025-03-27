@@ -41,10 +41,23 @@ const Criteria7: React.FC = () => {
         { name: 'Certificates', url: '/uploads/naac/criteria7/7.1.3 certificates.pdf' },
         { name: 'Beyond Campus Activities', url: '/uploads/naac/criteria7/7.1.3 Beyond the campus.pdf' },
         { name: 'Audit Reports', url: '/uploads/naac/criteria7/7.1.3 Audit reports.pdf' },
+        { name: 'Green and Energy Audit Reports', url: '/uploads/naac/criteria7/7.1.3 Green and Energy Audit Reports.pdf' },
       ],
     },
     {
       sno: 4,
+      metricNo: '7.1.4',
+      qnQl: 'QlM',
+      description:
+        'Describe the Institutional efforts/initiatives in providing an inclusive environment i.e., tolerance and harmony towards cultural, regional, linguistic, communal socioeconomic and sensitization of students and employees to the constitutional obligations: values, rights, duties, and responsibilities of citizens (Within 500 words).',
+      downloads: [
+        { name: 'Institutional Efforts & Initiatives', url: '/uploads/naac/criteria7/7.1.4 Institutional Efforts.pdf' },
+        { name: 'Code of Conduct', url: '/uploads/naac/criteria7/7.1.4 Code of Conduct.pdf' },
+        { name: 'Photographs', url: '/uploads/naac/criteria7/7.1.4 Photographs.pdf' },
+      ],
+    },
+    {
+      sno: 5,
       metricNo: '7.2.1',
       qnQl: 'QlM',
       description:
@@ -56,53 +69,59 @@ const Criteria7: React.FC = () => {
         { name: 'Supporting Document for Best Practices-II', url: '/uploads/naac/criteria7/7.2 Best Practices-2 supporting document.pdf' },
       ],
     },
+    {
+      sno: 6,
+      metricNo: '7.3',
+      qnQl: 'QlM',
+      description:
+        'Portray the performance of the Institution in one area distinctive to its priority and thrust within 1000 words.',
+      downloads: [
+        { name: 'Institutional Distinctiveness', url: '/uploads/naac/criteria7/7.3 Institutional Distinctiveness.pdf' },
+        { name: 'Supporting Document for Institutional Distinctiveness', url: '/uploads/naac/criteria7/7.3 Supporting Document.pdf' },
+      ],
+    },
   ];
-
 
   return (
     <div className="container mx-auto px-4 py-16">
-
-
-        {/* Main Content */}
-        <div className="col-span-3 bg-white p-6 rounded shadow">
-          <h1 className="text-3xl font-bold text-center mb-8">Criteria 7</h1>
-          <table className="table-auto w-full border-collapse border border-gray-300">
-            <thead>
-              <tr>
-                <th className="border border-gray-300 px-4 py-2">S.No</th>
-                <th className="border border-gray-300 px-4 py-2">Metric No.</th>
-                <th className="border border-gray-300 px-4 py-2">Qn/Ql</th>
-                <th className="border border-gray-300 px-4 py-2">Metric Description</th>
-                <th className="border border-gray-300 px-4 py-2">Download</th>
+      <div className="col-span-3 bg-white p-6 rounded shadow">
+        <h1 className="text-3xl font-bold text-center mb-8">Criteria 7</h1>
+        <table className="table-auto w-full border-collapse border border-gray-300">
+          <thead>
+            <tr>
+              <th className="border border-gray-300 px-4 py-2">S.No</th>
+              <th className="border border-gray-300 px-4 py-2">Metric No.</th>
+              <th className="border border-gray-300 px-4 py-2">Qn/Ql</th>
+              <th className="border border-gray-300 px-4 py-2">Metric Description</th>
+              <th className="border border-gray-300 px-4 py-2">Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tableData.map((row, index) => (
+              <tr key={index}>
+                <td className="border border-gray-300 px-4 py-2 text-center">{row.sno}</td>
+                <td className="border border-gray-300 px-4 py-2 text-center">{row.metricNo}</td>
+                <td className="border border-gray-300 px-4 py-2 text-center">{row.qnQl}</td>
+                <td className="border border-gray-300 px-4 py-2">{row.description}</td>
+                <td className="border border-gray-300 px-4 py-2">
+                  {row.downloads.map((download, i) => (
+                    <a
+                      key={i}
+                      href={download.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline mr-2"
+                    >
+                      {download.name}
+                    </a>
+                  ))}
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {tableData.map((row, index) => (
-                <tr key={index}>
-                  <td className="border border-gray-300 px-4 py-2 text-center">{row.sno}</td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">{row.metricNo}</td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">{row.qnQl}</td>
-                  <td className="border border-gray-300 px-4 py-2">{row.description}</td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {row.downloads.map((download, i) => (
-                      <a
-                        key={i}
-                        href={download.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline mr-2"
-                      >
-                        {download.name}
-                      </a>
-                    ))}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </div>
-
+    </div>
   );
 };
 
