@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface StatItemProps {
@@ -8,18 +8,39 @@ interface StatItemProps {
 }
 
 const StatItem: React.FC<StatItemProps> = ({ value, label, delay = 0 }) => {
+  const [displayValue, setDisplayValue] = useState(0);
+
+  const startAnimation = () => {
+    const targetValue = parseInt(value.replace(/\D/g, ''), 10) || 0;
+    const duration = 1000; // Animation duration in ms
+    const increment = targetValue / (duration / 10);
+
+    let currentValue = 0;
+    const interval = setInterval(() => {
+      currentValue += increment;
+      if (currentValue >= targetValue) {
+        currentValue = targetValue;
+        clearInterval(interval);
+      }
+      setDisplayValue(Math.floor(currentValue));
+    }, 10);
+
+    return () => clearInterval(interval);
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
+      onViewportEnter={startAnimation}
       transition={{ duration: 0.5, delay }}
       className="p-4 text-center"
     >
       <motion.div 
         initial={{ scale: 0.5 }}
         whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ 
           type: "spring", 
           stiffness: 100, 
@@ -27,7 +48,7 @@ const StatItem: React.FC<StatItemProps> = ({ value, label, delay = 0 }) => {
         }}
         className="text-4xl md:text-5xl font-bold text-white mb-2"
       >
-        {value}
+        {value.includes('+') ? `${displayValue}+` : displayValue}
       </motion.div>
       <div className="text-blue-100">{label}</div>
     </motion.div>
