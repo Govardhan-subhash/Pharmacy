@@ -335,12 +335,14 @@ const AdmissionsPage: React.FC = () => {
             subtitle="Click the button below to start your application process."
           />
           <div className="text-center">
-            <Link 
-              to="/apply" 
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+            <a 
+              href="https://sves.org.in/pharmacyadmissionform/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block bg-gradient-to-r from-blue-500 to-blue-700 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg hover:from-blue-600 hover:to-blue-800 hover:shadow-xl transition-all duration-300"
             >
               Apply Now
-            </Link>
+            </a>
           </div>
         </div>
       </section>

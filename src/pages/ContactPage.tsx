@@ -147,14 +147,14 @@ West Godavari Dist., Andhra Pradesh.</p>
       </section>
 
       {/* CTA Section */}
-      <CTASection 
+      {/* <CTASection 
         title="Visit Our Campus"
         subtitle="We would love to show you around our campus. Schedule a visit today."
         primaryButtonText="Schedule a Visit"
         primaryButtonLink="#visit"
         secondaryButtonText="Contact Us"
         secondaryButtonLink="#contact-form"
-      />
+      /> */}
     </PageTransition>
   );
 };
