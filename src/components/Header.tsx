@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { ExternalLink } from 'lucide-react';
+import { Book, GraduationCap, ShieldCheck, BadgeCheck, MessageSquare, KeyRound, MapPin, CreditCard } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isBubbleMenuOpen, setIsBubbleMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+  const toggleBubbleMenu = () => {
+    setIsBubbleMenuOpen(!isBubbleMenuOpen);
   };
 
   useEffect(() => {
@@ -34,41 +37,64 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     setIsOpen(false);
-    setDropdownOpen(false);
   }, [location]);
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Placement', path: '/placement' },
-    { name: 'Research', path: '/research' },
-    { name: 'Faculty', path: '/faculty' },
-    { name: 'Campus Life', path: '/campus-life' },
-    { name: 'Committees', path: '/committee' },
-    { name: 'Events', path: '/events' },
-    { name: 'Admissions & Academics', path: '/admissions' },
-    { name: 'Contact', path: '/contact' },
-  ];
-
-  const dropdownLinks = [
-    { name: 'RTI', path: 'public/uploads/pdfs/RTI_2023.pdf', external: true },
-    { name: 'LMS', path: '/lms' },
-    { name: 'PCI', path: '/pci' },
-    { name: 'NAAC', path: '/naac' },
-    { name: 'Feedback', path: '/feedback' },
-    { name: 'VLogin', path: 'https://sves.org.in/ecap_pharma/', external: true },
-    { name: 'RouteMap', path: 'https://www.google.com/maps/dir/?api=1&destination=Sri+Vasavi+Engineering+College+and+Pharmacy+Tadepalligudem', external: true },
-    { name: 'FeePayments', path: 'https://sves.org.in/Ecap_Pharma/olpaymentlogin.aspx', external: true },
+    { name: 'Home', path: '/', image: 'url_to_home_image' },
+    { name: 'About', path: '/about', image: 'url_to_about_image' },
+    { name: 'Placement', path: '/placement', image: 'url_to_placement_image' },
+    { name: 'Research', path: '/research', image: 'url_to_research_image' },
+    { name: 'Faculty', path: '/faculty', image: 'url_to_faculty_image' },
+    { name: 'Campus Life', path: '/campus-life', image: 'url_to_campus_life_image' },
+    { name: 'Committees', path: '/committee', image: 'url_to_committees_image' },
+    { name: 'Events', path: '/events', image: 'url_to_events_image' },
+    { name: 'Admissions & Academics', path: '/admissions', image: 'url_to_admissions_image' },
+    { name: 'Contact', path: '/contact', image: 'url_to_contact_image' },
   ];
 
   const isActive = (path: string) => {
     return location.pathname === path;
   };
 
+  const dropdownLinks = [
+    { name: 'RTI', path: '/rti', external: false, icon: Book },
+    { name: 'LMS', path: '/lms', external: false, icon: GraduationCap },
+    { name: 'PCI', path: '/pci', external: false, icon: ShieldCheck },
+    { name: 'NAAC', path: '/naac', external: false, icon: BadgeCheck },
+    { name: 'Feedback', path: '/feedback', external: false, icon: MessageSquare },
+    { name: 'VLogin', path: 'https://sves.org.in/ecap_pharma/', external: true, icon: KeyRound },
+    { name: 'RouteMap', path: 'https://www.google.com/maps/dir/?api=1&destination=Sri+Vasavi+Engineering+College+and+Pharmacy+Tadepalligudem', external: true, icon: MapPin },
+    { name: 'FeePayments', path: 'https://sves.org.in/Ecap_Pharma/olpaymentlogin.aspx', external: true, icon: CreditCard },
+  ];
+
+  const bubbleMenuItems = dropdownLinks.map(item => ({
+    name: item.name,
+    link: item.external ? item.path : `/route?path=${item.path}`,
+    image: '',
+    external: item.external,
+    icon: item.icon,
+  }));
+
+  const bubbleMenuStyle = {
+    position: 'fixed',
+    top: '80px',
+    right: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '1rem',
+    backgroundColor: 'white',
+    borderRadius: '25px', // Reduced to 25px for less rounded edges
+    boxShadow: '0 4px 6px 10px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+    padding: '25px',
+    zIndex: 50,
+    transform: 'none',
+  };
+
   return (
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass-nav shadow-md py-2' : 'bg-transparent py-4'
+        scrolled ? 'bg-blue-600 shadow-md py-2' : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,88 +106,86 @@ const Header: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="flex items-center"
             >
-              <span className={`ml-2 text-2xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
+              <span className="ml-2 text-2xl font-bold text-white">
                 SVIPS
               </span>
             </motion.div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-4 items-center">
+          <nav className="hidden md:flex items-center space-x-6">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.name}
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
               >
                 <Link
                   to={link.path}
-                  className={`font-medium transition-colors duration-300 ${
-                    isActive(link.path)
-                      ? 'text-blue-600'
-                      : scrolled
-                      ? 'text-gray-900 hover:text-blue-600'
-                      : 'text-white hover:text-blue-200'
-                  }`}
+                  className={`font-medium transition-colors duration-300 text-white hover:text-blue-200`}
                 >
                   {link.name}
                   {isActive(link.path) && (
-                    <motion.div className="h-0.5 bg-blue-600 mt-0.5" layoutId="underline" />
+                    <motion.div className="h-0.5 bg-blue-200 mt-0.5" layoutId="underline" />
                   )}
                 </Link>
               </motion.div>
             ))}
-
-            {/* Dropdown Menu */}
-            <div className="relative z-50">
-              <button
-                onClick={toggleDropdown}
-                className={`font-medium flex items-center transition-colors duration-300 ${
-                  scrolled ? 'text-gray-900 hover:text-blue-600' : 'text-white hover:text-blue-200'
-                }`}
-              >
-                More Options
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
-              {dropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  className="absolute right-0 mt-2 w-48 bg-white shadow-md rounded-md overflow-hidden z-50"
-                >
-                  {dropdownLinks.map((link) => (
-                    link.external ? (
-                      <a
-                        key={link.name}
-                        href={link.path}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-200"
-                      >
-                        {link.name}
-                      </a>
-                    ) : (
-                      <Link
-                        key={link.name}
-                        to={link.path}
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-200"
-                      >
-                        {link.name}
-                      </Link>
-                    )
-                  ))}
-                </motion.div>
-              )}
-            </div>
           </nav>
 
-          {/* Mobile Menu Button */}
+          <div className="hidden md:flex items-center">
+            <button
+              onClick={toggleBubbleMenu}
+              className="text-white hover:text-blue-200 transition-colors"
+              aria-label="Toggle bubble menu"
+            >
+              <Menu className="h-6 w-6" />
+            </button>
+          </div>
+
+          {isBubbleMenuOpen && (
+            <motion.div
+              style={bubbleMenuStyle}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 50 }}
+              transition={{ duration: 0.3 }}
+            >
+              {bubbleMenuItems.map((item) => (
+                <motion.a
+                  key={item.name}
+                  href={item.link}
+                  target={item.external ? "_blank" : ""}
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full overflow-hidden flex flex-col items-center justify-center"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={(e) => {
+                    if (!item.external) {
+                      e.preventDefault();
+                      navigate(item.link);
+                      toggleBubbleMenu();
+                    }
+                  }}
+                >
+                  {item.icon ? (
+                    <>
+                      <item.icon className="w-6 h-6 text-gray-700" />
+                      {item.external && <ExternalLink className="w-4 h-4 text-gray-500 absolute top-1 right-1" />}
+                    </>
+                  ) : (
+                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                  )}
+                  <span className="text-xs text-gray-600 mt-1">{item.name}</span>
+                </motion.a>
+              ))}
+            </motion.div>
+          )}
+
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className={`${scrolled ? 'text-gray-900' : 'text-white'} hover:text-blue-600 transition-colors`}
+              className="text-white hover:text-blue-200 transition-colors"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -170,59 +194,93 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       <motion.div
-        className="md:hidden"
-        initial={{ opacity: 0, height: 0 }}
-        animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? 'auto' : 0 }}
-        transition={{ duration: 0.3 }}
-        style={{ overflow: 'hidden' }}
+        className="md:hidden fixed top-0 left-0 w-full h-full bg-white z-40"
+        initial={{ x: '-100%' }}
+        animate={{ x: isOpen ? '0%' : '-100%' }}
+        exit={{ x: '-100%' }}
+        transition={{ type: 'spring', stiffness: 100, damping: 20 }}
       >
-        <div className="bg-white shadow-md rounded-md">
-          <nav className="flex flex-col items-center p-4">
+        <div className="flex flex-col items-center justify-center h-full">
+          <button
+            onClick={toggleMenu}
+            className="absolute top-6 right-6 text-gray-700 hover:text-gray-900"
+            aria-label="Close menu"
+          >
+            <X className="h-8 w-8" />
+          </button>
+          <nav className="flex flex-col items-center space-y-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`block py-2 px-4 text-gray-700 hover:bg-gray-100 transition-colors duration-200`}
+                className="text-2xl font-semibold text-gray-700 hover:text-blue-600"
+                onClick={toggleMenu}
               >
                 {link.name}
               </Link>
             ))}
-            {/* Mobile Dropdown */}
-            <div className="relative w-full z-50">
-              <button
-                onClick={toggleDropdown}
-                className="flex items-center justify-between w-full py-2 px-4 text-gray-700 hover:bg-gray-100 transition-colors duration-200"
-              >
-                More Options
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
-              {dropdownOpen && (
-                <div className="bg-white shadow-md rounded-md overflow-hidden mt-2">
-                  {dropdownLinks.map((link) => (
-                    link.external ? (
-                      <a
-                        key={link.name}
-                        href={link.path}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-200"
-                      >
-                        {link.name}
-                      </a>
+            <div className="flex flex-col items-center">
+              <div className="flex flex-row items-center space-x-4 mb-4">
+                {dropdownLinks.slice(0, 4).map((item) => (
+                  <motion.a
+                    key={item.name}
+                    href={item.external ? item.path : `/route?path=${item.path}`}
+                    target={item.external ? "_blank" : ""}
+                    rel="noopener noreferrer"
+                    className="w-16 h-16 flex flex-col items-center justify-center rounded-full overflow-hidden bg-gray-100 hover:bg-gray-200"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                    onClick={(e) => {
+                      if (!item.external) {
+                        e.preventDefault();
+                        navigate(item.path);
+                        toggleMenu();
+                      }
+                    }}
+                  >
+                    {item.external ? (
+                      <>
+                        <item.icon className="w-6 h-6 text-gray-700" />
+                        <ExternalLink className="w-4 h-4 text-gray-500 absolute top-1 right-1" />
+                      </>
                     ) : (
-                      <Link
-                        key={link.name}
-                        to={link.path}
-                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-200"
-                      >
-                        {link.name}
-                      </Link>
-                    )
-                  ))}
-                </div>
-              )}
+                      <item.icon className="w-6 h-6 text-gray-700" />
+                    )}
+                    <span className="text-xs text-gray-600 mt-1">{item.name}</span>
+                  </motion.a>
+                ))}
+              </div>
+              <div className="flex flex-row items-center space-x-4">
+                {dropdownLinks.slice(4, 8).map((item) => (
+                  <motion.a
+                    key={item.name}
+                    href={item.external ? item.path : `/route?path=${item.path}`}
+                    target={item.external ? "_blank" : ""}
+                    rel="noopener noreferrer"
+                    className="w-16 h-16 flex flex-col items-center justify-center rounded-full overflow-hidden bg-gray-100 hover:bg-gray-200"
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                    onClick={(e) => {
+                      if (!item.external) {
+                        e.preventDefault();
+                        navigate(item.path);
+                        toggleMenu();
+                      }
+                    }}
+                  >
+                    {item.external ? (
+                      <>
+                        <item.icon className="w-6 h-6 text-gray-700" />
+                        <ExternalLink className="w-4 h-4 text-gray-500 absolute top-1 right-1" />
+                      </>
+                    ) : (
+                      <item.icon className="w-6 h-6 text-gray-700" />
+                    )}
+                    <span className="text-xs text-gray-600 mt-1">{item.name}</span>
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </nav>
         </div>

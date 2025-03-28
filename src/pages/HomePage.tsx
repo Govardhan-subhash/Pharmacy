@@ -381,49 +381,49 @@ const HomePage: React.FC = () => {
             subtitle="Sri Vasavi Institute of Pharmaceutical Sciences is dedicated to providing quality education, fostering research, and developing skilled professionals in the pharmaceutical field."
           />
           <div
-            ref={flyFallRef}
-            className="grid grid-cols-2 sm:grid-cols-4 gap-4 justify-center items-center relative max-w-3xl mx-auto"
-          >
-            {[
-              { src: "public/uploads/images/l2.png", alt: "AU" },
-              {
-                src: "public/uploads/images/l3.png",
-                alt: "Pharmacy Council of India",
-              },
-              { src: "public/uploads/images/l4.png", alt: "NAAC" },
-              { src: "public/uploads/images/l5.png", alt: "ISO" },
-            ].map((image, index) => (
-              <div
-                key={index}
-                className={`relative group rounded-lg shadow-lg overflow-hidden ${
-                  isVisible ? "animate-fly-fall" : ""
-                }`}
-                style={{
-                  animationDelay: `${index * 0.5}s`,
-                }}
-                onClick={() => handleImageClick(index)}
-              >
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  className={`w-full h-auto transition-transform duration-300 ${
-                    activeImageIndex === index
-                      ? "blur-lg opacity-50"
-                      : "group-hover:blur-lg group-hover:opacity-50"
-                  }`}
-                />
-                <div
-                  className={`absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 ${
-                    activeImageIndex === index
-                      ? "opacity-100"
-                      : "opacity-0 group-hover:opacity-100"
-                  } transition-opacity duration-300`}
-                >
-                  <p className="text-white text-lg font-medium">{image.alt}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+  ref={flyFallRef}
+  className="grid grid-cols-2 sm:grid-cols-4 gap-4 justify-center items-center relative max-w-3xl mx-auto"
+>
+  {[
+    { src: "public/uploads/images/l2.png", alt: "AU" },
+    {
+      src: "public/uploads/images/l3.png",
+      alt: "Pharmacy Council of India",
+    },
+    { src: "public/uploads/images/l4.png", alt: "NAAC" },
+    { src: "public/uploads/images/l5.png", alt: "ISO" },
+  ].map((image, index) => (
+    <div
+      key={index}
+      className={`relative group rounded-lg shadow-lg overflow-hidden ${
+        isVisible ? "animate-fly-fall" : ""
+      }`}
+      style={{
+        animationDelay: `${index * 0.5}s`,
+      }}
+      onClick={() => handleImageClick(index)}
+    >
+      <img
+        src={image.src}
+        alt={image.alt}
+        className={`w-full h-auto transition-transform duration-300 ${
+          activeImageIndex === index
+            ? "blur-lg opacity-50"
+            : "group-hover:blur-lg group-hover:opacity-50"
+        }`}
+      />
+      <div
+        className={`absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 ${
+          activeImageIndex === index
+            ? "opacity-100"
+            : "opacity-0 group-hover:opacity-100"
+        } transition-opacity duration-20`}
+      >
+        <p className="text-white text-lg font-medium text-center">{image.alt}</p>
+      </div>
+    </div>
+  ))}
+</div>
 
           <div>
             <h2></h2>
@@ -790,13 +790,13 @@ const HomePage: React.FC = () => {
               {companyLogos.map((company, index) => (
                 <div
                   key={index}
-                  className="logo-container inline-block mx-2 sm:mx-4 w-24 sm:w-32"
+                  className="logo-container inline-block mx-2 sm:mx-4 w-32 sm:w-40" // Increased width
                 >
                   <div className="flex items-center justify-center p-4 bg-white rounded-lg shadow-md">
                     <img
                       src={company.logo}
                       alt={company.name}
-                      className="max-h-16 max-w-full object-contain"
+                      className="max-h-20 max-w-full object-contain" // Increased height
                     />
                   </div>
                 </div>
