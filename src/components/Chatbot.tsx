@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MessageCircle, X } from "lucide-react";
-import { motion } from "framer-motion"; // Import framer-motion
+import { motion } from "framer-motion"; // Import framer-motion for animations
+import "./Chatbot.css"; // Import the CSS file for additional styles
 
 const ChatBot: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false); // Track if animation has run
   const [messages, setMessages] = useState<{ user: string; bot: string }[]>([]);
   const [input, setInput] = useState("");
+
+  useEffect(() => {
+    // Trigger the fly-fall animation on page load
+    setHasAnimated(true);
+  }, []);
 
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
@@ -41,9 +48,11 @@ const ChatBot: React.FC = () => {
 
   return (
     <>
-      {/* Floating Button with Animation */}
+      {/* Floating Button with Fly-Fall Animation */}
       <motion.div
-        className="fixed bottom-24 right-6 z-50"
+        className={`fixed bottom-24 left-6 z-50 chatbot-icon ${
+          hasAnimated ? "fly-fall" : ""
+        }`}
         animate={{ scale: [1, 1.2, 1] }} // Animation to increase and decrease size
         transition={{ duration: 1.5, repeat: Infinity }} // Continuous animation
       >
@@ -58,7 +67,7 @@ const ChatBot: React.FC = () => {
 
       {/* Chatbot Popup */}
       {isChatOpen && (
-        <div className="fixed bottom-20 right-6 bg-white shadow-lg rounded-lg w-80 h-96 z-50 flex flex-col">
+        <div className="fixed bottom-20 left-6 bg-white shadow-lg rounded-lg w-80 h-96 z-50 flex flex-col">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b">
             <h3 className="text-lg font-bold text-gray-900">Chat with Us</h3>
