@@ -1,9 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
-import { Book, GraduationCap, ShieldCheck, BadgeCheck, MessageSquare, KeyRound, MapPin, CreditCard } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
+import {
+  Book,
+  GraduationCap,
+  ShieldCheck,
+  BadgeCheck,
+  MessageSquare,
+  KeyRound,
+  MapPin,
+  CreditCard,
+} from "lucide-react";
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,9 +38,9 @@ const Header: React.FC = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -40,16 +49,28 @@ const Header: React.FC = () => {
   }, [location]);
 
   const navLinks = [
-    { name: 'Home', path: '/', image: 'url_to_home_image' },
-    { name: 'About', path: '/about', image: 'url_to_about_image' },
-    { name: 'Placement', path: '/placement', image: 'url_to_placement_image' },
-    { name: 'Research', path: '/research', image: 'url_to_research_image' },
-    { name: 'Faculty', path: '/faculty', image: 'url_to_faculty_image' },
-    { name: 'Campus Life', path: '/campus-life', image: 'url_to_campus_life_image' },
-    { name: 'Committees', path: '/committee', image: 'url_to_committees_image' },
-    { name: 'Events', path: '/events', image: 'url_to_events_image' },
-    { name: 'Admissions & Academics', path: '/admissions', image: 'url_to_admissions_image' },
-    { name: 'Contact', path: '/contact', image: 'url_to_contact_image' },
+    { name: "Home", path: "/", image: "url_to_home_image" },
+    { name: "About", path: "/about", image: "url_to_about_image" },
+    { name: "Placement", path: "/placement", image: "url_to_placement_image" },
+    { name: "Research", path: "/research", image: "url_to_research_image" },
+    { name: "Faculty", path: "/faculty", image: "url_to_faculty_image" },
+    {
+      name: "Campus Life",
+      path: "/campus-life",
+      image: "url_to_campus_life_image",
+    },
+    {
+      name: "Committees",
+      path: "/committee",
+      image: "url_to_committees_image",
+    },
+    { name: "Events", path: "/events", image: "url_to_events_image" },
+    {
+      name: "Admissions & Academics",
+      path: "/admissions",
+      image: "url_to_admissions_image",
+    },
+    { name: "Contact", path: "/contact", image: "url_to_contact_image" },
   ];
 
   const isActive = (path: string) => {
@@ -57,44 +78,65 @@ const Header: React.FC = () => {
   };
 
   const dropdownLinks = [
-    { name: 'RTI', path: '/rti', external: false, icon: Book },
-    { name: 'LMS', path: '/lms', external: false, icon: GraduationCap },
-    { name: 'PCI', path: '/pci', external: false, icon: ShieldCheck },
-    { name: 'NAAC', path: '/naac', external: false, icon: BadgeCheck },
-    { name: 'Feedback', path: '/feedback', external: false, icon: MessageSquare },
-    { name: 'VLogin', path: 'https://sves.org.in/ecap_pharma/', external: true, icon: KeyRound },
-    { name: 'RouteMap', path: 'https://www.google.com/maps/dir/?api=1&destination=Sri+Vasavi+Engineering+College+and+Pharmacy+Tadepalligudem', external: true, icon: MapPin },
-    { name: 'FeePayments', path: 'https://sves.org.in/Ecap_Pharma/olpaymentlogin.aspx', external: true, icon: CreditCard },
+    { name: "RTI", path: "/rti", external: false, icon: Book },
+    { name: "LMS", path: "/lms", external: false, icon: GraduationCap },
+    { name: "PCI", path: "/pci", external: false, icon: ShieldCheck },
+    { name: "NAAC", path: "/naac", external: false, icon: BadgeCheck },
+    {
+      name: "Feedback",
+      path: "/feedback",
+      external: false,
+      icon: MessageSquare,
+    },
+    {
+      name: "VLogin",
+      path: "https://sves.org.in/ecap_pharma/",
+      external: true,
+      icon: KeyRound,
+    },
+    {
+      name: "RouteMap",
+      path: "https://www.google.com/maps/dir/?api=1&destination=Sri+Vasavi+Engineering+College+and+Pharmacy+Tadepalligudem",
+      external: true,
+      icon: MapPin,
+    },
+    {
+      name: "FeePayments",
+      path: "https://sves.org.in/Ecap_Pharma/olpaymentlogin.aspx",
+      external: true,
+      icon: CreditCard,
+    },
   ];
 
-  const bubbleMenuItems = dropdownLinks.map(item => ({
+  const bubbleMenuItems = dropdownLinks.map((item) => ({
     name: item.name,
     link: item.path,
-    image: '',
+    image: "",
     external: item.external,
     icon: item.icon,
   }));
 
   const bubbleMenuStyle = {
-    position: 'fixed',
-    top: '80px',
-    right: '20px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '1rem',
-    backgroundColor: 'white',
-    borderRadius: '25px', // Reduced to 25px for less rounded edges
-    boxShadow: '0 4px 6px 10px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-    padding: '25px',
+    position: "fixed",
+    top: "80px",
+    right: "20px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "1rem",
+    backgroundColor: "white",
+    borderRadius: "25px", // Reduced to 25px for less rounded edges
+    boxShadow:
+      "0 4px 6px 10px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+    padding: "25px",
     zIndex: 50,
-    transform: 'none',
+    transform: "none",
   };
 
   return (
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-blue-600 shadow-md py-2' : 'bg-transparent py-4'
+        scrolled ? "bg-blue-600 shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,9 +148,12 @@ const Header: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="flex items-center"
             >
-              <span className="ml-2 text-2xl font-bold text-white">
-                SVIPS
-              </span>
+              <img
+                src="public/uploads/images/no.png"
+                alt="Logo"
+                className="w-10 h-10 mr-2"
+              />
+              <span className="text-2xl font-bold text-white">SVIPS</span>
             </motion.div>
           </Link>
 
@@ -126,7 +171,10 @@ const Header: React.FC = () => {
                 >
                   {link.name}
                   {isActive(link.path) && (
-                    <motion.div className="h-0.5 bg-blue-200 mt-0.5" layoutId="underline" />
+                    <motion.div
+                      className="h-0.5 bg-blue-200 mt-0.5"
+                      layoutId="underline"
+                    />
                   )}
                 </Link>
               </motion.div>
@@ -171,12 +219,20 @@ const Header: React.FC = () => {
                   {item.icon ? (
                     <>
                       <item.icon className="w-6 h-6 text-gray-700" />
-                      {item.external && <ExternalLink className="w-4 h-4 text-gray-500 absolute top-1 right-1" />}
+                      {item.external && (
+                        <ExternalLink className="w-4 h-4 text-gray-500 absolute top-1 right-1" />
+                      )}
                     </>
                   ) : (
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover"
+                    />
                   )}
-                  <span className="text-xs text-gray-600 mt-1">{item.name}</span>
+                  <span className="text-xs text-gray-600 mt-1">
+                    {item.name}
+                  </span>
                 </motion.a>
               ))}
             </motion.div>
@@ -188,7 +244,11 @@ const Header: React.FC = () => {
               className="text-white hover:text-blue-200 transition-colors"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -196,10 +256,10 @@ const Header: React.FC = () => {
 
       <motion.div
         className="md:hidden fixed top-0 left-0 w-full h-full bg-white z-40"
-        initial={{ x: '-100%' }}
-        animate={{ x: isOpen ? '0%' : '-100%' }}
-        exit={{ x: '-100%' }}
-        transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+        initial={{ x: "-100%" }}
+        animate={{ x: isOpen ? "0%" : "-100%" }}
+        exit={{ x: "-100%" }}
+        transition={{ type: "spring", stiffness: 100, damping: 20 }}
       >
         <div className="flex flex-col items-center justify-center h-full">
           <button
@@ -225,7 +285,9 @@ const Header: React.FC = () => {
                 {dropdownLinks.slice(0, 4).map((item) => (
                   <motion.a
                     key={item.name}
-                    href={item.external ? item.path : `/route?path=${item.path}`}
+                    href={
+                      item.external ? item.path : `/route?path=${item.path}`
+                    }
                     target={item.external ? "_blank" : ""}
                     rel="noopener noreferrer"
                     className="w-16 h-16 flex flex-col items-center justify-center rounded-full overflow-hidden bg-gray-100 hover:bg-gray-200"
@@ -247,7 +309,9 @@ const Header: React.FC = () => {
                     ) : (
                       <item.icon className="w-6 h-6 text-gray-700" />
                     )}
-                    <span className="text-xs text-gray-600 mt-1">{item.name}</span>
+                    <span className="text-xs text-gray-600 mt-1">
+                      {item.name}
+                    </span>
                   </motion.a>
                 ))}
               </div>
@@ -255,7 +319,9 @@ const Header: React.FC = () => {
                 {dropdownLinks.slice(4, 8).map((item) => (
                   <motion.a
                     key={item.name}
-                    href={item.external ? item.path : `/route?path=${item.path}`}
+                    href={
+                      item.external ? item.path : `/route?path=${item.path}`
+                    }
                     target={item.external ? "_blank" : ""}
                     rel="noopener noreferrer"
                     className="w-16 h-16 flex flex-col items-center justify-center rounded-full overflow-hidden bg-gray-100 hover:bg-gray-200"
@@ -277,7 +343,9 @@ const Header: React.FC = () => {
                     ) : (
                       <item.icon className="w-6 h-6 text-gray-700" />
                     )}
-                    <span className="text-xs text-gray-600 mt-1">{item.name}</span>
+                    <span className="text-xs text-gray-600 mt-1">
+                      {item.name}
+                    </span>
                   </motion.a>
                 ))}
               </div>
