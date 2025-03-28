@@ -112,7 +112,7 @@ const EventsPage: React.FC = () => {
           </div>
           <div className="absolute inset-0 z-0 opacity-50">
             <img
-              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+              src="https://gsbt.edu.in//wp-content/uploads/2023/12/17.11.2023-PHARMACEUTICAL-ABOUT-THE-DEPARTMENT-1.jpg"
               alt="Events Hero Background"
               className="w-full h-full object-cover"
             />

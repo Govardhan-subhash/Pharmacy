@@ -47,7 +47,7 @@ const CommitteesPage: React.FC = () => {
           </div>
           <div className="absolute inset-0 z-0 opacity-50">
             <img
-              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3"
+              src="https://media.istockphoto.com/id/1272326797/photo/executive-team-listening-to-contrary-views-from-colleague.jpg?s=612x612&w=0&k=20&c=C8gVcRVvdRmc-5no4Uan7jQE1xPB2oqQe_iYbsVooDg="
               alt="Committees"
               className="w-full h-full object-cover"
             />

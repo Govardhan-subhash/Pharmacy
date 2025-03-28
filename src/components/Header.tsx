@@ -78,34 +78,14 @@ const Header: React.FC = () => {
   };
 
   const dropdownLinks = [
-    { name: "RTI", path: "/rti", external: false, icon: Book },
-    { name: "LMS", path: "/lms", external: false, icon: GraduationCap },
-    { name: "PCI", path: "/pci", external: false, icon: ShieldCheck },
-    { name: "NAAC", path: "/naac", external: false, icon: BadgeCheck },
-    {
-      name: "Feedback",
-      path: "/feedback",
-      external: false,
-      icon: MessageSquare,
-    },
-    {
-      name: "VLogin",
-      path: "https://sves.org.in/ecap_pharma/",
-      external: true,
-      icon: KeyRound,
-    },
-    {
-      name: "RouteMap",
-      path: "https://www.google.com/maps/dir/?api=1&destination=Sri+Vasavi+Engineering+College+and+Pharmacy+Tadepalligudem",
-      external: true,
-      icon: MapPin,
-    },
-    {
-      name: "FeePayments",
-      path: "https://sves.org.in/Ecap_Pharma/olpaymentlogin.aspx",
-      external: true,
-      icon: CreditCard,
-    },
+    { name: 'RTI', path: '/rti', external: false, icon: Book },
+    { name: 'LMS', path: '/lms', external: false, icon: GraduationCap },
+    { name: 'PCI', path: '/pci', external: false, icon: ShieldCheck },
+    { name: 'NAAC', path: '/naac', external: false, icon: BadgeCheck },
+    { name: 'Feedback', path: '/feedback', external: false, icon: MessageSquare },
+    { name: 'VLogin', path: 'https://sves.org.in/ecap_pharma/', external: true, icon: KeyRound },
+    { name: 'RouteMap', path: 'https://www.google.com/maps/dir/?api=1&destination=Sri+Vasavi+Engineering+College+and+Pharmacy+Tadepalligudem', external: true, icon: MapPin },
+    { name: 'FeePayments', path: 'https://sves.org.in/Ecap_Pharma/olpaymentlogin.aspx', external: true, icon: CreditCard },
   ];
 
   const bubbleMenuItems = dropdownLinks.map((item) => ({
@@ -148,16 +128,13 @@ const Header: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="flex items-center"
             >
-              <img
-                src="public/uploads/images/no.png"
-                alt="Logo"
-                className="w-10 h-10 mr-2"
-              />
-              <span className="text-2xl font-bold text-white">SVIPS</span>
+              <span className="ml-2 text-2xl font-bold text-white">
+                SVIPS
+              </span>
             </motion.div>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-4">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.name}
