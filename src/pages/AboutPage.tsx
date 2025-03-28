@@ -16,6 +16,7 @@ import PageTransition from '../components/PageTransition';
 import SectionHeading from '../components/SectionHeading';
 import Hero from '../components/Hero';
 import StatsSection from '../components/StatsSection';
+import WhatsAppIcon from "../components/WhatsAppIcon";
 
 interface LeadershipMessage {
   title: string;
@@ -68,7 +69,7 @@ const leadershipMessages: LeadershipMessage[] = [
       "He is Chairperson, Co-Chairperson, and Evaluator for oral and poster presentations in National and International Conferences and Seminars.",
       "He is a Life Member of various professional bodies, including the Association of Pharmaceutical Teachers of India."
     ],
-    image: "https://www.svips.ac.in/image/principal.jpg"
+    image: "public/uploads/images/principalimage.jpeg" // Updated image URL
   }
 ];
 
@@ -205,7 +206,7 @@ const AboutPage: React.FC = () => {
                         <img 
                           src={message.image} 
                           alt={message.name}
-                          className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg"
+                          className="w-24 h-24 rounded-full object-cover object-top border-4 border-white shadow-lg"
                         />
                         <div className="ml-6">
                           <h4 className="text-2xl font-bold text-gray-900">{message.name}</h4>
@@ -767,6 +768,7 @@ const AboutPage: React.FC = () => {
 
       {/* Stats Section */}
       <StatsSection />
+ 
     </PageTransition>
   );
 };

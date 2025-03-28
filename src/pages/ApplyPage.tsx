@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PageTransition from '../components/PageTransition';
 import SectionHeading from '../components/SectionHeading';
+import WhatsAppIcon from "../components/WhatsAppIcon";
 
 const ApplyPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -26,6 +27,13 @@ const ApplyPage: React.FC = () => {
 
   return (
     <PageTransition>
+      <Hero
+        title="Admissions Open for 2025-26"
+        subtitle="Take the first step towards a successful career. Apply now to join SVIPS."
+        image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+        primaryButtonText="Apply Now"
+        primaryButtonLink="https://sves.org.in/pharmacyadmissionform/"
+      />
       <section id="admission-form" className="py-16 md:py-24 bg-gray-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading 
@@ -95,6 +103,7 @@ const ApplyPage: React.FC = () => {
           </form>
         </div>
       </section>
+      <WhatsAppIcon />
     </PageTransition>
   );
 };

@@ -144,6 +144,7 @@ West Godavari Dist., Andhra Pradesh.</p>
             </form>
           </div>
         </div>
+        
       </section>
 
       {/* CTA Section */}
@@ -155,7 +156,9 @@ West Godavari Dist., Andhra Pradesh.</p>
         secondaryButtonText="Contact Us"
         secondaryButtonLink="#contact-form"
       /> */}
+  
     </PageTransition>
+    
   );
 };
 

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import Hero from '../components/Hero';
 import SectionHeading from '../components/SectionHeading';
+import WhatsAppIcon from "../components/WhatsAppIcon";
 
 const AdmissionsPage: React.FC = () => {
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
@@ -28,9 +29,7 @@ const AdmissionsPage: React.FC = () => {
         subtitle="Take the first step towards a successful career. Apply now to join SVIPS."
         image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
         primaryButtonText="Apply Now"
-        primaryButtonLink="/apply"
-        secondaryButtonText="Download Brochure"
-        secondaryButtonLink="#brochure"
+        primaryButtonLink="https://sves.org.in/pharmacyadmissionform/"
       />
 
       {/* Admissions Information Section */}
@@ -346,6 +345,7 @@ const AdmissionsPage: React.FC = () => {
           </div>
         </div>
       </section>
+     
     </PageTransition>
   );
 };

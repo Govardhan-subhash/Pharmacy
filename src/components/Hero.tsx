@@ -24,9 +24,9 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <section className="relative text-white min-h-screen flex items-center">
-      {/* Remove the blue gradient div */}
-      <div className="absolute inset-0 bg-[url('https://www.joonsquare.com/usermanage/image/business/sri-vasavi-institute-of-pharmaceutical-sciences-west-godavari-15455/sri-vasavi-institute-of-pharmaceutical-sciences-west-godavari-sri-vasavi-institute-of-pharmaceutical-sciences-1.jpg')] bg-cover bg-center brightness-75"></div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
+      {/* Update the background image */}
+      <div className="absolute inset-0 bg-[url('public/uploads/images/pharmacyimage.png')] bg-cover bg-center brightness-75"></div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-0">
         <div className="max-w-3xl">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ const Hero: React.FC<HeroProps> = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10"
       >
         <motion.div 
           animate={{ y: [0, 10, 0] }}
