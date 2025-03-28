@@ -111,7 +111,7 @@ const ResearchPage: React.FC = () => {
           </div>
           <div className="absolute inset-0 z-0 opacity-50">
             <img
-              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3"
+              src="https://pharmacy.utah.edu/sites/g/files/zrelqx186/files/styles/billboard_tablet/public/media/images/2021/banner11.jpg?itok=CCLANtyM"
               alt="Research"
               className="w-full h-full object-cover"
             />

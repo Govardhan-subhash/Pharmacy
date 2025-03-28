@@ -78,7 +78,7 @@ const Header: React.FC = () => {
   };
 
   const dropdownLinks = [
-    { name: "RTI", path: "public/uploads/pdfs/RTI Decleration.pdf", external: false, icon: Book },
+    { name: "RTI", path: "/rti", external: false, icon: Book },
     { name: "LMS", path: "/lms", external: false, icon: GraduationCap },
     { name: "PCI", path: "/pci", external: false, icon: ShieldCheck },
     { name: "NAAC", path: "/naac", external: false, icon: BadgeCheck },
@@ -148,16 +148,13 @@ const Header: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="flex items-center"
             >
-              <img
-                src="public/uploads/images/no.png"
-                alt="Logo"
-                className="w-10 h-10 mr-2"
-              />
-              <span className="text-2xl font-bold text-white">SVIPS</span>
+              <span className="ml-2 text-2xl font-bold text-white">
+                SVIPS
+              </span>
             </motion.div>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-4">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.name}

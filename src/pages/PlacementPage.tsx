@@ -107,23 +107,25 @@ const PlacementPage: React.FC = () => {
   return (
     <PageTransition>
       {/* Hero Section */}
-      <section className="relative bg-blue-600 text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative z-10">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Placements</h1>
-            <p className="text-lg md:text-xl">
-              Explore the placement opportunities, alumni interactions, and career guidance at SVIPS.
-            </p>
-          </div>
-          <div className="absolute inset-0 z-0 opacity-50">
-            <img
-              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
-              alt="Placements Hero Background"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
+
+<section className="relative bg-blue-600 text-white py-16 md:py-24">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="relative z-10">
+      <h1 className="text-4xl md:text-5xl font-bold mb-4">Placements</h1>
+      <p className="text-lg md:text-xl">
+        Explore the placement opportunities, alumni interactions, and career guidance at SVIPS.
+      </p>
+    </div>
+    <div className="absolute inset-0 z-0 opacity-50">
+      <img
+        src="public/uploads/images/placementsbg.png"
+        alt="Placements Hero Background"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</section>
+
 
       {/* Main Content Section */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">

@@ -25,8 +25,13 @@ except Exception as e:
 embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 print("Embedding model loaded successfully.")
 
-# Set up OpenAI API key
-openai.api_key = "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"
+# Load the Question-Answering model and tokenizer
+qa_model_name = "distilbert-base-cased-distilled-squad"  # Use a QA model from Hugging Face
+qa_tokenizer = AutoTokenizer.from_pretrained(qa_model_name)
+qa_model = AutoModelForQuestionAnswering.from_pretrained(qa_model_name)
+qa_pipeline = pipeline("question-answering", model=qa_model, tokenizer=qa_tokenizer)
+print("Question-Answering model loaded successfully.")
+
 # Function to retrieve relevant chunks dynamically from FAISS
 def retrieve_relevant_chunks(query, faiss_index, all_chunks, n_retrievals=5):
     # Generate embedding for the query
@@ -85,20 +90,18 @@ def chat():
                 filtered_chunks = relevant_chunks  # Fallback to all chunks if no specific match is found
             print("Filtered Chunks:", filtered_chunks)  # Debug: Print filtered chunks
 
-            # Step 3: Combine filtered chunks into a single context
-            context = " ".join(filtered_chunks)  # Combine filtered chunks into a single string
-            print("Context for OpenAI:", context)  # Debug: Print the context passed to OpenAI
+            # Step 3: Prioritize the most relevant chunk
+            prioritized_chunk = filtered_chunks[0] if filtered_chunks else " ".join(relevant_chunks)
+            print("Prioritized Chunk for QA model:", prioritized_chunk)  # Debug: Print the prioritized chunk
 
-            # Step 4: Use OpenAI API to generate the response
-            openai_response = openai.chat.completions.create(
-                model="gpt-4o-mini",  # Use GPT-4 or another model
-                messages=[
-                    {"role": "system", "content": "You are a helpful assistant."},
-                    {"role": "user", "content": f"Question: {user_input}\nContext: {context}"}
-                ]
-            )
-            response = openai_response.choices[0].message["content"]
-            print("Generated Answer:", response)  # Debug: Print the generated answer
+            # Step 4: Use the QA model to extract the answer
+            qa_input = {
+                "question": user_input,
+                "context": prioritized_chunk
+            }
+            answer = qa_pipeline(qa_input)
+            print("Generated Answer:", answer["answer"])  # Debug: Print the generated answer
+            response = answer["answer"]
         except Exception as e:
             print(f"Error during query: {e}")
             response = "An error occurred while processing your request."
