@@ -230,10 +230,10 @@ const CampusLifePage: React.FC = () => {
         title="Experience the Vibrant Campus Life"
         subtitle="Discover the diverse range of activities, clubs, and events that make SVIPS a lively and engaging place to study."
         image="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3"
-        primaryButtonText="Join a Club"
-        primaryButtonLink="/clubs"
-        secondaryButtonText="Upcoming Events"
-        secondaryButtonLink="#events"
+        primaryButtonText="Explore Events"
+        primaryButtonLink="/events"
+        // secondaryButtonText="Upcoming Events"
+        // secondaryButtonLink="#events"
       />
 
       {/* Campus Facilities Section */}

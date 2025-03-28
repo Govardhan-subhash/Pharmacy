@@ -16,9 +16,6 @@ const CoursesPage: React.FC = () => {
       title: "Pharmaceutical Analysis",
       description: "A program focused on the analysis and quality control of pharmaceutical products.",
       image: "https://images.unsplash.com/photo-1581092334395-3a9b6a4b7b3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-      duration: "2 Years",
-      level: "Postgraduate",
-      students: 300,
       category: "pharmaceutical"
     },
     {
@@ -26,9 +23,7 @@ const CoursesPage: React.FC = () => {
       title: "Pharmaceutical Bio-Technology",
       description: "A program exploring the application of biotechnology in the pharmaceutical industry.",
       image: "https://images.unsplash.com/photo-1581091012184-7c3d3b3c3b3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-      duration: "2 Years",
-      level: "Postgraduate",
-      students: 250,
+      
       category: "pharmaceutical"
     },
     {
@@ -36,9 +31,7 @@ const CoursesPage: React.FC = () => {
       title: "Pharmaceutical Chemistry",
       description: "A program focusing on the chemical aspects of drug design and development.",
       image: "https://images.unsplash.com/photo-1581092334395-3a9b6a4b7b3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-      duration: "2 Years",
-      level: "Postgraduate",
-      students: 200,
+
       category: "pharmaceutical"
     },
     {
@@ -46,9 +39,6 @@ const CoursesPage: React.FC = () => {
       title: "Pharmacology",
       description: "A program dedicated to the study of drug action and its effects on biological systems.",
       image: "https://images.unsplash.com/photo-1581092334395-3a9b6a4b7b3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-      duration: "2 Years",
-      level: "Postgraduate",
-      students: 220,
       category: "pharmaceutical"
     },
     {
@@ -56,9 +46,6 @@ const CoursesPage: React.FC = () => {
       title: "Pharmaceutics",
       description: "A program that focuses on the formulation and delivery of pharmaceutical products.",
       image: "https://images.unsplash.com/photo-1581092334395-3a9b6a4b7b3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-      duration: "2 Years",
-      level: "Postgraduate",
-      students: 280,
       category: "pharmaceutical"
     }
   ];
@@ -155,10 +142,10 @@ const CoursesPage: React.FC = () => {
                   title={course.title}
                   description={course.description}
                   image={course.image}
-                  duration={course.duration}
-                  level={course.level}
-                  students={course.students}
-                  delay={index * 0.1}
+                  // duration={course.duration}
+                  // level={course.level}
+                  // students={course.students}
+                  // delay={index * 0.1}
                 />
               ))}
             </div>
