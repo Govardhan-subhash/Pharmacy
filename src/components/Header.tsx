@@ -78,7 +78,7 @@ const Header: React.FC = () => {
   };
 
   const dropdownLinks = [
-    { name: "RTI", path: "/rti", external: false, icon: Book },
+    { name: "RTI", path: "public/uploads/pdfs/RTI Decleration.pdf", external: false, icon: Book },
     { name: "LMS", path: "/lms", external: false, icon: GraduationCap },
     { name: "PCI", path: "/pci", external: false, icon: ShieldCheck },
     { name: "NAAC", path: "/naac", external: false, icon: BadgeCheck },
