@@ -26,7 +26,7 @@ embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
 print("Embedding model loaded successfully.")
 
 # Set up OpenAI API key
-openai.api_key = "sk-proj-oYqOFNoAFYQY-TQUnPxuWOtkpotoXhiTjN19O2142P1jRrhbbBEvFZsFf2qF1echMJuUpp7yusT3BlbkFJx7Z6eacXXEVLRsK4nptsfqWY4kaYRHc00s260w8sBj0U_O9IYwUevnNbbrT3Y6eZPY6FG"  # Replace with your OpenAI API key
+# openai.api_key = "sk-proj-oYqOFNoAFYQY-TQUnPxuWOtkpotoXhiTjN19O2142P1jRrhbbBEvFZsFf2qF1echMJuUpp7yusT3BlbkFJx7Z6eacXXEVLRsK4nptsfqWY4kaYRHc00s260w8sBj0U_O9IYwUevnNbbrT3Y6eZPY6FG"  # Replace with your OpenAI API key
 
 # Function to retrieve relevant chunks dynamically from FAISS
 def retrieve_relevant_chunks(query, faiss_index, all_chunks, n_retrievals=5):
