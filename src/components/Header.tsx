@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { GraduationCap, Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false); // State for dropdown
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -33,7 +33,6 @@ const Header: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // Close mobile menu and dropdown when route changes
     setIsOpen(false);
     setDropdownOpen(false);
   }, [location]);
@@ -52,30 +51,14 @@ const Header: React.FC = () => {
   ];
 
   const dropdownLinks = [
-    { name: 'RTI', path: 'public/uploads/pdfs/RTI_2023.pdf', external: true }, // Link to the RTI PDF
+    { name: 'RTI', path: 'public/uploads/pdfs/RTI_2023.pdf', external: true },
     { name: 'LMS', path: '/lms' },
     { name: 'PCI', path: '/pci' },
     { name: 'NAAC', path: '/naac' },
-    {
-      name: 'Feedback', // Added Feedback option
-      path: '/feedback',
-    },
-    {
-      name: 'VLogin',
-      path: 'https://sves.org.in/ecap_pharma/',
-      external: true,
-    },
-    {
-      name: 'RouteMap',
-      path: 'https://www.google.com/maps/dir/?api=1&destination=Sri+Vasavi+Engineering+College+and+Pharmacy+Tadepalligudem',
-      external: true,
-    },
-    {
-      name: 'FeePayments',
-      path: 'https://sves.org.in/Ecap_Pharma/olpaymentlogin.aspx',
-      external: true,
-    },
- 
+    { name: 'Feedback', path: '/feedback' },
+    { name: 'VLogin', path: 'https://sves.org.in/ecap_pharma/', external: true },
+    { name: 'RouteMap', path: 'https://www.google.com/maps/dir/?api=1&destination=Sri+Vasavi+Engineering+College+and+Pharmacy+Tadepalligudem', external: true },
+    { name: 'FeePayments', path: 'https://sves.org.in/Ecap_Pharma/olpaymentlogin.aspx', external: true },
   ];
 
   const isActive = (path: string) => {
@@ -97,11 +80,6 @@ const Header: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="flex items-center"
             >
-              <img
-                // src="public/uploads/images/l.png" // Replace with your logo URL
-                // alt="SVIPS Logo"
-                // className={`h-10 w-10 ${scrolled ? 'filter brightness-100' : 'filter brightness-200'}`}
-              />
               <span className={`ml-2 text-2xl font-bold ${scrolled ? 'text-gray-900' : 'text-white'}`}>
                 SVIPS
               </span>
@@ -109,7 +87,7 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-4">
+          <nav className="hidden md:flex space-x-4 items-center">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.name}
@@ -136,18 +114,14 @@ const Header: React.FC = () => {
             ))}
 
             {/* Dropdown Menu */}
-            <div className="relative">
+            <div className="relative z-50">
               <button
                 onClick={toggleDropdown}
                 className={`font-medium flex items-center transition-colors duration-300 ${
                   scrolled ? 'text-gray-900 hover:text-blue-600' : 'text-white hover:text-blue-200'
                 }`}
               >
-                <img
-                  src="https://thumbs.dreamstime.com/z/pharmacy-caduceus-vector-icon-medical-corporate-logo-use-rehabilitation-pharmacology-business-pharmacy-caduceus-vector-106764918.jpg"
-                  alt="Pharmacy Icon"
-                  className="h-6 w-6 mr-1"
-                />
+                More Options
                 <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               {dropdownOpen && (
@@ -155,7 +129,7 @@ const Header: React.FC = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg py-2 z-50"
+                  className="absolute right-0 mt-2 w-48 bg-white shadow-md rounded-md overflow-hidden z-50"
                 >
                   {dropdownLinks.map((link) => (
                     link.external ? (
@@ -164,7 +138,7 @@ const Header: React.FC = () => {
                         href={link.path}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-200"
                       >
                         {link.name}
                       </a>
@@ -172,7 +146,7 @@ const Header: React.FC = () => {
                       <Link
                         key={link.name}
                         to={link.path}
-                        className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-200"
                       >
                         {link.name}
                       </Link>
@@ -197,95 +171,62 @@ const Header: React.FC = () => {
       </div>
 
       {/* Mobile Navigation */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden bg-white shadow-lg"
-        >
-          <div className="container mx-auto px-4 py-4">
-            <nav className="flex flex-col space-y-4">
-              {navLinks.map((link, index) => (
-                <motion.div
-                  key={link.name}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                >
-                  <Link
-                    to={link.path}
-                    className={`block py-2 ${
-                      isActive(link.path)
-                        ? 'text-blue-600 font-medium'
-                        : 'text-gray-900 hover:text-blue-600'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
-
-              {/* Dropdown Menu for Mobile */}
-              <div className="relative">
-                <button
-                  onClick={toggleDropdown}
-                  className="flex items-center text-gray-900 hover:text-blue-600 transition-colors"
-                >
-                  <img
-                    src="https://thumbs.dreamstime.com/z/pharmacy-caduceus-vector-icon-medical-corporate-logo-use-rehabilitation-pharmacology-business-pharmacy-caduceus-vector-106764918.jpg"
-                    alt="Pharmacy Icon"
-                    className="h-6 w-6 mr-2"
-                  />
-                  <span className="font-medium">Pharmacy</span>
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </button>
-                {dropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="absolute left-0 mt-2 w-full bg-white shadow-lg rounded-lg py-2 z-50"
-                  >
-                    {dropdownLinks.map((link) => (
-                      link.external ? (
-                        <a
-                          key={link.name}
-                          href={link.path}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
-                        >
-                          {link.name}
-                        </a>
-                      ) : (
-                        <Link
-                          key={link.name}
-                          to={link.path}
-                          className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600"
-                        >
-                          {link.name}
-                        </Link>
-                      )
-                    ))}
-                  </motion.div>
-                )}
-              </div>
-
-              <motion.div
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.3, delay: navLinks.length * 0.05 }}
+      <motion.div
+        className="md:hidden"
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? 'auto' : 0 }}
+        transition={{ duration: 0.3 }}
+        style={{ overflow: 'hidden' }}
+      >
+        <div className="bg-white shadow-md rounded-md">
+          <nav className="flex flex-col items-center p-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`block py-2 px-4 text-gray-700 hover:bg-gray-100 transition-colors duration-200`}
               >
-                <Link to="/admissions" className="btn-primary mt-2 justify-center">
-                  Apply Now
-                </Link>
-              </motion.div>
-            </nav>
-          </div>
-        </motion.div>
-      )}
+                {link.name}
+              </Link>
+            ))}
+            {/* Mobile Dropdown */}
+            <div className="relative w-full z-50">
+              <button
+                onClick={toggleDropdown}
+                className="flex items-center justify-between w-full py-2 px-4 text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+              >
+                More Options
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </button>
+              {dropdownOpen && (
+                <div className="bg-white shadow-md rounded-md overflow-hidden mt-2">
+                  {dropdownLinks.map((link) => (
+                    link.external ? (
+                      <a
+                        key={link.name}
+                        href={link.path}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link
+                        key={link.name}
+                        to={link.path}
+                        className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+                      >
+                        {link.name}
+                      </Link>
+                    )
+                  ))}
+                </div>
+              )}
+            </div>
+          </nav>
+        </div>
+      </motion.div>
     </header>
   );
 };
