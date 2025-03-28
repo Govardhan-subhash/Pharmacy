@@ -14,7 +14,7 @@ const PCIPage: React.FC = () => {
           </div>
           <div className="absolute inset-0 z-0 opacity-50">
             <img
-              src="https://images.unsplash.com/photo-1581091870621-3c4e1d76d6e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+              src="public/uploads/images/PCI.png"
               alt="PCI Hero Background"
               className="w-full h-full object-cover"
             />
