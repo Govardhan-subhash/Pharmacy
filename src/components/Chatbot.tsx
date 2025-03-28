@@ -30,7 +30,7 @@ const ChatBot: React.FC = () => {
           i === prev.length - 1 ? { ...msg, bot: data.response } : msg
         )
       );
-    } catch (error) {
+    } catch {
       setMessages((prev) =>
         prev.map((msg, i) =>
           i === prev.length - 1 ? { ...msg, bot: "Error connecting to server." } : msg
