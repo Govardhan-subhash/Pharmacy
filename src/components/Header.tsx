@@ -69,7 +69,7 @@ const Header: React.FC = () => {
 
   const bubbleMenuItems = dropdownLinks.map(item => ({
     name: item.name,
-    link: item.external ? item.path : `/route?path=${item.path}`,
+    link: item.path,
     image: '',
     external: item.external,
     icon: item.icon,
