@@ -8,9 +8,9 @@ interface CourseCardProps {
   title: string;
   description: string;
   image: string;
-  duration: string;
-  level: string;
-  students: number;
+  // duration: string;
+  // level: string;
+  // students: number;
   delay?: number;
 }
 
@@ -19,9 +19,9 @@ const CourseCard: React.FC<CourseCardProps> = ({
   title, 
   description, 
   image, 
-  duration, 
-  level, 
-  students,
+  // duration, 
+  // level, 
+  // students,
   delay = 0 
 }) => {
   return (

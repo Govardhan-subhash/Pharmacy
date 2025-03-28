@@ -308,8 +308,8 @@ const HomePage: React.FC = () => {
         title="Sri Vasavi Institute Of Pharmaceutical Sciences"
         subtitle="Approved by PCI-New Delhi , Afflicated to Andhra University"
         image="https://www.joonsquare.com/usermanage/image/business/sri-vasavi-institute-of-pharmaceutical-sciences-west-godavari-15455/sri-vasavi-institute-of-pharmaceutical-sciences-west-godavari-sri-vasavi-institute-of-pharmaceutical-sciences-1.jpg"
-        primaryButtonText="Explore Courses"
-        primaryButtonLink="/courses"
+        primaryButtonText="Explore Campus"
+        primaryButtonLink="/campus-life"
         secondaryButtonText="Get in Touch"
         secondaryButtonLink="/contact"
       />

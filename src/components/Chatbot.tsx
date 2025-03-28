@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { MessageCircle, X } from "lucide-react";
-import "./Chatbot.css"; // Import the CSS file
+import { motion } from "framer-motion"; // Import framer-motion for animations
+import "./Chatbot.css"; // Import the CSS file for additional styles
 
 const ChatBot: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false); // Track if animation has run
+  const [messages, setMessages] = useState<{ user: string; bot: string }[]>([]);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     // Trigger the fly-fall animation on page load
@@ -15,13 +18,43 @@ const ChatBot: React.FC = () => {
     setIsChatOpen(!isChatOpen);
   };
 
+  const sendMessage = async () => {
+    if (!input.trim()) return;
+
+    const userMessage = input.trim();
+    setMessages([...messages, { user: userMessage, bot: "..." }]);
+    setInput("");
+
+    try {
+      const response = await fetch("http://127.0.0.1:5000/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userMessage }),
+      });
+      const data = await response.json();
+      setMessages((prev) =>
+        prev.map((msg, i) =>
+          i === prev.length - 1 ? { ...msg, bot: data.response } : msg
+        )
+      );
+    } catch {
+      setMessages((prev) =>
+        prev.map((msg, i) =>
+          i === prev.length - 1 ? { ...msg, bot: "Error connecting to server." } : msg
+        )
+      );
+    }
+  };
+
   return (
     <>
-      {/* Floating Button with Ease-In-Out Animation */}
-      <div
+      {/* Floating Button with Fly-Fall Animation */}
+      <motion.div
         className={`fixed bottom-24 left-6 z-50 chatbot-icon ${
           hasAnimated ? "fly-fall" : ""
         }`}
+        animate={{ scale: [1, 1.2, 1] }} // Animation to increase and decrease size
+        transition={{ duration: 1.5, repeat: Infinity }} // Continuous animation
       >
         <button
           onClick={toggleChat}
@@ -30,7 +63,7 @@ const ChatBot: React.FC = () => {
         >
           {isChatOpen ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
         </button>
-      </div>
+      </motion.div>
 
       {/* Chatbot Popup */}
       {isChatOpen && (
@@ -45,7 +78,12 @@ const ChatBot: React.FC = () => {
 
           {/* Chat Messages */}
           <div className="flex-1 p-4 overflow-y-auto">
-            {/* Chat messages will go here */}
+            {messages.map((msg, index) => (
+              <div key={index} className="mb-4">
+                <p className="text-blue-600 font-medium">{msg.user}</p>
+                <p className="text-gray-600">{msg.bot}</p>
+              </div>
+            ))}
           </div>
 
           {/* Input Field */}
@@ -53,6 +91,9 @@ const ChatBot: React.FC = () => {
             <input
               type="text"
               placeholder="Type your message..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && sendMessage()}
               className="w-full border rounded-lg p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
           </div>

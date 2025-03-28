@@ -1,22 +1,70 @@
 from flask import Flask, request, jsonify
-import pickle
 import faiss
+from flask_cors import CORS
+from sentence_transformers import SentenceTransformer
+from PyPDF2 import PdfReader
+from nltk.tokenize import sent_tokenize
+import nltk
+import openai  # Import OpenAI library
+
+# Ensure the punkt tokenizer is downloaded
+nltk.download('punkt_tab')
 
 app = Flask(__name__)
+CORS(app)
 
-# Load the .pkl and .faiss files with error handling
+# Load the FAISS index
 try:
-    with open("index.pkl", "rb") as f:
-        model = pickle.load(f)
-except KeyError as e:
-    print(f"Error loading pickle file: {e}")
-    model = None  # Handle the error gracefully
-
-try:
-    index = faiss.read_index("index.faiss")
+    faiss_index = faiss.read_index("faiss_index.index")
+    print("FAISS index loaded successfully.")
 except Exception as e:
     print(f"Error loading FAISS index: {e}")
-    index = None  # Handle the error gracefully
+    faiss_index = None
+
+# Load the embedding model
+embedding_model = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+print("Embedding model loaded successfully.")
+
+# Set up OpenAI API key
+openai.api_key = "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"
+# Function to retrieve relevant chunks dynamically from FAISS
+def retrieve_relevant_chunks(query, faiss_index, all_chunks, n_retrievals=5):
+    # Generate embedding for the query
+    query_embedding = embedding_model.encode([query]).astype('float32').reshape(1, -1)
+
+    # Perform FAISS search
+    D, I = faiss_index.search(query_embedding, k=n_retrievals)  # Retrieve top n chunks
+
+    # Retrieve the content of the relevant chunks
+    retrieved_chunks = []
+    for idx in I[0]:
+        if idx < len(all_chunks):  # Ensure the index is valid
+            chunk = " ".join(all_chunks[idx])  # Combine sentences into a single string
+            print(f"Retrieved chunk for index {idx}: {chunk}")  # Debug: Print each retrieved chunk
+            retrieved_chunks.append(chunk)
+        else:
+            print(f"Index {idx} is out of bounds for all_chunks.")
+            retrieved_chunks.append(f"Chunk not found for index {idx}")
+
+    return retrieved_chunks
+
+# Function to extract text from PDFs and chunk it
+def extract_and_chunk_pdfs(pdf_paths):
+    all_chunks = []
+    for pdf_path in pdf_paths:
+        reader = PdfReader(pdf_path)
+        text = ""
+        for page in reader.pages:
+            text += page.extract_text()
+        sentences = sent_tokenize(text)
+        chunks = [sentences[i:i+3] for i in range(0, len(sentences), 3)]  # Chunking by 3 sentences
+        all_chunks.extend(chunks)
+    return all_chunks
+
+# Reconstruct the chunks dynamically from the PDFs
+pdf_paths = ["faculty.pdf", "ssr.pdf", "guideline-339-en.pdf"]  # Add paths to your PDF files
+all_chunks = extract_and_chunk_pdfs(pdf_paths)
+print(f"Reconstructed {len(all_chunks)} chunks.")
 
 @app.route("/chat", methods=["POST"])
 def chat():
@@ -25,10 +73,37 @@ def chat():
         return jsonify({"error": "Message is required"}), 400
 
     # Process the user input and get a response
-    if model and index:
-        response = f"Received your message: {user_input}"  # Replace with actual model logic
+    if faiss_index:
+        try:
+            # Step 1: Retrieve relevant chunks
+            relevant_chunks = retrieve_relevant_chunks(user_input, faiss_index, all_chunks, n_retrievals=5)
+            print("Relevant Chunks:", relevant_chunks)  # Debug: Print all retrieved chunks
+
+            # Step 2: Filter chunks for relevance
+            filtered_chunks = [chunk for chunk in relevant_chunks if "principal" in chunk.lower()]
+            if not filtered_chunks:
+                filtered_chunks = relevant_chunks  # Fallback to all chunks if no specific match is found
+            print("Filtered Chunks:", filtered_chunks)  # Debug: Print filtered chunks
+
+            # Step 3: Combine filtered chunks into a single context
+            context = " ".join(filtered_chunks)  # Combine filtered chunks into a single string
+            print("Context for OpenAI:", context)  # Debug: Print the context passed to OpenAI
+
+            # Step 4: Use OpenAI API to generate the response
+            openai_response = openai.chat.completions.create(
+                model="gpt-4o-mini",  # Use GPT-4 or another model
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant."},
+                    {"role": "user", "content": f"Question: {user_input}\nContext: {context}"}
+                ]
+            )
+            response = openai_response.choices[0].message["content"]
+            print("Generated Answer:", response)  # Debug: Print the generated answer
+        except Exception as e:
+            print(f"Error during query: {e}")
+            response = "An error occurred while processing your request."
     else:
-        response = "Model or index not loaded properly."
+        response = "FAISS index not loaded properly."
 
     return jsonify({"response": response})
 

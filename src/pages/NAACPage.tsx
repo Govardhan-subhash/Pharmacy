@@ -157,14 +157,21 @@ const NAACPage: React.FC = () => {
   return (
     <div>
       {/* Header Section */}
-      <div
-        className="bg-cover bg-center h-64 flex items-center justify-center"
-        style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3')`,
-        }}
-      >
-        <h1 className="text-5xl font-bold text-white">NAAC</h1>
-      </div>
+      <section className="relative bg-gray-800 text-white py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative z-10">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">NAAC</h1>
+            <p className="text-lg md:text-xl"></p>
+          </div>
+          <div className="absolute inset-0 z-0 opacity-50">
+            <img
+              src="public/uploads/images/naac.png"
+              alt="Faculty"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-16">
