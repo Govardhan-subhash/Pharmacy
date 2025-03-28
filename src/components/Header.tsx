@@ -151,9 +151,9 @@ const Header: React.FC = () => {
               <img
                 src="public/uploads/images/no.png" // Replace with the actual path to your image
                 alt="Logo"
-                className="h-8 w-8 mr-0" // Adjust height, width, and margin as needed
+                className="h-11 w-11 mr-0" // Adjust height, width, and margin as needed
               />
-              <span className="ml-0 text-2xl font-bold text-white">SVIPS</span>
+              <span className="ml-0 text-3xl font-bold text-white">SVIPS</span>
             </motion.div>
           </Link>
 
