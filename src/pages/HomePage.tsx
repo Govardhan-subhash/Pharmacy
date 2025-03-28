@@ -28,6 +28,7 @@ import StatsSection from "../components/StatsSection";
 import companyLogos from "../data/companyLogos.json";
 import "./HomePage.css";
 import ChatBot from "../components/Chatbot";
+import WhatsAppIcon from "../components/WhatsAppIcon";
 
 const letterAnimation = {
   hidden: { opacity: 0, y: 50 },
@@ -808,7 +809,8 @@ const HomePage: React.FC = () => {
 
       <ChatBot />
 
-      {/* Chatbot Popup */}
+     
+      <WhatsAppIcon />
     </PageTransition>
   );
 };

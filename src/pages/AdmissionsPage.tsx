@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import PageTransition from '../components/PageTransition';
 import Hero from '../components/Hero';
 import SectionHeading from '../components/SectionHeading';
+import WhatsAppIcon from "../components/WhatsAppIcon";
 
 const AdmissionsPage: React.FC = () => {
   const [selectedPdf, setSelectedPdf] = useState<string | null>(null);
@@ -344,6 +345,7 @@ const AdmissionsPage: React.FC = () => {
           </div>
         </div>
       </section>
+     
     </PageTransition>
   );
 };

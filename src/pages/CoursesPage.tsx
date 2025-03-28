@@ -337,6 +337,7 @@ const CoursesPage: React.FC = () => {
         secondaryButtonText="Contact Admissions"
         secondaryButtonLink="/contact"
       />
+      
     </PageTransition>
   );
 };

@@ -139,6 +139,35 @@
   z-index: 500; /* Lower z-index than the chatbot button */
 }
 
+/* WhatsApp Button */
+.fixed.bottom-14.right-6.whatsapp-icon {
+  z-index: 1000; /* Ensure it's on top */
+  position: fixed;
+  bottom: 4.5rem; /* Position under the chatbot icon */
+  right: 1.5rem; /* Align with the chatbot icon */
+  background-color: #25d366; /* WhatsApp green color */
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.fixed.bottom-14.right-6.whatsapp-icon:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Add a stronger shadow */
+}
+
+/* WhatsApp Icon Animation */
+.fixed.bottom-14.right-6.whatsapp-icon.animate-fly-fall {
+  animation: fly-fall 1.5s ease-in-out forwards;
+}
+
 /* Media query for mobile devices */
 @media (max-width: 768px) {
   .animate-scroll {

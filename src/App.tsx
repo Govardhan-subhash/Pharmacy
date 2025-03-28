@@ -22,6 +22,8 @@ import PCIPage from './pages/PCIPage';
 import CommitteesPage from './components/committee/CommiteePage';
 import PlacementPage from './pages/PlacementPage';
 import NAACPage from './pages/NAACPage';
+import ChatBot from './components/Chatbot';
+import WhatsAppIcon from './components/WhatsAppIcon';
 
 import Criteria1 from './pages/criteria/quality/Criteria1';
 import Criteria2 from './pages/criteria/quality/Criteria2';
@@ -45,6 +47,8 @@ import FeedbackPage from './pages/Feedbackpage';
 const App: React.FC = () => {
   return (
       <div className="min-h-screen bg-white flex flex-col">
+        <ChatBot/>
+        <WhatsAppIcon/>
         <Header />
         <main className="flex-grow">
           <AnimatePresence mode="wait">

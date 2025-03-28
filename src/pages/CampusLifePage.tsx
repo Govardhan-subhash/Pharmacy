@@ -335,7 +335,9 @@ const CampusLifePage: React.FC = () => {
         secondaryButtonText="Contact Us"
         secondaryButtonLink="/contact"
       />
+      
     </PageTransition>
+    
   );
 };
 
