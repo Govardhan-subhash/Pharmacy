@@ -547,7 +547,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
       </motion.section>
 
       {/* Events Section */}
-      <motion.section
+      {/* <motion.section
         id="events"
         className="py-16 md:py-24"
         initial={{ opacity: 0, y: 50 }}
@@ -592,10 +592,10 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
             </Link>
           </motion.div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       {/* Testimonials Section */}
-      <motion.section
+      {/* <motion.section
         className="py-16 md:py-24 bg-gray-50"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -641,7 +641,7 @@ Sri Vasavi Institue of Pharmaceutical Science College aims to provide world-clas
             </Swiper>
           </div>
         </div>
-      </motion.section>
+      </motion.section> */}
 
       {/* Companies Visited Section */}
       <motion.section

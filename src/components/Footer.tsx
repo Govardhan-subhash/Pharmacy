@@ -1,20 +1,20 @@
-import React from 'react';
-import { 
-  GraduationCap, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin, 
-  Youtube, 
-  ArrowUp 
-} from 'lucide-react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import {
+  GraduationCap,
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Youtube,
+  ArrowUp,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
@@ -30,17 +30,29 @@ const Footer: React.FC = () => {
               <span className="ml-2 text-xl font-bold">SVIPS</span>
             </div>
             <p className="text-gray-400 mb-4">
-              Sri Vasavi Institute Of Pharmaceutical Sciences - Empowering students with knowledge, skills, and values since 1998.
+              Sri Vasavi Institute Of Pharmaceutical Sciences - Empowering
+              students with knowledge, skills, and values since 2005.
             </p>
-            <h4 className="text-lg font-bold mb-4 text-white">Connect With Us</h4>
+            <h4 className="text-lg font-bold mb-4 text-white">
+              Connect With Us
+            </h4>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+              >
                 <Facebook className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+              >
                 <Twitter className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+              >
                 <Instagram className="h-6 w-6" />
               </a>
               <a
@@ -51,7 +63,10 @@ const Footer: React.FC = () => {
               >
                 <Linkedin className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+              <a
+                href="#"
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+              >
                 <Youtube className="h-6 w-6" />
               </a>
             </div>
@@ -104,11 +119,13 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-bold mb-4 text-white">Contact Us</h4>
             <p className="text-gray-400">
-              Pedatadepalli, Tadepalligudem - 534 101.<br />
+              Pedatadepalli, Tadepalligudem - 534 101.
+              <br />
               West Godavari Dist., Andhra Pradesh.
             </p>
             <p className="text-gray-400 mt-2">
-              <span className="font-medium text-white">Phone:</span> +91-8818-284558
+              <span className="font-medium text-white">Phone:</span>{" "}
+              +91-8818-284558
             </p>
             <p className="text-gray-400 mt-1">
               <span className="font-medium text-white">Mobile:</span> 9390649113
@@ -117,23 +134,25 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-gray-800 mt-6 pt-4 flex justify-between items-center">
-          <p className="text-gray-400 text-center">
-            &copy; {new Date().getFullYear()} Sri Vasavi Institute Of Pharmaceutical Sciences. All rights reserved.
+        <div className="border-t border-gray-800 mt-6 pt-4 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-400 text-center md:text-left mb-4 md:mb-0">
+            &copy; {new Date().getFullYear()} Sri Vasavi Institute Of
+            Pharmaceutical Sciences. All rights reserved.
           </p>
-          <div className="text-right">
-            <p className="text-gray-400 text-[10px] mb-1">Developed By</p> {/* Decreased font size */}
+          <div className="flex flex-col items-center md:items-end">
+            <p className="text-gray-400 text-sm">Developed By</p>{" "}
+            {/* Removed mb-2 to eliminate gap */}
             <img
-              src="https://aikyam.ppsijc.org/wp-content/uploads/2024/08/FooterLogo.png"
+              src="public/uploads/images/Aikyam.png" // Use the local image path
               alt="Developed By Logo"
-              className="h-6" 
+              className="h-20 w-auto -mt-3 -ml-1" // Adjusted height and added mt-1 for slight spacing
             />
           </div>
         </div>
       </div>
 
       {/* Scroll to top button */}
-      <button 
+      <button
         onClick={scrollToTop}
         className="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300 z-10"
         aria-label="Scroll to top"
