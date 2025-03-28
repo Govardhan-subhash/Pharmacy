@@ -57,10 +57,10 @@ const StatItem: React.FC<StatItemProps> = ({ value, label, delay = 0 }) => {
 
 const StatsSection: React.FC = () => {
   const stats = [
-    { value: "25+", label: "Years of Excellence" },
-    { value: "5,000+", label: "Students Enrolled" },
-    { value: "100+", label: "Expert Faculty" },
-    { value: "95%", label: "Placement Rate" }
+    { value: "20+", label: "Years of Excellence" },
+    { value: "1000+", label: "Students Enrolled" },
+    { value: "50+", label: "Expert Faculty" },
+    { value: "90%", label: "Placement Rate" }
   ];
 
   return (
