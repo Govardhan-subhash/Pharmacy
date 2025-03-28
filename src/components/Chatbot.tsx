@@ -15,34 +15,6 @@ const ChatBot: React.FC = () => {
     setIsChatOpen(!isChatOpen);
   };
 
-  const sendMessage = async () => {
-    if (!input.trim()) return;
-
-    const userMessage = input.trim();
-    setMessages([...messages, { user: userMessage, bot: "..." }]);
-    setInput("");
-
-    try {
-      const response = await fetch("http://127.0.0.1:5000/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: userMessage }),
-      });
-      const data = await response.json();
-      setMessages((prev) =>
-        prev.map((msg, i) =>
-          i === prev.length - 1 ? { ...msg, bot: data.response } : msg
-        )
-      );
-    } catch (error) {
-      setMessages((prev) =>
-        prev.map((msg, i) =>
-          i === prev.length - 1 ? { ...msg, bot: "Error connecting to server." } : msg
-        )
-      );
-    }
-  };
-
   return (
     <>
       {/* Floating Button with Ease-In-Out Animation */}
